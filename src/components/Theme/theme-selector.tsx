@@ -19,7 +19,7 @@ export function ThemeSelector() {
     <div className="flex flex-col h-full">
       <div
         onClick={() => setTheme("light")}
-        className={`flex-1 flex items-center justify-center border-b-1 cursor-pointer ${
+        className={`flex-1 flex items-center justify-center border-b-[0.095rem] cursor-pointer ${
           theme === "dark" ? "border-white/70" : "border-black"
         }`}
       >

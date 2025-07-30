@@ -6,10 +6,12 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { type Container, type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 
 const Background = () => {
   const [init, setInit] = useState(false);
   const { theme } = useTheme();
+  const router = useRouter();
 
   // This effect initializes the tsParticles engine once
   useEffect(() => {
@@ -20,6 +22,18 @@ const Background = () => {
       setInit(true);
     });
   }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      router.refresh();
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [router]);
 
   // Memoize the options object so it's not recreated on every render
   const options: ISourceOptions = useMemo(
@@ -43,7 +57,7 @@ const Background = () => {
             duration: 0.4,
             factor: 100, // The strength of the repulsion
             speed: 1,
-            maxSpeed: 50, // The maximum speed particles can reach
+            maxSpeed: 40, // The maximum speed particles can reach
             easing: "ease-out-quad",
           },
         },
@@ -58,7 +72,7 @@ const Background = () => {
           options: {
             particles: {
               number: {
-                value: 200,
+                value: 220,
               },
             },
           },
@@ -87,7 +101,7 @@ const Background = () => {
           trail: {
             enable: true,
             fill: { color: theme === "dark" ? "#000000" : "#ffffff" },
-            length: 22,
+            length: 20,
           },
         },
         number: {
@@ -95,7 +109,7 @@ const Background = () => {
             enable: true,
             area: 800,
           },
-          value: 210, // Reduced for better performance in contained area
+          value: 200, // Reduced for better performance in contained area
         },
         // Opacity is animated for a twinkling effect
         opacity: {
@@ -110,7 +124,7 @@ const Background = () => {
           type: "circle", // Using circle shapes for a unique look
         },
         size: {
-          value: { min: 0.2, max: 1.8 }, // Small, slightly varied particle size
+          value: { min: 0.3, max: 2.5 }, // Small, slightly varied particle size
         },
       },
       detectRetina: true,

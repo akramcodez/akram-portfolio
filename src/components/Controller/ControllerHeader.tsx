@@ -1,0 +1,74 @@
+"use client";
+import React from "react";
+import { RiTwitterXLine } from "react-icons/ri";
+import { FiLinkedin, FiGithub } from "react-icons/fi";
+import { FaInstagram } from "react-icons/fa6";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+
+type Props = {};
+
+const ControllerHeader = (props: Props) => {
+  const { theme } = useTheme();
+
+  const iconColorClass = theme === "dark" ? "text-white/85" : "text-black/85";
+  const iconHoverClass =
+    theme === "dark" ? "hover:text-white" : "hover:text-black";
+
+  return (
+    <div className="flex justify-between w-full p-3 pb-2">
+      <div className="flex flex-col items-center">
+        <h3 className="font-semibold text-2xl">WELCOME TO</h3>
+        <p className="text-md opacity-80">MY PORTFOLIO</p>
+      </div>
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex gap-3 items-center">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://x.com/akramcodez"
+            className="cursor-pointer"
+          >
+            <RiTwitterXLine
+              className={`h-5 w-5 ${iconColorClass} ${iconHoverClass}`}
+            />
+          </Link>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/akramcodez"
+            className="cursor-pointer"
+          >
+            <FiLinkedin
+              className={`h-5 w-5 ${iconColorClass} ${iconHoverClass}`}
+            />
+          </Link>
+        </div>
+        <div className="flex gap-3 items-center">
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/akramcodez"
+            className="cursor-pointer"
+          >
+            <FiGithub
+              className={`h-5 w-5 ${iconColorClass} ${iconHoverClass}`}
+            />
+          </Link>
+          <Link
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.instagram.com/akramcodez"
+            className="cursor-pointer"
+          >
+            <FaInstagram
+              className={`h-5 w-5  ${iconColorClass} ${iconHoverClass}`}
+            />
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ControllerHeader;
