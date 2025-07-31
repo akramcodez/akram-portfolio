@@ -11,15 +11,15 @@ type Props = {};
 const ControllerHeader = (props: Props) => {
   const { theme } = useTheme();
 
-  const iconColorClass = theme === "dark" ? "text-white/85" : "text-black/85";
+  const iconColorClass = theme === "dark" ? "text-white/70" : "text-black/60";
   const iconHoverClass =
     theme === "dark" ? "hover:text-white" : "hover:text-black";
 
   return (
     <div className="flex justify-between w-full p-3 pb-2">
       <div className="flex flex-col items-center">
-        <h3 className="font-semibold text-2xl">WELCOME TO</h3>
-        <p className="text-md opacity-80">MY PORTFOLIO</p>
+        <h3 className="font-semibold text-[20px]">EXPLORE MY</h3>
+        <p className="text-[15px] opacity-80">PROJECTS & PASSION</p>
       </div>
       <div className="flex flex-col items-center gap-2">
         <div className="flex gap-3 items-center">

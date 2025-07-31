@@ -72,7 +72,7 @@ const Background = () => {
           options: {
             particles: {
               number: {
-                value: 220,
+                value: 130,
               },
             },
           },
@@ -101,7 +101,7 @@ const Background = () => {
           trail: {
             enable: true,
             fill: { color: theme === "dark" ? "#000000" : "#ffffff" },
-            length: 20,
+            length: 22,
           },
         },
         number: {
@@ -121,10 +121,13 @@ const Background = () => {
           },
         },
         shape: {
-          type: "circle", // Using circle shapes for a unique look
+          type: theme === "dark" ? "triangle" : "triangle", // Using circle shapes for a unique look
         },
         size: {
-          value: { min: 0.3, max: 2.5 }, // Small, slightly varied particle size
+          value: {
+            min: theme === "dark" ? 1.5 : 1.6,
+            max: theme === "dark" ? 3 : 3.1,
+          }, // Small, slightly varied particle size
         },
       },
       detectRetina: true,
@@ -140,10 +143,6 @@ const Background = () => {
         style={{
           width: "100%",
           height: "100%",
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: -1,
         }}
       />
     );
