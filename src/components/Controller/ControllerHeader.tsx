@@ -6,9 +6,7 @@ import { FaInstagram } from "react-icons/fa6";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
-type Props = {};
-
-const ControllerHeader = (props: Props) => {
+const ControllerHeader = () => {
   const { theme } = useTheme();
 
   const iconColorClass = theme === "dark" ? "text-white/70" : "text-black/60";
@@ -19,7 +17,7 @@ const ControllerHeader = (props: Props) => {
     <div className="flex justify-between w-full p-3 pb-2">
       <div className="flex flex-col items-center">
         <h3 className="font-semibold text-[20px]">EXPLORE MY</h3>
-        <p className="text-[15px] opacity-80">PROJECTS & PASSION</p>
+        <p className="text-[15px] opacity-80">WORK & PASSION</p>
       </div>
       <div className="flex flex-col items-center gap-2">
         <div className="flex gap-3 items-center">

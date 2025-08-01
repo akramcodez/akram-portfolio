@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-// Correct imports for the new packages
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { type Container, type ISourceOptions } from "@tsparticles/engine";
+import { type ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
@@ -13,10 +12,8 @@ const Background = () => {
   const { theme } = useTheme();
   const router = useRouter();
 
-  // This effect initializes the tsParticles engine once
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // Load the slim version of the engine, which is smaller and sufficient for this animation
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
@@ -35,34 +32,32 @@ const Background = () => {
     };
   }, [router]);
 
-  // Memoize the options object so it's not recreated on every render
   const options: ISourceOptions = useMemo(
     () => ({
       background: {
         color: {
-          value: "transparent", // The background is handled by your global styles
+          value: "transparent",
         },
       },
-      fpsLimit: 120, // Increased for smoother animations
+      fpsLimit: 120,
       interactivity: {
         events: {
           onHover: {
             enable: true,
-            mode: "repulse", // This mode pushes particles away from the cursor
+            mode: "repulse",
           },
         },
         modes: {
           repulse: {
-            distance: 100, // The distance of the cursor's influence
+            distance: 100,
             duration: 0.4,
-            factor: 100, // The strength of the repulsion
+            factor: 100,
             speed: 1,
-            maxSpeed: 40, // The maximum speed particles can reach
+            maxSpeed: 40,
             easing: "ease-out-quad",
           },
         },
       },
-      // Force particles to be contained within the canvas size
       fullScreen: {
         enable: false,
         zIndex: -1,
@@ -79,29 +74,25 @@ const Background = () => {
         },
       ],
       particles: {
-        // Set particle color based on the current theme
         color: {
           value: theme === "dark" ? "#ffffff" : "#000000",
         },
-        // Links are disabled to remove connecting lines
         links: {
           enable: false,
         },
-        // Configure particle movement for a slow, random drift with a trail effect
         move: {
           direction: "none",
           enable: true,
           outModes: {
-            default: "bounce", // Bounce off edges to stay contained
+            default: "bounce",
           },
-          random: true, // Movement is random
-          speed: { min: 0.1, max: 0.7 }, // Slow base speed for ambient drift
+          random: true,
+          speed: { min: 0.1, max: 0.7 },
           straight: false,
-          // The trail effect creates the "streaking" look on acceleration
           trail: {
             enable: true,
             fill: { color: theme === "dark" ? "#000000" : "#ffffff" },
-            length: 22,
+            length: theme === "dark" ? 22 : 16,
           },
         },
         number: {
@@ -109,11 +100,10 @@ const Background = () => {
             enable: true,
             area: 800,
           },
-          value: 200, // Reduced for better performance in contained area
+          value: 200,
         },
-        // Opacity is animated for a twinkling effect
         opacity: {
-          value: { min: 0.2, max: 0.7 }, // Slightly more opaque for visibility
+          value: { min: 0.2, max: 0.7 },
           animation: {
             enable: true,
             speed: 1,
@@ -121,18 +111,18 @@ const Background = () => {
           },
         },
         shape: {
-          type: theme === "dark" ? "triangle" : "triangle", // Using circle shapes for a unique look
+          type: theme === "dark" ? "triangle" : "triangle",
         },
         size: {
           value: {
             min: theme === "dark" ? 1.5 : 1.6,
             max: theme === "dark" ? 3 : 3.1,
-          }, // Small, slightly varied particle size
+          },
         },
       },
       detectRetina: true,
     }),
-    [theme] // Re-create options only when the theme changes
+    [theme]
   );
 
   if (init) {

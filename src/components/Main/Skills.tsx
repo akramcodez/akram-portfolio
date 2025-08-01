@@ -2,33 +2,25 @@
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 
-type Props = {};
-
-// Simple skills array
 const skills = [
-  "ReactJS",
+  "MERN",
   "NextJS",
-  "JavaScript",
   "TypeScript",
   "Tailwind",
-  "Shadcn",
-  "NodeJS",
-  "ExpressJS",
-  "PostgreSQL",
+  "MySQL",
   "MongoDB",
   "Prisma",
   "Postman",
-  "Python",
-  "Java",
-  "C",
-  "SQL",
   "Git",
   "GitHub",
-  "Docker",
-  "Vercel",
+  "Python",
+  "Java",
+  "Cpp",
+  "C",
+  "CI/CD",
 ];
 
-const Skills = (props: Props) => {
+const Skills = () => {
   const { theme } = useTheme();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -57,7 +49,7 @@ const Skills = (props: Props) => {
       id="skills"
       className="flex flex-col items-center justify-center h-full w-full p-6 md:p-8"
     >
-      <div className="w-full max-w-4xl mx-auto text-center space-y-4 md:space-y-6">
+      <div className="w-full mx-auto max-w-3xl text-center space-y-4 md:space-y-6 animate-blur-in">
         {/* Simple Title */}
         <div>
           <h2 className="text-2xl md:text-3xl font-bold tracking-widest mb-4">
@@ -74,7 +66,7 @@ const Skills = (props: Props) => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <span className="text-sm md:text-base font-medium tracking-wide">
+              <span className="text-xs md:text-base font-semibold tracking-wide">
                 {skill}
               </span>
 
@@ -92,7 +84,7 @@ const Skills = (props: Props) => {
 
         {/* Simple footer */}
         <div className="pt-4 md:pt-8 mt-4 md:mt-8 border-t border-current border-opacity-20">
-          <p className="text-xs md:text-sm opacity-70 font-medium">
+          <p className="text-xs md:text-sm font-medium">
             Learning with passion & love
           </p>
         </div>
