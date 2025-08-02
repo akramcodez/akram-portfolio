@@ -66,7 +66,7 @@ const Skills = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <span className="text-xs md:text-base font-semibold tracking-wide">
+              <span className="text-sm md:text-base font-semibold tracking-wide">
                 {skill}
               </span>
 

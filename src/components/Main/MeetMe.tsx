@@ -8,20 +8,16 @@ const MeetMe = () => {
       className="flex items-center justify-center h-full w-full overflow-auto"
     >
       <div className="w-full h-full mx-auto max-w-4xl p-6 md:p-10 flex items-center md:justify-center animate-blur-in">
-        {/* Section Container */}
         <div className="space-y-12 md:space-y-16">
-          {/* About Me Section */}
           <div className="text-center">
             <h2 className="text-xl md:text-2xl xl:text-3xl font-bold tracking-wider mb-3 md:mb-4">
               ABOUT ME
             </h2>
-            {/* Paragraph for smaller screens */}
-            <p className="block sm:hidden text-xs font-medium leading-relaxed max-w-3xl mx-auto">
+            <p className="block sm:hidden text-sm font-medium leading-relaxed max-w-3xl mx-auto">
               I&apos;m an 18-year-old CS student and full-stack MERN developer
               passionate about backend development. Currently working on DSA and
               open-source contributions.
             </p>
-            {/* Paragraph for larger screens */}
             <p className="hidden sm:block text-sm lg:text-base xl:text-md font-medium leading-relaxed max-w-3xl mx-auto ">
               I&apos;m an 18-year-old Computer Science student and full-stack
               developer specializing in the MERN stack. I have a passion for
@@ -31,13 +27,11 @@ const MeetMe = () => {
             </p>
           </div>
 
-          {/* Hire Me Section */}
           <div className="text-center">
             <h2 className="text-xl md:text-2xl xl:text-3xl font-bold tracking-wider mb-3 md:mb-4">
               HIRE ME
             </h2>
-            {/* Paragraph for smaller screens */}
-            <p className="block sm:hidden text-xs font-medium leading-relaxed max-w-3xl mx-auto">
+            <p className="block sm:hidden text-sm font-medium leading-relaxed max-w-3xl mx-auto">
               I&apos;m open to internships and freelance work. If you need a
               passionate dev to bring your ideas to life, let&apos;s connect.
               <a

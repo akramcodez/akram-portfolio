@@ -91,7 +91,7 @@ const ExploreMore = () => {
       <div className="w-full max-w-3xl mx-auto space-y-4 md:space-y-6 animate-blur-in">
         {/* Title */}
         <div className="text-center">
-          <h2 className="text-xl md:text-3xl font-bold tracking-widest md:mb-2">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-widest md:mb-2">
             SOCIALS
           </h2>
         </div>
@@ -113,11 +113,11 @@ const ExploreMore = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div>
-                <h3 className="text-[11px] md:text-base font-semibold mb-1 tracking-wide">
+                <h3 className="text-sm dm:text-base font-semibold mb-1 tracking-wide">
                   {social.name}
                 </h3>
                 <p
-                  className={`text-[9px] md:text-sm font-medium ${getHandleClass()}`}
+                  className={`text-xs md:text-sm font-medium ${getHandleClass()}`}
                 >
                   {social.handle}
                 </p>

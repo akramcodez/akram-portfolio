@@ -40,22 +40,22 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           height={40}
           src="/profilePic.jpg"
           alt="SK Akram"
-          className={`w-14 h-14 md:w-18 md:h-18 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
+          className={`w-18 h-18 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
         />
-        <div className="flex flex-col items-start ml-3 md:ml-0">
+        <div className="flex flex-col items-start ml-4 md:ml-0">
           <h2 className="text-lg md:text-xl font-semibold tracking-widest">
             SK AKRAM
           </h2>
-          <p className="text-xs font-semibold md:text-sm text-gray-400">
+          <p className="text-sm font-semibold text-gray-400">
             18 y/o Developer
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-col items-center gap-y-2 md:gap-y-3 3xl:gap-y-5 md:mt-3">
+      <div className="w-full flex flex-col items-center gap-y-2 md:gap-y-3 3xl:gap-y-5 mt-3">
         <div className="w-full flex md:hidden gap-2">
           <button
             onClick={() => onSectionChange?.("meet-me")}
-            className={`w-full py-1 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
               "meet-me"
             )}`}
           >
@@ -63,7 +63,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           </button>
           <button
             onClick={() => onSectionChange?.("skills")}
-            className={`w-full py-1 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
               "skills"
             )}`}
           >
@@ -73,7 +73,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
         <div className="w-full flex md:hidden gap-2">
           <button
             onClick={() => onSectionChange?.("projects")}
-            className={`w-full py-1 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
               "projects"
             )}`}
           >
@@ -81,7 +81,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           </button>
           <button
             onClick={() => onSectionChange?.("explore-more")}
-            className={`w-full py-1 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
               "explore-more"
             )}`}
           >

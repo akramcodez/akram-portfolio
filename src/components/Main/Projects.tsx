@@ -94,7 +94,7 @@ const Projects = () => {
                   className="flex-1 group"
                 >
                   <div className="flex items-center gap-2 md:gap-4 md:mb-1">
-                    <h3 className="text-sm md:text-lg font-semibold tracking-wide">
+                    <h3 className="text-base md:text-lg font-semibold tracking-wide">
                       {project.name}
                     </h3>
                     <span
@@ -103,9 +103,7 @@ const Projects = () => {
                       {project.tech}
                     </span>
                   </div>
-                  <p
-                    className={`text-xs md:text-sm font-semibold ${getDescClass()}`}
-                  >
+                  <p className={`text-sm font-semibold ${getDescClass()}`}>
                     {project.desc}
                   </p>
                 </Link>
@@ -124,7 +122,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Simple Footer */}
         <Link
           href="https://github.com/akramcodez"
           target="_blank"

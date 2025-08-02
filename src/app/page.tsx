@@ -57,7 +57,7 @@ export default function Page() {
 
   return (
     <div
-      className={`h-screen pt-8 pr-8 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10 ${animationClass}`}
+      className={`h-screen pt-8 pr-6 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10 ${animationClass}`}
     >
       <div className="flex flex-col items-end w-full h-full">
         <div className="flex w-full h-full items-end">
@@ -83,7 +83,7 @@ export default function Page() {
             </div>
 
             <div
-              className={`w-full h-full border-[0.095rem] flex relative overflow-hidden ${borderClass}`}
+              className={`flex-1 md:flex-initial md:w-full md:h-full border-[0.095rem] flex relative overflow-hidden ${borderClass}`}
             >
               <Background />
 
