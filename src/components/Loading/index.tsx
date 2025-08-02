@@ -13,7 +13,7 @@ const Loading = () => {
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 bg-black animate-blur-out overflow-hidden`}
     >
-      <div className="text-center space-y-6 relative z-10">
+      <div className="text-center space-y-2 md:space-y-6 relative z-10">
         <div className="relative">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.2em] text-white relative">
             SK AKRAM
@@ -25,7 +25,7 @@ const Loading = () => {
           <div className="mt-2 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent opacity-60 animate-pulse"></div>
         </div>
 
-        <div className="text-lg md:text-xl lg:text-2xl font-light tracking-[0.3em] text-white opacity-80">
+        <div className="text-md md:text-xl lg:text-2xl font-light tracking-[0.3em] text-white opacity-80">
           PORTFOLIO
         </div>
       </div>
