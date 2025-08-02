@@ -98,7 +98,7 @@ const Projects = () => {
                       {project.name}
                     </h3>
                     <span
-                      className={`text-[7px] md:text-xs font-medium ${getTechClass()}`}
+                      className={`text-[9px] md:text-xs font-medium ${getTechClass()}`}
                     >
                       {project.tech}
                     </span>

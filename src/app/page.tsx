@@ -57,12 +57,12 @@ export default function Page() {
 
   return (
     <div
-      className={`h-screen pt-8 pr-6 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10 ${animationClass}`}
+      className={`h-screen pt-8 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10 ${animationClass}`}
     >
       <div className="flex flex-col items-end w-full h-full">
         <div className="flex w-full h-full items-end">
           <div
-            className={`w-5 h-30 border-[0.095rem] border-r-0 ${borderClass}`}
+            className={`w-5 h-30 hidden md:block border-[0.095rem] border-r-0 ${borderClass}`}
           >
             <ThemeSelector />
           </div>
