@@ -6,11 +6,13 @@ import MeetMe from "@/components/Main/MeetMe";
 import Skills from "@/components/Main/Skills";
 import Projects from "@/components/Main/Projects";
 import ExploreMore from "@/components/Main/ExploreMore";
+import Loading from "@/components/Loading";
 import { ThemeSelector } from "@/components/Theme/theme-selector";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 
 export default function Page() {
+  const [showLoading, setShowLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<
     "meet-me" | "skills" | "projects" | "explore-more"
@@ -18,6 +20,14 @@ export default function Page() {
   const { theme } = useTheme();
   const [animationClass, setAnimationClass] = useState("animate-blur-in");
   const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    const loadingTimer = setTimeout(() => {
+      setShowLoading(false);
+    }, 1100);
+
+    return () => clearTimeout(loadingTimer);
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -34,6 +44,10 @@ export default function Page() {
       setAnimationClass("animate-blur-in");
     }, 10);
   }, [theme]);
+
+  if (showLoading) {
+    return <Loading />;
+  }
 
   if (!mounted) {
     return null;

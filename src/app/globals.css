@@ -142,8 +142,35 @@ h6 {
   }
 }
 
+@keyframes blurFadeOut {
+  from {
+    opacity: 1;
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    filter: blur(8px);
+    visibility: hidden;
+  }
+}
+
 .animate-blur-in {
-  animation: blurFadeIn 0.6s ease-out forwards;
+  animation: blurFadeIn 0.5s ease-out forwards;
+}
+
+.animate-blur-out {
+  animation: blurFadeOut 0.7s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+/* Grid movement animation for loading */
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 *::-webkit-scrollbar {
