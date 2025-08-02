@@ -70,14 +70,12 @@ const Projects = () => {
       className="flex flex-col items-center justify-center h-full w-full p-6 md:p-8"
     >
       <div className="w-full max-w-2xl mx-auto space-y-2 md:space-y-5 animate-blur-in">
-        {/* Simple Title */}
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-widest">
             PROJECTS
           </h2>
         </div>
 
-        {/* Clean Project List */}
         <div className="space-y-0">
           {projects.map((project, index) => (
             <div

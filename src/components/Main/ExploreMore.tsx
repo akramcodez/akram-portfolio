@@ -126,7 +126,6 @@ const ExploreMore = () => {
           ))}
         </div>
 
-        {/* Footer */}
         <div className="text-center pt-4 md:pt-6 border-t border-current border-opacity-20">
           <p className="text-xs md:text-sm font-medium">
             Always open to collaborate

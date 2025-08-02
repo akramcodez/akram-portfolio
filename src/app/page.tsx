@@ -83,7 +83,7 @@ export default function Page() {
             </div>
 
             <div
-              className={`flex-1 md:flex-initial md:w-full md:h-full border-[0.095rem] flex relative overflow-hidden ${borderClass}`}
+              className={`w-full h-full border-[0.095rem] flex relative overflow-hidden ${borderClass}`}
             >
               <Background />
 
