@@ -13,7 +13,7 @@ const Loading = () => {
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 bg-black animate-blur-out overflow-hidden`}
     >
-      <div className="text-center space-y-2 md:space-y-6 relative z-10">
+      <div className="text-center space-y-2 md:space-y-4 relative z-10">
         <div className="relative">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.2em] text-white relative">
             SK AKRAM
