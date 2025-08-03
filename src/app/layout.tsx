@@ -56,9 +56,40 @@ export const metadata: Metadata = {
     "Freelancer",
     "Internship",
   ],
-  authors: [{ name: "SK Akram", url: "https://github.com/akramcodez" }],
+  authors: [
+    {
+      name: "SK Akram",
+      url: "https://github.com/akramcodez",
+    },
+  ],
   creator: "SK Akram",
   publisher: "SK Akram",
+
+  openGraph: {
+    title: "SK Akram 18-year-old Developer",
+    description: "Explore the portfolio of SK Akram, an 18-year-old Developer",
+    url: "https://akramcodez.tech",
+    siteName: "SK Akram",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SK Akram Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "SK Akram Full Stack Developer",
+    description: "18-year-old Developer portfolio.",
+    images: ["/og-image.jpg"],
+    creator: "@akramcodez",
+  },
+
   category: "Technology",
 };
 
