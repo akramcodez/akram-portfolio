@@ -14,16 +14,16 @@ const MeetMe = () => {
               ABOUT ME
             </h2>
             <p className="block sm:hidden text-sm font-medium leading-relaxed max-w-3xl mx-auto">
-              I&apos;m an 18-year-old CS student and full-stack MERN developer
-              passionate about backend development. Currently working on DSA and
-              open-source contributions.
+              I&apos;m an 18-year-old CS student and full-stack developer
+              focused on backend systems. Currently building projects, improving
+              in DSA, and contributing to open-source.
             </p>
             <p className="hidden sm:block text-sm lg:text-base xl:text-md font-medium leading-relaxed max-w-3xl mx-auto ">
               I&apos;m an 18-year-old Computer Science student and full-stack
-              developer specializing in the MERN stack. I have a passion for
-              backend development and have built several projects, which you can
-              find on my GitHub. I am currently honing my skills in Data
-              Structures & Algorithms to contribute to open-source projects.
+              developer with a focus on backend architecture using the MERN
+              stack. I actively build real-world projects, contribute to
+              open-source, and continue sharpening my skills in Data Structures
+              and Algorithms.
             </p>
           </div>
 
@@ -32,8 +32,9 @@ const MeetMe = () => {
               HIRE ME
             </h2>
             <p className="block sm:hidden text-sm font-medium leading-relaxed max-w-3xl mx-auto">
-              I&apos;m open to internships and freelance work. If you need a
-              passionate dev to bring your ideas to life, let&apos;s connect.
+              I&apos;m Open to internships and freelance work. If you are
+              looking for someone reliable to build, scale, or improve your
+              product — reach out.
               <a
                 href="mailto:skcodewizard786@gmail.com"
                 className="block mt-3 font-semibold hover:underline"
@@ -43,10 +44,9 @@ const MeetMe = () => {
             </p>
 
             <p className="hidden sm:block text-sm lg:text-base xl:text-md font-medium leading-relaxed max-w-3xl mx-auto">
-              I&apos;m actively seeking internships and freelance opportunities.
-              If you need a passionate and skilled developer to help bring your
-              ideas to life, let&apos;s connect. I&apos;m ready to contribute to
-              your team.
+              I&apos;m available for freelance and internship opportunities. If
+              you need a committed developer to build or improve your product,
+              feel free to connect.
               <a
                 href="mailto:skcodewizard786@gmail.com"
                 className="block mt-3 font-semibold hover:underline"
