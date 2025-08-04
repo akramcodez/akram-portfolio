@@ -73,7 +73,7 @@ export default function Page() {
                 <ControllerHeader />
               </div>
               <div
-                className={`w-full h-full md:w-full md:max-h-[70vh] md:min-h-[47vh] 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
+                className={`w-full h-full md:w-full md:min-h-[47vh] 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
               >
                 <Controller
                   activeSection={activeSection}
