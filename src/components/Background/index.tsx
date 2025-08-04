@@ -115,7 +115,7 @@ const Background = () => {
         },
         size: {
           value: {
-            min: theme === "dark" ? 1.7 : 1.6,
+            min: theme === "dark" ? 2.2 : 2.1,
             max: theme === "dark" ? 3 : 3.1,
           },
         },

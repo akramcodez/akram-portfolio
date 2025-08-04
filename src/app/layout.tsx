@@ -40,7 +40,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.akramcodez.tech"),
   title: "SK Akram Portfolio",
   description: "SK Akram - 18-year-old Developer",
-  viewport: "width=device-width, initial-scale=1",
   keywords: [
     "SK Akram",
     "Full Stack Developer",

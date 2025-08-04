@@ -163,7 +163,6 @@ h6 {
   animation-delay: 0.4s;
 }
 
-/* Grid movement animation for loading */
 @keyframes gridMove {
   0% {
     transform: translate(0, 0);

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
@@ -12,6 +12,23 @@ type Props = {
 
 const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
   const { theme } = useTheme();
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(() => {
+    // Function to update screen width
+    const updateScreenWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    // Set initial screen width
+    updateScreenWidth();
+
+    // Add event listener for resize
+    window.addEventListener("resize", updateScreenWidth);
+
+    // Cleanup event listener on unmount
+    return () => window.removeEventListener("resize", updateScreenWidth);
+  }, []);
 
   const borderClass = theme === "dark" ? "border-white/80" : "border-black";
 
@@ -33,15 +50,17 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
   const buttons = ["MEET ME", "SKILLS", "PROJECTS", "EXPLORE MORE"];
 
   return (
-    <div className="flex flex-col items-start md:items-start justify-between w-full h-full p-3 md:p-4 gap-2 md:gap-0 3xl:gap-4">
+    <div className="flex flex-col items-center md:items-start justify-center w-full h-full p-3 md:p-4 gap-2 md:gap-0 3xl:gap-4">
       <div className="flex items-center md:flex-col md:items-start w-full">
-        <Image
-          width={40}
-          height={40}
-          src="/profilePic.jpg"
-          alt="SK Akram"
-          className={`w-18 h-18 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
-        />
+        {(screenWidth < 823 || screenWidth > 825) && (
+          <Image
+            width={40}
+            height={40}
+            src="/profilePic.jpg"
+            alt="SK Akram"
+            className={`w-18 h-18 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
+          />
+        )}
         <div className="flex flex-col items-start ml-4 md:ml-0">
           <h2 className="text-lg md:text-xl font-semibold tracking-widest">
             SK AKRAM
@@ -51,8 +70,8 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-col items-center gap-y-2 md:gap-y-3 3xl:gap-y-5 mt-3">
-        <div className="w-full flex md:hidden gap-2">
+      <div className="w-full md:h-full flex flex-col items-center justify-start md:justify-evenly gap-2 gap-y-3 mt-3">
+        <div className="w-full flex md:hidden gap-3">
           <button
             onClick={() => onSectionChange?.("meet-me")}
             className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
@@ -70,7 +89,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             {buttons[1]}
           </button>
         </div>
-        <div className="w-full flex md:hidden gap-2">
+        <div className="w-full flex md:hidden gap-3">
           <button
             onClick={() => onSectionChange?.("projects")}
             className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
@@ -95,7 +114,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             onClick={() =>
               onSectionChange?.(index === 0 ? "meet-me" : "skills")
             }
-            className={`w-full py-2.5 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-2.5 text-xs font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
               index === 0 ? "meet-me" : "skills"
             )}`}
           >
@@ -108,7 +127,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             onClick={() =>
               onSectionChange?.(index === 0 ? "projects" : "explore-more")
             }
-            className={`w-full py-2.5 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-2.5 text-xs font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
               index === 0 ? "projects" : "explore-more"
             )}`}
           >

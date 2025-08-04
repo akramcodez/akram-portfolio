@@ -68,12 +68,12 @@ export default function Page() {
           </div>
 
           <div className="w-full h-full flex flex-col md:flex-row items-end gap-3">
-            <div className="w-full md:w-62 xl:w-75 flex flex-col gap-2 items-end">
+            <div className="w-full h-[32%] min-h-48 md:min-h-auto md:h-auto md:w-[23%] md:min-w-60 flex flex-col gap-2 items-end">
               <div className="w-full hidden md:flex items-end ">
                 <ControllerHeader />
               </div>
               <div
-                className={`w-full md:w-62 3xl:w-75 md:h-[54%] border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
+                className={`w-full h-full md:w-full md:max-h-[70vh] md:min-h-[47vh] 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
               >
                 <Controller
                   activeSection={activeSection}
