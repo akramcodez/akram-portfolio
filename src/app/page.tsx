@@ -68,7 +68,7 @@ export default function Page() {
           </div>
 
           <div className="w-full h-full flex flex-col md:flex-row items-end gap-3">
-            <div className="w-full h-[31%] min-h-48 md:min-h-auto md:h-auto md:w-[23%] md:min-w-60 flex flex-col gap-2 items-end">
+            <div className="w-full h-[30%] min-h-48 md:min-h-auto md:h-auto md:w-[23%] md:min-w-60 flex flex-col gap-2 items-end">
               <div className="w-full hidden md:flex items-end ">
                 <ControllerHeader />
               </div>
