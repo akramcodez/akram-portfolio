@@ -178,7 +178,7 @@ h6 {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: #202224;
+  background: transparent;
   border-radius: 9999px;
   cursor: pointer;
 }
@@ -188,5 +188,5 @@ h6 {
 }
 
 .scrollbar-hidden:hover::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: transparent;
 }

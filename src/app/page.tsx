@@ -87,11 +87,13 @@ export default function Page() {
             >
               <Background />
 
-              <main className="h-full w-full absolute z-10 overflow-auto">
-                {activeSection === "meet-me" && <MeetMe />}
-                {activeSection === "skills" && <Skills />}
-                {activeSection === "projects" && <Projects />}
-                {activeSection === "explore-more" && <ExploreMore />}
+              <main className="h-full w-full absolute z-10 overflow-auto scrollbar-thin">
+                <div className="min-h-full flex items-center justify-center">
+                  {activeSection === "meet-me" && <MeetMe />}
+                  {activeSection === "skills" && <Skills />}
+                  {activeSection === "projects" && <Projects />}
+                  {activeSection === "explore-more" && <ExploreMore />}
+                </div>
               </main>
             </div>
           </div>
