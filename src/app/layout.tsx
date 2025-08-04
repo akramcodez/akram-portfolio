@@ -37,6 +37,7 @@ const thasadith = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://akramcodez.tech"),
   title: "SK Akram",
   description: "18-year-old Developer",
   keywords: [
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     siteName: "SK Akram",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://akramcodez.tech/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "SK Akram Portfolio",
@@ -86,7 +87,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SK Akram Full Stack Developer",
     description: "18-year-old Developer portfolio.",
-    images: ["/og-image.jpg"],
+    images: ["https://akramcodez.tech/og-image.jpg"],
     creator: "@akramcodez",
   },
 
