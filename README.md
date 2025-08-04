@@ -1,7 +1,5 @@
 # SK Akram - Portfolio
 
-![Portfolio Preview](./public/og-image.png)
-
 **18 y/o Developer**
 
 Hi, I'm SK Akram, a passionate Web developer. I create beautiful, responsive applications with clean code and elegant user experiences.
