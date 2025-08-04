@@ -39,8 +39,8 @@ const thasadith = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.akramcodez.tech"),
   title: "SK Akram Portfolio",
-  description:
-    "SK Akram - 18-year-old Full Stack Developer specializing in MERN Stack, React, Next.js, and Node.js. Computer Science student building innovative web applications. Available for internships and freelance projects.",
+  description: "SK Akram - 18-year-old Developer",
+  viewport: "width=device-width, initial-scale=1",
   keywords: [
     "SK Akram",
     "Full Stack Developer",
@@ -69,8 +69,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "SK Akram Portfolio",
-    description:
-      "SK Akram - 18-year-old Full Stack Developer specializing in MERN Stack, React, Next.js, and Node.js. Computer Science student building innovative web applications.",
+    description: "SK Akram - 18-year-old Developer",
     url: "https://www.akramcodez.tech",
     siteName: "SK Akram",
     images: [
@@ -88,8 +87,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SK Akram Portfolio",
-    description:
-      "18-year-old Full Stack Developer specializing in MERN Stack, React, Next.js, and Node.js. Available for internships and freelance projects.",
+    description: "SK Akram - 18-year-old Developer",
     images: ["https://www.akramcodez.tech/og-image.jpg"],
     creator: "@akramcodez",
   },
