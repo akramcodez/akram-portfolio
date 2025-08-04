@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     siteName: "SK Akram",
     images: [
       {
-        url: "https://www.akramcodez.tech/og-image.jpg",
+        url: "https://www.akramcodez.tech/og-image.jpg?v=2",
         width: 1200,
         height: 630,
         alt: "SK Akram Portfolio",
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SK Akram Portfolio",
     description: "SK Akram - 18-year-old Developer",
-    images: ["https://www.akramcodez.tech/og-image.jpg"],
+    images: ["https://www.akramcodez.tech/og-image.jpg?v=2"],
     creator: "@akramcodez",
   },
 
