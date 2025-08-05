@@ -92,7 +92,7 @@ const Background = () => {
           trail: {
             enable: true,
             fill: { color: theme === "dark" ? "#000000" : "#ffffff" },
-            length: theme === "dark" ? 16 : 13,
+            length: theme === "dark" ? 20 : 12,
           },
         },
         number: {
