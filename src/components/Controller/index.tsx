@@ -15,18 +15,14 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
   const [screenWidth, setScreenWidth] = useState(0);
 
   useEffect(() => {
-    // Function to update screen width
     const updateScreenWidth = () => {
       setScreenWidth(window.innerWidth);
     };
 
-    // Set initial screen width
     updateScreenWidth();
 
-    // Add event listener for resize
     window.addEventListener("resize", updateScreenWidth);
 
-    // Cleanup event listener on unmount
     return () => window.removeEventListener("resize", updateScreenWidth);
   }, []);
 
@@ -58,19 +54,19 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             height={40}
             src="/profilePic.jpg"
             alt="SK Akram"
-            className={`w-18 h-18 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
+            className={`w-17 h-17 2xl:w-20 2xl:h-20 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
           />
         )}
         <div className="flex flex-col items-start ml-4 md:ml-0">
-          <h2 className="text-lg md:text-xl font-semibold tracking-widest">
+          <h2 className="text-lg md:text-xl 2xl:text-2xl font-semibold tracking-widest">
             SK AKRAM
           </h2>
-          <p className="text-sm font-semibold text-gray-400">
+          <p className="text-sm 2xl:text-md font-semibold text-gray-400">
             18 y/o Developer
           </p>
         </div>
       </div>
-      <div className="w-full md:h-full flex flex-col items-center justify-start md:justify-evenly gap-2 gap-y-3 mt-3">
+      <div className="w-full md:h-full flex flex-col items-center justify-start gap-2 gap-y-3 mt-3">
         <div className="w-full flex md:hidden gap-3">
           <button
             onClick={() => onSectionChange?.("meet-me")}
@@ -114,7 +110,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             onClick={() =>
               onSectionChange?.(index === 0 ? "meet-me" : "skills")
             }
-            className={`w-full py-2.5 text-xs font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-2 text-xs 2xl:text-md font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
               index === 0 ? "meet-me" : "skills"
             )}`}
           >
@@ -127,7 +123,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             onClick={() =>
               onSectionChange?.(index === 0 ? "projects" : "explore-more")
             }
-            className={`w-full py-2.5 text-xs font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-2 text-xs 2xl:text-md font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
               index === 0 ? "projects" : "explore-more"
             )}`}
           >
