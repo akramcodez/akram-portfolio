@@ -61,8 +61,8 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           <h2 className="text-lg md:text-xl 2xl:text-2xl font-semibold tracking-widest">
             SK AKRAM
           </h2>
-          <p className="text-sm 2xl:text-md font-semibold text-gray-400">
-            18 y/o Developer
+          <p className="text-sm xl:text-xs 2xl:text-base font-semibold text-gray-400">
+            18 y/o Software Developer
           </p>
         </div>
       </div>
