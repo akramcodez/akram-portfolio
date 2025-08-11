@@ -25,7 +25,7 @@ const socials = [
   },
   {
     name: "Discord",
-    url: "https://discord.com/invite/F3uhhJQ7",
+    url: "#",
     handle: "akramcodez",
   },
   {
