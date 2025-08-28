@@ -67,7 +67,7 @@ const Background = () => {
           options: {
             particles: {
               number: {
-                value: 130,
+                value: 110,
               },
             },
           },
@@ -92,7 +92,7 @@ const Background = () => {
           trail: {
             enable: true,
             fill: { color: theme === "dark" ? "#000000" : "#ffffff" },
-            length: theme === "dark" ? 20 : 12,
+            length: theme === "dark" ? 14 : 12,
           },
         },
         number: {
