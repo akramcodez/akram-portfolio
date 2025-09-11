@@ -20,10 +20,9 @@ const MeetMe = () => {
             </p>
             <p className="hidden sm:block text-sm lg:text-base xl:text-md font-medium leading-relaxed max-w-3xl mx-auto ">
               I&apos;m an 18-year-old Computer Science student and full-stack
-              developer with a focus on backend architecture using the MERN
-              stack. I actively build real-world projects, contribute to
-              open-source, and continue sharpening my skills in Data Structures
-              and Algorithms.
+              developer with a focus on backend architecture. I actively build
+              real-world projects, contribute to open-source, and continue
+              sharpening my skills in Data Structures and Algorithms.
             </p>
           </div>
 
