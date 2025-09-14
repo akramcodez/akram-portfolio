@@ -39,7 +39,7 @@ const thasadith = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.akramcodez.tech"),
   title: "SK Akram",
-  description: "Hey! I'm SK Akram, an 18-year-old developer",
+  description: "Hey! I'm SK Akram, Software Developer",
   keywords: [
     "SK Akram",
     "Full Stack Developer",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "SK Akram Portfolio",
-    description: "SK Akram - 18-year-old Developer",
+    description: "SK Akram - Software Developer",
     url: "https://www.akramcodez.tech",
     siteName: "SK Akram",
     images: [
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "SK Akram Portfolio",
-    description: "SK Akram - 18-year-old Developer",
+    description: "SK Akram - Software Developer",
     images: ["https://www.akramcodez.tech/og-image.jpg?v=2"],
     creator: "@akramcodez",
   },
