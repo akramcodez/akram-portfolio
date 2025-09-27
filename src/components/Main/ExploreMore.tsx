@@ -50,7 +50,7 @@ const socials = [
   },
   {
     name: "Email",
-    url: "mailto:skcodewizard786@gmail.com",
+    url: "mailto:skakram00zz@gmail.com",
     handle: "Contact me",
   },
 ];
