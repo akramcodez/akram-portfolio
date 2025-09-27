@@ -38,7 +38,7 @@ const MeetMe = () => {
                 href="mailto:skcodewizard786@gmail.com"
                 className="block mt-3 font-semibold hover:underline"
               >
-                skcodewizard786@gmail.com
+                skakram00zz@gmail.com
               </a>
             </p>
 
@@ -50,7 +50,7 @@ const MeetMe = () => {
                 href="mailto:skcodewizard786@gmail.com"
                 className="block mt-3 font-semibold hover:underline"
               >
-                skcodewizard786@gmail.com
+                skakram00zz@gmail.com
               </a>
             </p>
           </div>
