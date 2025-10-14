@@ -33,7 +33,7 @@ const MeetMe = () => {
             <p className="block sm:hidden text-sm font-medium leading-relaxed max-w-3xl mx-auto">
               I&apos;m Open to internships and freelance work. If you are
               looking for someone reliable to build, scale, or improve your
-              product — reach out.
+              product - reach out.
               <a
                 href="mailto:skcodewizard786@gmail.com"
                 className="block mt-3 font-semibold hover:underline"
