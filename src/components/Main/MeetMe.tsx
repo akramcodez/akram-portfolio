@@ -35,7 +35,7 @@ const MeetMe = () => {
               looking for someone reliable to build, scale, or improve your
               product - reach out.
               <a
-                href="mailto:skcodewizard786@gmail.com"
+                href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
                 className="block mt-3 font-semibold hover:underline"
               >
                 skakram00zz@gmail.com
@@ -47,7 +47,7 @@ const MeetMe = () => {
               you need a committed developer to build or improve your product,
               feel free to connect.
               <a
-                href="mailto:skcodewizard786@gmail.com"
+                href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
                 className="block mt-3 font-semibold hover:underline"
               >
                 skakram00zz@gmail.com
