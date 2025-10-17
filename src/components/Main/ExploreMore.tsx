@@ -1,59 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
-
-const socials = [
-  {
-    name: "X (Twitter)",
-    url: "https://x.com/akramcodez",
-    handle: "@akramcodez",
-  },
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/akramcodez",
-    handle: "/in/akramcodez",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/akramcodez",
-    handle: "/akramcodez",
-  },
-  {
-    name: "LeetCode",
-    url: "https://leetcode.com/u/akramcodez",
-    handle: "/u/akramcodez",
-  },
-  {
-    name: "Discord",
-    url: "#",
-    handle: "akramcodez",
-  },
-  {
-    name: "Reddit",
-    url: "https://www.reddit.com/user/akramcodez",
-    handle: "/akramcodez",
-  },
-  {
-    name: "Peerlist",
-    url: "https://peerlist.io/akramcodez",
-    handle: "/akramcodez",
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/akramcodez",
-    handle: "@akramcodez",
-  },
-  {
-    name: "YouTube",
-    url: "https://www.youtube.com/@akramcodez",
-    handle: "/akramcodez",
-  },
-  {
-    name: "Email",
-    url: "mailto:skakram00zz@gmail.com",
-    handle: "Contact me",
-  },
-];
+import { socials } from "@/data/data";
 
 const ExploreMore = () => {
   const { theme } = useTheme();

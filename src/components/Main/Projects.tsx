@@ -2,38 +2,8 @@
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import { CiLocationArrow1 } from "react-icons/ci";
+import { projects } from "@/data/data";
 import Link from "next/link";
-
-const projects = [
-  {
-    name: "PIVA",
-    tech: "Next.js • Prisma • T3 Stack",
-    desc: "AI-powered webinar platform",
-    link: "https://github.com/akramcodez/piva",
-    liveLink: "https://piva.akramcodez.tech",
-  },
-  {
-    name: "AirExplorer",
-    tech: "Node.js • Express • MongoDB",
-    desc: "Full-stack Airbnb clone",
-    link: "https://github.com/akramcodez/airexplorer",
-    liveLink: "https://airexplorer.onrender.com",
-  },
-  {
-    name: "MyTube",
-    tech: "React • TypeScript • Tailwind",
-    desc: "Modern YouTube clone",
-    link: "https://github.com/akramcodez/mytube_home",
-    liveLink: "https://my-tube-omega-lime.vercel.app",
-  },
-  {
-    name: "Anigram",
-    tech: "EJS • CSS • Node.js",
-    desc: "Dynamic Instagram clone",
-    link: "https://github.com/akramcodez/anigram",
-    liveLink: "https://anigram-wuz7.onrender.com",
-  },
-];
 
 const Projects = () => {
   const { theme } = useTheme();

@@ -1,24 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import { skills } from "@/data/data";
 import { useTheme } from "next-themes";
-
-const skills = [
-  "MERN",
-  "NextJS",
-  "TypeScript",
-  "Tailwind",
-  "MySQL",
-  "MongoDB",
-  "Prisma",
-  "Postman",
-  "Git",
-  "GitHub",
-  "Python",
-  "Java",
-  "Cpp",
-  "C",
-  "CI/CD",
-];
 
 const Skills = () => {
   const { theme } = useTheme();
