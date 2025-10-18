@@ -7,7 +7,7 @@ const MeetMe = () => {
       id="meet-me"
       className="flex items-center justify-center h-full w-full overflow-auto"
     >
-      <div className="w-full h-full mx-auto max-w-4xl p-2.5 md:p-10 flex items-center md:justify-center animate-blur-in">
+      <div className="w-full h-full mx-auto max-w-4xl p-2.5 pl-4 md:p-10 flex items-center md:justify-center ">
         <div className="space-y-12 md:space-y-16">
           <div className="text-center">
             <h2 className="text-xl md:text-2xl xl:text-3xl font-bold tracking-wider mb-3 md:mb-4">
@@ -83,7 +83,7 @@ const MeetMe = () => {
               feel free to connect.
               <a
                 href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
-                className="block mt-3 font-bold hover:underline"
+                className="block mt-3 font-bold underline [text-decoration-thickness:1px]"
               >
                 skakram00zz@gmail.com
               </a>

@@ -39,7 +39,7 @@ const Projects = () => {
       id="projects"
       className="flex flex-col items-center justify-center h-full w-full p-2.5 pl-4 md:p-8"
     >
-      <div className="w-full max-w-2xl mx-auto space-y-2 md:space-y-5 animate-blur-in">
+      <div className="w-full max-w-3xl mx-auto space-y-2 md:space-y-5 ">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-widest">
             PROJECTS
@@ -61,7 +61,7 @@ const Projects = () => {
                   rel="noopener noreferrer"
                   className="flex-1 group"
                 >
-                  <div className="flex items-center gap-2 md:gap-4 md:mb-1">
+                  <div className="flex items-center gap-2 md:gap-2.5 md:mb-1">
                     <h3 className="text-base md:text-lg font-semibold tracking-wide">
                       {project.name}
                     </h3>
@@ -96,7 +96,7 @@ const Projects = () => {
           rel="noopener noreferrer"
         >
           <div className="text-center flex items-center justify-center w-full pt-4 md:pt-8 border-t border-current">
-            <p className="text-xs md:text-sm font-bold hover:underline">
+            <p className="text-xs md:text-sm font-bold underline [text-decoration-thickness:1px]">
               More projects on GitHub
             </p>
             <CiLocationArrow1 className="inline-block ml-1 h-5 w-5" />

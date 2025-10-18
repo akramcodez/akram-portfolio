@@ -10,6 +10,16 @@ import Loading from "@/components/Loading";
 import { ThemeSelector } from "@/components/Theme/theme-selector";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
+import Experience from "@/components/Main/Experience";
+
+const VALID_SECTIONS = new Set(["meet-me", "skills", "my-work", "socials"]);
+
+const SECTION_ID_MAP: Record<string, string> = {
+  "meet-me": "meet-me",
+  skills: "skills",
+  "my-work": "experience",
+  socials: "socials",
+};
 
 export default function Page() {
   const [showLoading, setShowLoading] = useState(true);
@@ -18,8 +28,11 @@ export default function Page() {
     "meet-me" | "skills" | "my-work" | "socials"
   >("meet-me");
   const { theme } = useTheme();
-  const [animationClass, setAnimationClass] = useState("animate-blur-in");
-  const isInitialMount = useRef(true);
+  const mainRef = useRef<HTMLDivElement | null>(null);
+  const normalizeHash = (raw: string) => {
+    if (!raw) return "";
+    return raw.replace(/^#\/?/, "").toLowerCase();
+  };
 
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
@@ -34,16 +47,49 @@ export default function Page() {
   }, []);
 
   useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
+    const initial = normalizeHash(window.location.hash || "");
+    if (!initial || initial !== "meet-me") {
+      window.history.replaceState(null, "", "#meet-me");
+      setActiveSection("meet-me");
+    } else if (VALID_SECTIONS.has(initial)) {
+      setActiveSection(initial as typeof activeSection);
     }
 
-    setAnimationClass("");
-    setTimeout(() => {
-      setAnimationClass("animate-blur-in");
-    }, 10);
-  }, [theme]);
+    const applyHash = () => {
+      const h = normalizeHash(window.location.hash || "");
+      if (h && VALID_SECTIONS.has(h)) {
+        setActiveSection(h as typeof activeSection);
+      }
+    };
+
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
+
+  useEffect(() => {
+    const container = mainRef.current;
+    if (!container) return;
+
+    const id = SECTION_ID_MAP[activeSection];
+    if (!id) return;
+
+    const target = container.querySelector(`#${id}`) as HTMLElement | null;
+    if (!target) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const offset = targetRect.top - containerRect.top + container.scrollTop;
+
+    container.scrollTo({ top: offset, behavior: "smooth" });
+  }, [activeSection]);
+
+  useEffect(() => {
+    const currentHash = normalizeHash(window.location.hash || "");
+    if (activeSection !== currentHash) {
+      const newUrl = `#${activeSection}`;
+      window.history.replaceState(null, "", newUrl);
+    }
+  }, [activeSection]);
 
   if (showLoading) {
     return <Loading />;
@@ -57,7 +103,7 @@ export default function Page() {
 
   return (
     <div
-      className={`h-screen pt-5 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10 ${animationClass}`}
+      className={`h-screen pt-5 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10`}
     >
       <div className="flex flex-col items-end w-full h-full">
         <div className="flex w-full h-full items-end">
@@ -87,12 +133,18 @@ export default function Page() {
             >
               <Background />
 
-              <main className="h-full w-full absolute z-10 overflow-auto scrollbar-thin">
+              <main
+                ref={mainRef}
+                className="h-full w-full absolute z-10 overflow-auto scrollbar-thin"
+              >
                 <div className="h-full w-full flex items-center justify-center">
-                  {activeSection === "meet-me" && <MeetMe />}
-                  {activeSection === "skills" && <Skills />}
-                  {activeSection === "my-work" && <Projects />}
-                  {activeSection === "socials" && <Socials />}
+                  <div className="h-full w-full">
+                    <MeetMe />
+                    <Skills />
+                    <Experience />
+                    <Projects />
+                    <Socials />
+                  </div>
                 </div>
               </main>
             </div>

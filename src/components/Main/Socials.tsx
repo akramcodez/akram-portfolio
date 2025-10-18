@@ -34,9 +34,9 @@ const Socials = () => {
   return (
     <section
       id="socials"
-      className="flex flex-col items-center justify-center h-full w-full p-2.5 md:p-8"
+      className="flex flex-col items-center justify-center h-full w-full p-2.5 pl-4 md:p-8"
     >
-      <div className="w-full max-w-3xl mx-auto space-y-4 md:space-y-6 animate-blur-in">
+      <div className="w-full max-w-3xl mx-auto space-y-4 md:space-y-6">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-widest md:mb-2">
             SOCIALS
