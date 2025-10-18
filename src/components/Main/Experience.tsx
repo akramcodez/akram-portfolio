@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import { repos } from "@/data/data";
+import Link from "next/link";
 
 const Experience = () => {
   return (
@@ -17,7 +18,7 @@ const Experience = () => {
         </div>
 
         <div className="w-full pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 mb-0">
-          <a
+          <Link
             href="https://www.linkedin.com/company/kebulan-technologies/"
             target="_blank"
             rel="noopener noreferrer"
@@ -31,13 +32,13 @@ const Experience = () => {
                 <span>Sep 2025 to present</span>
               </p>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 text-left">
           <h3 className="text-lg md:text-xl font-semibold">Open Source</h3>
           <OpenSourceSummary />
-          <a
+          <Link
             href="https://github.com/akramcodez"
             target="_blank"
             rel="noopener noreferrer"
@@ -45,7 +46,7 @@ const Experience = () => {
           >
             GitHub
             <CiLocationArrow1 className="inline-block ml-0.5 h-5 w-5" />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -128,14 +129,14 @@ function OpenSourceSummary() {
                     }`}
                     style={{ transitionDelay: `${pIdx * 40}ms` }}
                   >
-                    <a
+                    <Link
                       href={pr.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="underline text-sm"
                     >
                       {pr.title}
-                    </a>
+                    </Link>
                   </div>
                 ))}
               </div>

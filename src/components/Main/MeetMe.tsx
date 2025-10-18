@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 
 const MeetMe = () => {
   return (
@@ -69,24 +70,28 @@ const MeetMe = () => {
               I&apos;m Open to internships and freelance work. If you are
               looking for someone reliable to build, scale, or improve your
               product - reach out.
-              <a
+              <Link
                 href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block mt-3 font-bold hover:underline"
               >
                 skakram00zz@gmail.com
-              </a>
+              </Link>
             </p>
 
             <p className="hidden sm:block text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto">
               I&apos;m available for freelance and internship opportunities. If
               you need a committed developer to build or improve your product,
               feel free to connect.
-              <a
+              <Link
                 href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block mt-3 font-bold underline [text-decoration-thickness:1px]"
               >
                 skakram00zz@gmail.com
-              </a>
+              </Link>
             </p>
           </div>
         </div>

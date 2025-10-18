@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import { socials } from "@/data/data";
+import Link from "next/link";
 
 const Socials = () => {
   const { theme } = useTheme();
@@ -45,7 +46,7 @@ const Socials = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
           {socials.map((social, index) => (
-            <a
+            <Link
               key={social.name}
               href={social.url}
               target={social.url.startsWith("http") ? "_blank" : "_self"}
@@ -68,7 +69,7 @@ const Socials = () => {
                   {social.handle}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 
