@@ -4,9 +4,9 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 
 type Props = {
-  activeSection?: "meet-me" | "skills" | "projects" | "explore-more";
+  activeSection?: "meet-me" | "skills" | "my-work" | "socials";
   onSectionChange?: (
-    section: "meet-me" | "skills" | "projects" | "explore-more"
+    section: "meet-me" | "skills" | "my-work" | "socials"
   ) => void;
 };
 
@@ -29,7 +29,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
   const borderClass = theme === "dark" ? "border-white/80" : "border-black";
 
   const getActiveButtonClass = (
-    section: "meet-me" | "skills" | "projects" | "explore-more"
+    section: "meet-me" | "skills" | "my-work" | "socials"
   ) => {
     const isActive = activeSection === section;
     if (theme === "dark") {
@@ -43,7 +43,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
     }
   };
 
-  const buttons = ["MEET ME", "SKILLS", "PROJECTS", "EXPLORE MORE"];
+  const buttons = ["MEET ME", "SKILLS", "MY WORK", "SOCIALS"];
 
   return (
     <div className="flex flex-col items-center md:items-start justify-center w-full h-full p-3 md:p-4 gap-2 md:gap-0 3xl:gap-4">
@@ -87,17 +87,17 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
         </div>
         <div className="w-full flex md:hidden gap-3">
           <button
-            onClick={() => onSectionChange?.("projects")}
+            onClick={() => onSectionChange?.("my-work")}
             className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
-              "projects"
+              "my-work"
             )}`}
           >
             {buttons[2]}
           </button>
           <button
-            onClick={() => onSectionChange?.("explore-more")}
+            onClick={() => onSectionChange?.("socials")}
             className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
-              "explore-more"
+              "socials"
             )}`}
           >
             {buttons[3]}
@@ -121,10 +121,10 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           <button
             key={label}
             onClick={() =>
-              onSectionChange?.(index === 0 ? "projects" : "explore-more")
+              onSectionChange?.(index === 0 ? "my-work" : "socials")
             }
             className={`w-full py-2 text-xs 2xl:text-md font-semibold border xl:border-[0.093rem] rounded-full transition-all duration-300 ease-in-out hidden md:block cursor-pointer ${getActiveButtonClass(
-              index === 0 ? "projects" : "explore-more"
+              index === 0 ? "my-work" : "socials"
             )}`}
           >
             {label}

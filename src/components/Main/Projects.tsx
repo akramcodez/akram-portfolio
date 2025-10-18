@@ -37,7 +37,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="flex flex-col items-center justify-center h-full w-full p-6 md:p-8"
+      className="flex flex-col items-center justify-center h-full w-full p-2.5 pl-4 md:p-8"
     >
       <div className="w-full max-w-2xl mx-auto space-y-2 md:space-y-5 animate-blur-in">
         <div className="text-center">
@@ -96,10 +96,10 @@ const Projects = () => {
           rel="noopener noreferrer"
         >
           <div className="text-center flex items-center justify-center w-full pt-4 md:pt-8 border-t border-current">
-            <p className="text-xs md:text-sm font-medium hover:underline">
+            <p className="text-xs md:text-sm font-bold hover:underline">
               More projects on GitHub
             </p>
-            <CiLocationArrow1 className="inline-block ml-1" />
+            <CiLocationArrow1 className="inline-block ml-1 h-5 w-5" />
           </div>
         </Link>
       </div>

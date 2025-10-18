@@ -5,7 +5,7 @@ import ControllerHeader from "@/components/Controller/ControllerHeader";
 import MeetMe from "@/components/Main/MeetMe";
 import Skills from "@/components/Main/Skills";
 import Projects from "@/components/Main/Projects";
-import ExploreMore from "@/components/Main/ExploreMore";
+import Socials from "@/components/Main/Socials";
 import Loading from "@/components/Loading";
 import { ThemeSelector } from "@/components/Theme/theme-selector";
 import { useTheme } from "next-themes";
@@ -15,7 +15,7 @@ export default function Page() {
   const [showLoading, setShowLoading] = useState(true);
   const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<
-    "meet-me" | "skills" | "projects" | "explore-more"
+    "meet-me" | "skills" | "my-work" | "socials"
   >("meet-me");
   const { theme } = useTheme();
   const [animationClass, setAnimationClass] = useState("animate-blur-in");
@@ -88,11 +88,11 @@ export default function Page() {
               <Background />
 
               <main className="h-full w-full absolute z-10 overflow-auto scrollbar-thin">
-                <div className="min-h-full min-w-full flex items-center justify-center">
+                <div className="h-full w-full flex items-center justify-center">
                   {activeSection === "meet-me" && <MeetMe />}
                   {activeSection === "skills" && <Skills />}
-                  {activeSection === "projects" && <Projects />}
-                  {activeSection === "explore-more" && <ExploreMore />}
+                  {activeSection === "my-work" && <Projects />}
+                  {activeSection === "socials" && <Socials />}
                 </div>
               </main>
             </div>

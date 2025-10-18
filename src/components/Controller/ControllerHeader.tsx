@@ -2,7 +2,7 @@
 import React from "react";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FiLinkedin, FiGithub } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa6";
+import { TbMailUp } from "react-icons/tb";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
@@ -56,10 +56,10 @@ const ControllerHeader = () => {
           <Link
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.instagram.com/akramcodez"
+            href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
             className="cursor-pointer"
           >
-            <FaInstagram
+            <TbMailUp
               className={`h-5 w-5  ${iconColorClass} ${iconHoverClass}`}
             />
           </Link>

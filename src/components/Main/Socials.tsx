@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import { socials } from "@/data/data";
 
-const ExploreMore = () => {
+const Socials = () => {
   const { theme } = useTheme();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -33,18 +33,16 @@ const ExploreMore = () => {
 
   return (
     <section
-      id="explore-more"
-      className="flex flex-col items-center justify-center h-full w-full p-6 md:p-8"
+      id="socials"
+      className="flex flex-col items-center justify-center h-full w-full p-2.5 md:p-8"
     >
       <div className="w-full max-w-3xl mx-auto space-y-4 md:space-y-6 animate-blur-in">
-        {/* Title */}
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-widest md:mb-2">
             SOCIALS
           </h2>
         </div>
 
-        {/* Social Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
           {socials.map((social, index) => (
             <a
@@ -84,4 +82,4 @@ const ExploreMore = () => {
   );
 };
 
-export default ExploreMore;
+export default Socials;
