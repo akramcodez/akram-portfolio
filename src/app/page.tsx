@@ -103,7 +103,7 @@ export default function Page() {
 
   return (
     <div
-      className={`h-screen pt-5 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10`}
+      className={`h-screen animate-blur-in pt-5 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10`}
     >
       <div className="flex flex-col items-end w-full h-full">
         <div className="flex w-full h-full items-end">

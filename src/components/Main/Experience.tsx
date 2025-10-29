@@ -1,10 +1,14 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import { repos } from "@/data/data";
 import Link from "next/link";
 
 const Experience = () => {
+  const totalPRs = useMemo(() => {
+    return repos.reduce((acc, r) => acc + (r.prs?.length ?? 0), 0);
+  }, []);
+
   return (
     <section
       id="experience"
@@ -36,7 +40,14 @@ const Experience = () => {
         </div>
 
         <div className="pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 text-left">
-          <h3 className="text-lg md:text-xl font-semibold">Open Source</h3>
+          <div className="flex items-center justify-between w-full">
+            <h3 className="text-2xl md:text-[28px] font-semibold tracking-wide leading-tight mb-1">
+              Open Source
+            </h3>
+            <span className="inline-flex items-center border border-current/20 rounded-full px-3 py-1 text-[11px] md:text-xs opacity-75 font-medium whitespace-nowrap">
+              {totalPRs} PRs merged
+            </span>
+          </div>
           <OpenSourceSummary />
           <Link
             href="https://github.com/akramcodez"
@@ -89,17 +100,17 @@ function OpenSourceSummary() {
             <button
               onClick={() => toggleRepo(idx)}
               aria-expanded={openRepo === idx}
-              className="w-full flex items-center justify-between cursor-pointer"
+              className="w-full flex items-center justify-between px-1 rounded-sm cursor-pointer hover:bg-accent-foreground/10"
             >
-              <div className="">
-                <p className="font-medium text-md hover:underline [text-decoration-thickness:1px] cursor-pointer">
+              <div className="flex items-center justify-start gap-2">
+                <p className="font-medium text-md cursor-pointer">
                   {repo.name}
-                  <span className="text-xs opacity-70 ml-2">
-                    {repo.prs.length} PRs
-                  </span>
                 </p>
+                <span className="text-[10px] opacity-70 mt-0.5">
+                  {repo.prs.length} PRs
+                </span>
               </div>
-              <span className="p-1">
+              <span>
                 {openRepo === idx ? (
                   <IoIosArrowDropup className="h-5 w-5" />
                 ) : (
@@ -118,7 +129,7 @@ function OpenSourceSummary() {
               }}
               className="overflow-hidden"
             >
-              <div className="ml-2 space-y-3 text-sm md:text-base">
+              <div className="ml-2.5 flex flex-col items-start gap-1.5 text-sm md:text-base">
                 {repo.prs.map((pr, pIdx) => (
                   <div
                     key={pr.url}

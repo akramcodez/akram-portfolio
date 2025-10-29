@@ -42,7 +42,7 @@ const Projects = () => {
       <div className="w-full max-w-3xl mx-auto space-y-2 md:space-y-5 ">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold tracking-widest">
-            PROJECTS
+            PROJECTS / SOURCE CODE
           </h2>
         </div>
 

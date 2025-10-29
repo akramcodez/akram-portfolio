@@ -20,16 +20,6 @@ export const socials = [
     handle: "/u/akramcodez",
   },
   {
-    name: "Discord",
-    url: "#",
-    handle: "akramcodez",
-  },
-  {
-    name: "Reddit",
-    url: "https://www.reddit.com/user/akramcodez",
-    handle: "/akramcodez",
-  },
-  {
     name: "Peerlist",
     url: "https://peerlist.io/akramcodez",
     handle: "/akramcodez",
@@ -95,7 +85,7 @@ export const projects = [
 
 export const repos = [
   {
-    name: "billingsdk",
+    name: "dodopayments",
     prs: [
       {
         title: "Replace hardcoded country/state/city arrays with dynamic data",
@@ -145,7 +135,7 @@ export const repos = [
     ],
   },
   {
-    name: "openlibrary",
+    name: "internetarchive",
     prs: [
       {
         title: "fix: improve homepage accessibility for screen readers",
