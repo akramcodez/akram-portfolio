@@ -15,38 +15,24 @@ const MeetMe = () => {
               ABOUT ME
             </h2>
             <p className="block sm:hidden text-sm leading-relaxed max-w-3xl mx-auto">
-              Hi! I&apos;m{" "}
-              <span className="[font-weight:700] cursor-pointer">SK Akram</span>
-              , a software developer who&apos;s always ready to{" "}
-              <span className="[font-weight:700] cursor-pointer">explore</span>{" "}
-              new things. I actively contribute to{" "}
-              <span className="[font-weight:700] cursor-pointer">
-                open source
-              </span>
-              , build real-world{" "}
-              <span className="[font-weight:700] cursor-pointer">projects</span>
-              , and continuously sharpen my{" "}
-              <span className="[font-weight:700] cursor-pointer">
-                DSA skills
-              </span>
-              .
+              Hi! I&apos;m <span className="[font-weight:700]">SK Akram</span>,
+              a software developer who&apos;s always ready to{" "}
+              <span className="[font-weight:700]">explore</span> new things. I
+              actively contribute to{" "}
+              <span className="[font-weight:700]">open source</span>, build
+              real-world <span className="[font-weight:700]">projects</span>,
+              and continuously sharpen my{" "}
+              <span className="[font-weight:700]">DSA skills</span>.
             </p>
             <p className="hidden sm:block text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto ">
-              Hi! I&apos;m{" "}
-              <span className="[font-weight:700] cursor-pointer">SK Akram</span>
-              , a software developer who&apos;s always ready to{" "}
-              <span className="[font-weight:700] cursor-pointer">explore</span>{" "}
-              new things. I actively contribute to{" "}
-              <span className="[font-weight:700] cursor-pointer">
-                open source
-              </span>
-              , build real-world{" "}
-              <span className="[font-weight:700] cursor-pointer">projects</span>
-              , and continuously sharpen my{" "}
-              <span className="[font-weight:700] cursor-pointer">
-                DSA skills
-              </span>
-              .
+              Hi! I&apos;m <span className="[font-weight:700]">SK Akram</span>,
+              a software developer who&apos;s always ready to{" "}
+              <span className="[font-weight:700]">explore</span> new things. I
+              actively contribute to{" "}
+              <span className="[font-weight:700]">open source</span>, build
+              real-world <span className="[font-weight:700]">projects</span>,
+              and continuously sharpen my{" "}
+              <span className="[font-weight:700]">DSA skills</span>.
             </p>
           </div>
 
