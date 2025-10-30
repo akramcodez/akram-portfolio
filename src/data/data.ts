@@ -85,6 +85,63 @@ export const projects = [
 
 export const repos = [
   {
+    name: "opsiMate",
+    prs: [
+      {
+        title:
+          "[Feat] created Add Key Modal Instead of Redirecting to Secrets Page",
+        url: "https://github.com/OpsiMate/OpsiMate/pull/312",
+      },
+    ],
+  },
+  {
+    name: "activepieces",
+    prs: [
+      {
+        title: "fix: persist sidebar state across browser refresh",
+        url: "https://github.com/activepieces/activepieces/pull/9529",
+      },
+    ],
+  },
+  {
+    name: "internetarchive",
+    prs: [
+      {
+        title: "fix: improve homepage accessibility for screen readers",
+        url: "https://github.com/internetarchive/openlibrary/pull/11355",
+      },
+      {
+        title: "Fix header buttons on Create List page (#11301)",
+        url: "https://github.com/internetarchive/openlibrary/pull/11320",
+      },
+      {
+        title: "fix: handle EXIF orientation for uploaded images",
+        url: "https://github.com/internetarchive/openlibrary/pull/11362",
+      },
+    ],
+  },
+  {
+    name: "ghostfolio",
+    prs: [
+      {
+        title: "Task/migrate auth page component to standalone",
+        url: "https://github.com/ghostfolio/ghostfolio/pull/5695",
+      },
+      {
+        title: "Task/migrate file drop directive to standalone",
+        url: "https://github.com/ghostfolio/ghostfolio/pull/5646",
+      },
+      {
+        title: "Task/prefix home watchlist component with Gf",
+        url: "https://github.com/ghostfolio/ghostfolio/pull/5640",
+      },
+      {
+        title: "Task/prefix create watchlist item dialog component with Gf",
+        url: "https://github.com/ghostfolio/ghostfolio/pull/5617",
+      },
+    ],
+  },
+  {
     name: "dodopayments",
     prs: [
       {
@@ -114,64 +171,11 @@ export const repos = [
     ],
   },
   {
-    name: "ghostfolio",
-    prs: [
-      {
-        title: "Task/migrate auth page component to standalone",
-        url: "https://github.com/ghostfolio/ghostfolio/pull/5695",
-      },
-      {
-        title: "Task/migrate file drop directive to standalone",
-        url: "https://github.com/ghostfolio/ghostfolio/pull/5646",
-      },
-      {
-        title: "Task/prefix home watchlist component with Gf",
-        url: "https://github.com/ghostfolio/ghostfolio/pull/5640",
-      },
-      {
-        title: "Task/prefix create watchlist item dialog component with Gf",
-        url: "https://github.com/ghostfolio/ghostfolio/pull/5617",
-      },
-    ],
-  },
-  {
-    name: "internetarchive",
-    prs: [
-      {
-        title: "fix: improve homepage accessibility for screen readers",
-        url: "https://github.com/internetarchive/openlibrary/pull/11355",
-      },
-      {
-        title: "Fix header buttons on Create List page (#11301)",
-        url: "https://github.com/internetarchive/openlibrary/pull/11320",
-      },
-    ],
-  },
-  {
-    name: "activepieces",
-    prs: [
-      {
-        title: "fix: persist sidebar state across browser refresh",
-        url: "https://github.com/activepieces/activepieces/pull/9529",
-      },
-    ],
-  },
-  {
     name: "circuitverse",
     prs: [
       {
         title: "fix: rtl modal close buttons position",
         url: "https://github.com/CircuitVerse/CircuitVerse/pull/6034",
-      },
-    ],
-  },
-  {
-    name: "opsiMate",
-    prs: [
-      {
-        title:
-          "[Feat] created Add Key Modal Instead of Redirecting to Secrets Page",
-        url: "https://github.com/OpsiMate/OpsiMate/pull/312",
       },
     ],
   },

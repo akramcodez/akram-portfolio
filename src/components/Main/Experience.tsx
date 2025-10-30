@@ -70,10 +70,15 @@ function OpenSourceSummary() {
   const [openRepo, setOpenRepo] = useState<number | null>(null);
   const contentRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const [maxHeights, setMaxHeights] = useState<Record<number, string>>({});
+  const sortedRepos = useMemo(() => {
+    return [...repos].sort(
+      (a, b) => (b.prs?.length ?? 0) - (a.prs?.length ?? 0)
+    );
+  }, []);
 
   useEffect(() => {
     const newHeights: Record<number, string> = {};
-    repos.forEach((_, idx) => {
+    sortedRepos.forEach((_, idx) => {
       const el = contentRefs.current[idx];
       if (!el) {
         newHeights[idx] = "0px";
@@ -86,7 +91,7 @@ function OpenSourceSummary() {
       }
     });
     setMaxHeights(newHeights);
-  }, [openRepo]);
+  }, [openRepo, sortedRepos]);
 
   const toggleRepo = (idx: number) => {
     setOpenRepo((cur) => (cur === idx ? null : idx));
@@ -95,7 +100,7 @@ function OpenSourceSummary() {
   return (
     <div className="mt-1">
       <div>
-        {repos.map((repo, idx) => (
+        {sortedRepos.map((repo, idx) => (
           <div key={repo.name}>
             <button
               onClick={() => toggleRepo(idx)}
