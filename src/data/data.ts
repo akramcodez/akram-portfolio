@@ -101,6 +101,10 @@ export const repos = [
         title: "fix: persist sidebar state across browser refresh",
         url: "https://github.com/activepieces/activepieces/pull/9529",
       },
+      {
+        title: "feat: add model selection dropdown to ai agent piece",
+        url: "https://github.com/activepieces/activepieces/pull/9950",
+      },
     ],
   },
   {
@@ -117,6 +121,10 @@ export const repos = [
       {
         title: "fix: handle EXIF orientation for uploaded images",
         url: "https://github.com/internetarchive/openlibrary/pull/11362",
+      },
+      {
+        title: "Add webp to supported formats listed on add cover page",
+        url: "https://github.com/internetarchive/openlibrary/pull/11392",
       },
     ],
   },
