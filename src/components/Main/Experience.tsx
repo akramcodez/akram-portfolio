@@ -3,6 +3,7 @@ import { CiLocationArrow1 } from "react-icons/ci";
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import { repos } from "@/data/data";
 import Link from "next/link";
+import { PiGitMergeDuotone } from "react-icons/pi";
 
 const Experience = () => {
   const totalPRs = useMemo(() => {
@@ -134,22 +135,23 @@ function OpenSourceSummary() {
               }}
               className="overflow-hidden"
             >
-              <div className="ml-2.5 flex flex-col items-start gap-1.5 text-sm md:text-base">
+              <div className="p-2 flex flex-col items-start gap-1.5 text-sm md:text-base">
                 {repo.prs.map((pr, pIdx) => (
                   <div
                     key={pr.url}
-                    className={`transform transition-all duration-300 ${
+                    className={`flex items-center gap-2 transform transition-all duration-300 ${
                       openRepo === idx
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 -translate-y-2"
                     }`}
                     style={{ transitionDelay: `${pIdx * 40}ms` }}
                   >
+                    <PiGitMergeDuotone className="h-4 w-4" />
                     <Link
                       href={pr.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="underline text-sm"
+                      className="underline text-xs"
                     >
                       {pr.title}
                     </Link>
