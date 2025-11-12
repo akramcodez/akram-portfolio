@@ -126,6 +126,10 @@ export const repos = [
         title: "Add webp to supported formats listed on add cover page",
         url: "https://github.com/internetarchive/openlibrary/pull/11392",
       },
+      {
+        title: "fix: Improve Yearly Reading Goal modal for better usability and clarity",
+        url: "https://github.com/internetarchive/openlibrary/pull/11343",
+      },
     ],
   },
   {
