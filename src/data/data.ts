@@ -105,6 +105,10 @@ export const repos = [
         title: "feat: add model selection dropdown to ai agent piece",
         url: "https://github.com/activepieces/activepieces/pull/9950",
       },
+      {
+        title: "fix: handle empty/null JSON bodies in webhook endpoints",
+        url: "https://github.com/activepieces/activepieces/pull/10082",
+      },
     ],
   },
   {
