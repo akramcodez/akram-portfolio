@@ -109,6 +109,10 @@ export const repos = [
         title: "fix: handle empty/null JSON bodies in webhook endpoints",
         url: "https://github.com/activepieces/activepieces/pull/10082",
       },
+      {
+        title: "feat: add last used column to track key usage",
+        url: "https://github.com/activepieces/activepieces/pull/10159",
+      },
     ],
   },
   {
