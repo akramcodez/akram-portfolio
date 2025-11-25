@@ -14,17 +14,7 @@ const MeetMe = () => {
             <h2 className="text-xl md:text-2xl xl:text-3xl font-bold tracking-wider mb-3 md:mb-4">
               ABOUT ME
             </h2>
-            <p className="block sm:hidden text-sm leading-relaxed max-w-3xl mx-auto">
-              Hi! I&apos;m <span className="[font-weight:700]">SK Akram</span>,
-              a software developer who&apos;s always ready to{" "}
-              <span className="[font-weight:700]">explore</span> new things. I
-              actively contribute to{" "}
-              <span className="[font-weight:700]">open source</span>, build
-              real-world <span className="[font-weight:700]">projects</span>,
-              and continuously sharpen my{" "}
-              <span className="[font-weight:700]">DSA skills</span>.
-            </p>
-            <p className="hidden sm:block text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto ">
+            <p className="text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto ">
               Hi! I&apos;m <span className="[font-weight:700]">SK Akram</span>,
               a software developer who&apos;s always ready to{" "}
               <span className="[font-weight:700]">explore</span> new things. I
@@ -40,21 +30,7 @@ const MeetMe = () => {
             <h2 className="text-xl md:text-2xl xl:text-3xl font-bold tracking-wider mb-3 md:mb-4">
               HIRE ME
             </h2>
-            <p className="block sm:hidden text-sm leading-relaxed max-w-3xl mx-auto">
-              I&apos;m Open to internships and freelance work. If you are
-              looking for someone reliable to build, scale, or improve your
-              product - reach out.
-              <Link
-                href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-3 font-bold hover:underline"
-              >
-                skakram00zz@gmail.com
-              </Link>
-            </p>
-
-            <p className="hidden sm:block text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto">
+            <p className="text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto">
               I&apos;m available for freelance and internship opportunities. If
               you need a committed developer to build or improve your product,
               feel free to connect.

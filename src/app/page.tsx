@@ -2,6 +2,7 @@
 import Background from "@/components/Background";
 import Controller from "@/components/Controller";
 import ControllerHeader from "@/components/Controller/ControllerHeader";
+import { CiCoffeeCup } from "react-icons/ci";
 import MeetMe from "@/components/Main/MeetMe";
 import Skills from "@/components/Main/Skills";
 import Projects from "@/components/Main/Projects";
@@ -11,6 +12,7 @@ import { ThemeSelector } from "@/components/Theme/theme-selector";
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import Experience from "@/components/Main/Experience";
+import Link from "next/link";
 
 const VALID_SECTIONS = new Set(["meet-me", "skills", "my-work", "socials"]);
 
@@ -132,6 +134,19 @@ export default function Page() {
               className={`w-full h-full border-[0.095rem] flex relative rounded-b-2xl  md:rounded-b-none overflow-hidden ${borderClass}`}
             >
               <Background />
+
+              <Link
+                href="https://buymeacoffee.com/akramcodez"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`absolute top-3 right-3 z-30 p-2 rounded-full border transition-all duration-300 ease-in-out ${
+                  theme === "dark"
+                    ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
+                    : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
+                }`}
+              >
+                <CiCoffeeCup className="h-5 w-5" />
+              </Link>
 
               <main
                 ref={mainRef}
