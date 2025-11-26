@@ -34,7 +34,7 @@ const Experience = () => {
               </h3>
               <p className="text-[11px] sm:text-sm font-medium flex items-center justify-between">
                 <span className="cursor-pointer">SDE | Fulltime</span>{" "}
-                <span>Sep 2025 to present</span>
+                <span>Nov 2025 to present</span>
               </p>
             </div>
           {/* </Link> */}
