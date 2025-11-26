@@ -23,11 +23,11 @@ const Experience = () => {
         </div>
 
         <div className="w-full pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 mb-0">
-          <Link
+          {/* <Link
             href="https://www.linkedin.com/company/kebulan-technologies/"
             target="_blank"
             rel="noopener noreferrer"
-          >
+          > */}
             <div className="text-left">
               <h3 className="text-lg md:text-2xl font-semibold">
                 Kebulan Grid
@@ -37,7 +37,7 @@ const Experience = () => {
                 <span>Sep 2025 to present</span>
               </p>
             </div>
-          </Link>
+          {/* </Link> */}
         </div>
 
         <div className="pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 text-left">
