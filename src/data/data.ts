@@ -113,6 +113,10 @@ export const repos = [
         title: "feat: add last used column to track key usage",
         url: "https://github.com/activepieces/activepieces/pull/10159",
       },
+      {
+        title: "feat: add Push to Git option to table dropdown menu",
+        url: "https://github.com/activepieces/activepieces/pull/10001",
+      },
     ],
   },
   {
@@ -137,6 +141,10 @@ export const repos = [
       {
         title: "fix: Improve Yearly Reading Goal modal for better usability and clarity",
         url: "https://github.com/internetarchive/openlibrary/pull/11343",
+      },
+      {
+        title: "fix: minimum book thickness validation",
+        url: "https://github.com/internetarchive/openlibrary/pull/11545",
       },
     ],
   },
