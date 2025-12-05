@@ -146,6 +146,14 @@ export const repos = [
         title: "fix: minimum book thickness validation",
         url: "https://github.com/internetarchive/openlibrary/pull/11545",
       },
+      {
+        title: "fix: migrate registration newsletter to native HTML checkbox",
+        url: "https://github.com/internetarchive/openlibrary/pull/11400",
+      },
+      {
+        title: "fix: mobile dropdown cell height",
+        url: "https://github.com/internetarchive/openlibrary/pull/11477",
+      },
     ],
   },
   {
