@@ -15,7 +15,7 @@ const MeetMe = () => {
               ABOUT ME
             </h2>
             <p className="text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto ">
-              Hi! I&apos;m <span className="[font-weight:700]">SK Akram</span>,
+              Hi! I&apos;m <span className="[font-weight:700]">Sk Akram</span>,
               a software developer who&apos;s always ready to{" "}
               <span className="[font-weight:700]">explore</span> new things. I
               actively contribute to{" "}
