@@ -53,13 +53,13 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             width={40}
             height={40}
             src="/profilePic.jpg"
-            alt="SK Akram"
+            alt="Sk Akram"
             className={`w-17 h-17 2xl:w-20 2xl:h-20 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
           />
         )}
         <div className="flex flex-col items-start ml-4 md:ml-0">
           <h2 className="text-lg md:text-xl 2xl:text-2xl font-semibold tracking-widest">
-            SK AKRAM
+            Sk Akram
           </h2>
           <p className="text-sm xl:text-xs 2xl:text-base font-semibold text-gray-400">
             18 y/o Software Developer

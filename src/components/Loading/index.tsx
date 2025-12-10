@@ -16,9 +16,9 @@ const Loading = () => {
       <div className="text-center space-y-2 md:space-y-4 relative z-10">
         <div className="relative">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.2em] text-white relative">
-            SK AKRAM
+            Sk Akram
             <div className="absolute inset-0 text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.2em] text-white opacity-50 blur-sm">
-              SK AKRAM
+              Sk Akram
             </div>
           </h1>
 
