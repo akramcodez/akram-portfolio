@@ -85,6 +85,15 @@ export const projects = [
 
 export const repos = [
   {
+    name: "nanocoder",
+    prs: [
+      {
+        title: "feat: add conversation checkpoint system with interactive loading",
+        url: "https://github.com/Nano-Collective/nanocoder/pull/129",
+      },
+    ],
+  },
+  {
     name: "opsiMate",
     prs: [
       {
