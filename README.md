@@ -1,6 +1,6 @@
-# SK Akram - Portfolio
+# Sk Akram - Portfolio
 
-Hi, I'm SK Akram, a passionate Web developer. I create beautiful, responsive applications with clean code and elegant user experiences.
+Hi, I'm Sk Akram, a passionate Web developer. I create beautiful, responsive applications with clean code and elegant user experiences.
 
 ## About This Portfolio
 
