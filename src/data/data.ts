@@ -163,6 +163,10 @@ export const repos = [
         title: "fix: mobile dropdown cell height",
         url: "https://github.com/internetarchive/openlibrary/pull/11477",
       },
+      {
+        title: "fix: improve UX and clarity for Bulk Search",
+        url: "https://github.com/internetarchive/openlibrary/pull/11358",
+      },
     ],
   },
   {
