@@ -50,7 +50,7 @@ export default function Page() {
 
   useEffect(() => {
     const initial = normalizeHash(window.location.hash || "");
-    if (!initial || initial !== "meet-me") {
+    if (!initial || !VALID_SECTIONS.has(initial)) {
       window.history.replaceState(null, "", "#meet-me");
       setActiveSection("meet-me");
     } else if (VALID_SECTIONS.has(initial)) {
