@@ -70,7 +70,7 @@ export default function Page() {
 
   useEffect(() => {
     const container = mainRef.current;
-    if (!container || !mounted) return;
+    if (!container || !mounted || showLoading) return;
 
     const id = SECTION_ID_MAP[activeSection];
     if (!id) return;
@@ -84,10 +84,10 @@ export default function Page() {
       const offset = targetRect.top - containerRect.top + container.scrollTop;
 
       container.scrollTo({ top: offset, behavior: "smooth" });
-    }, 100);
+    }, 200);
 
     return () => clearTimeout(scrollTimer);
-  }, [activeSection, mounted]);
+  }, [activeSection, mounted, showLoading]);
 
   useEffect(() => {
     const currentHash = normalizeHash(window.location.hash || "");
