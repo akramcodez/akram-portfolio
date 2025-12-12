@@ -70,20 +70,24 @@ export default function Page() {
 
   useEffect(() => {
     const container = mainRef.current;
-    if (!container) return;
+    if (!container || !mounted) return;
 
     const id = SECTION_ID_MAP[activeSection];
     if (!id) return;
 
-    const target = container.querySelector(`#${id}`) as HTMLElement | null;
-    if (!target) return;
+    const scrollTimer = setTimeout(() => {
+      const target = container.querySelector(`#${id}`) as HTMLElement | null;
+      if (!target) return;
 
-    const containerRect = container.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    const offset = targetRect.top - containerRect.top + container.scrollTop;
+      const containerRect = container.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const offset = targetRect.top - containerRect.top + container.scrollTop;
 
-    container.scrollTo({ top: offset, behavior: "smooth" });
-  }, [activeSection]);
+      container.scrollTo({ top: offset, behavior: "smooth" });
+    }, 100);
+
+    return () => clearTimeout(scrollTimer);
+  }, [activeSection, mounted]);
 
   useEffect(() => {
     const currentHash = normalizeHash(window.location.hash || "");
