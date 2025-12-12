@@ -126,6 +126,14 @@ export const repos = [
         title: "feat: add Push to Git option to table dropdown menu",
         url: "https://github.com/activepieces/activepieces/pull/10001",
       },
+      {
+        title: "fix: improve project settings UI/UX ",
+        url: "https://github.com/activepieces/activepieces/pull/10465",
+      },
+      {
+        title: "fix: resolve sidebar state persistence and interaction issues",
+        url: "https://github.com/activepieces/activepieces/pull/10464",
+      },
     ],
   },
   {
