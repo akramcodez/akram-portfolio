@@ -127,12 +127,24 @@ export const repos = [
         url: "https://github.com/activepieces/activepieces/pull/10001",
       },
       {
-        title: "fix: improve project settings UI/UX ",
+        title: "fix: improve project settings UI/UX",
         url: "https://github.com/activepieces/activepieces/pull/10465",
       },
       {
         title: "fix: resolve sidebar state persistence and interaction issues",
         url: "https://github.com/activepieces/activepieces/pull/10464",
+      },
+      {
+        title: "feat: add invite user option to sidebar menu",
+        url: "https://github.com/activepieces/activepieces/pull/10473",
+      },
+      {
+        title: "feat: implement smart relative date formatting across tables",
+        url: "https://github.com/activepieces/activepieces/pull/10474",
+      },
+      {
+        title: "fix: make project members count clickable to access settings",
+        url: "https://github.com/activepieces/activepieces/pull/10472",
       },
     ],
   },
