@@ -146,6 +146,10 @@ export const repos = [
         title: "fix: make project members count clickable to access settings",
         url: "https://github.com/activepieces/activepieces/pull/10472",
       },
+      {
+        title: "fix: standardize page header styling and height",
+        url: "https://github.com/activepieces/activepieces/pull/10475",
+      },
     ],
   },
   {
