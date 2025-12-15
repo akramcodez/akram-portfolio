@@ -91,6 +91,10 @@ export const repos = [
         title: "feat: add conversation checkpoint system with interactive loading",
         url: "https://github.com/Nano-Collective/nanocoder/pull/129",
       },
+      {
+        title: "feat: switch from Prettier to Biome for formatting",
+        url: "https://github.com/Nano-Collective/nanocoder/pull/139",
+      },
     ],
   },
   {
