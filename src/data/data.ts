@@ -85,6 +85,15 @@ export const projects = [
 
 export const repos = [
   {
+    name: "browser-use",
+    prs: [
+      {
+        title: "fix: prevent unnecessary blank tab creation when closing background tabs",
+        url: "https://github.com/browser-use/browser-use/pull/3766,
+      },
+    ],
+  },
+  {
     name: "nanocoder",
     prs: [
       {
