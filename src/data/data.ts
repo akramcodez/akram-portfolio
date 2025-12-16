@@ -89,7 +89,7 @@ export const repos = [
     prs: [
       {
         title: "fix: prevent unnecessary blank tab creation when closing background tabs",
-        url: "https://github.com/browser-use/browser-use/pull/3766,
+        url: "https://github.com/browser-use/browser-use/pull/3766",
       },
     ],
   },
