@@ -68,22 +68,36 @@ export default function Page() {
     return () => window.removeEventListener("hashchange", applyHash);
   }, []);
 
-  useEffect(() => {
+  const scrollToSection = (section: typeof activeSection) => {
     const container = mainRef.current;
-    if (!container || !mounted || showLoading) return;
+    if (!container) return;
 
-    const id = SECTION_ID_MAP[activeSection];
+    const id = SECTION_ID_MAP[section];
     if (!id) return;
 
+    const target = container.querySelector(`#${id}`) as HTMLElement | null;
+    if (!target) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const offset = targetRect.top - containerRect.top + container.scrollTop;
+
+    container.scrollTo({ top: offset, behavior: "smooth" });
+  };
+
+  const handleSectionChange = (section: typeof activeSection) => {
+    if (activeSection === section) {
+      scrollToSection(section);
+    } else {
+      setActiveSection(section);
+    }
+  };
+
+  useEffect(() => {
+    if (!mounted || showLoading) return;
+
     const scrollTimer = setTimeout(() => {
-      const target = container.querySelector(`#${id}`) as HTMLElement | null;
-      if (!target) return;
-
-      const containerRect = container.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      const offset = targetRect.top - containerRect.top + container.scrollTop;
-
-      container.scrollTo({ top: offset, behavior: "smooth" });
+      scrollToSection(activeSection);
     }, 200);
 
     return () => clearTimeout(scrollTimer);
@@ -129,7 +143,7 @@ export default function Page() {
               >
                 <Controller
                   activeSection={activeSection}
-                  onSectionChange={setActiveSection}
+                  onSectionChange={handleSectionChange}
                 />
               </div>
             </div>
