@@ -61,18 +61,18 @@ export const skills = [
 
 export const projects = [
   {
+    name: "VeoMate",
+    tech: "Currently in building state",
+    desc: "The Context-Aware Work & Communication Platform",
+    link: "https://github.com/akramcodez/veomate-waitlist",
+    liveLink: "https://veomate-waitlist.veomate.com",
+  },
+  {
     name: "PIVA",
     tech: "Next.js • Prisma • T3 Stack",
     desc: "AI-powered webinar platform",
     link: "https://github.com/akramcodez/piva",
     liveLink: "https://piva.akramcodez.tech",
-  },
-  {
-    name: "AirExplorer",
-    tech: "Node.js • Express • MongoDB",
-    desc: "Full-stack Airbnb clone",
-    link: "https://github.com/akramcodez/airexplorer",
-    liveLink: "https://airexplorer.onrender.com",
   },
   {
     name: "MyTube",
