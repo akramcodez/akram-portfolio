@@ -167,6 +167,10 @@ export const repos = [
         title: "fix: standardize page header styling and height",
         url: "https://github.com/activepieces/activepieces/pull/10475",
       },
+      {
+        title: "feat: add multiple body type support to Custom API Action",
+        url: "https://github.com/activepieces/activepieces/pull/10171",
+      },
     ],
   },
   {
