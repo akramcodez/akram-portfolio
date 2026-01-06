@@ -62,7 +62,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             Sk Akram
           </h2>
           <p className="text-sm xl:text-xs 2xl:text-base font-semibold text-gray-400">
-            18 y/o Software Developer
+            19 y/o Software Developer
           </p>
         </div>
       </div>
