@@ -65,7 +65,7 @@ export const projects = [
     tech: "Currently in building state",
     desc: "The Context-Aware Work & Communication Platform",
     link: "https://github.com/akramcodez/veomate-waitlist",
-    liveLink: "https://veomate-waitlist.veomate.com",
+    liveLink: "https://waitlist.veomate.com",
   },
   {
     name: "PIVA",
