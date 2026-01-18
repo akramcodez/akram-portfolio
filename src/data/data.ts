@@ -61,6 +61,13 @@ export const skills = [
 
 export const projects = [
   {
+    name: "OsFit",
+    tech: "Next.js • Tailwind • Supabase",
+    desc: "AI-powered tool for analyzing GitHub files and solving issues. Supports 20+ languages",
+    link: "https://github.com/akramcodez/osfit",
+    liveLink: "https://osfit.akramcodez.tech",
+  },
+  {
     name: "VeoMate",
     tech: "Currently in building state",
     desc: "The Context-Aware Work & Communication Platform",
@@ -88,7 +95,8 @@ export const repos = [
     name: "browser-use",
     prs: [
       {
-        title: "fix: prevent unnecessary blank tab creation when closing background tabs",
+        title:
+          "fix: prevent unnecessary blank tab creation when closing background tabs",
         url: "https://github.com/browser-use/browser-use/pull/3766",
       },
       {
@@ -101,7 +109,8 @@ export const repos = [
     name: "nanocoder",
     prs: [
       {
-        title: "feat: add conversation checkpoint system with interactive loading",
+        title:
+          "feat: add conversation checkpoint system with interactive loading",
         url: "https://github.com/Nano-Collective/nanocoder/pull/129",
       },
       {
@@ -193,7 +202,8 @@ export const repos = [
         url: "https://github.com/internetarchive/openlibrary/pull/11392",
       },
       {
-        title: "fix: Improve Yearly Reading Goal modal for better usability and clarity",
+        title:
+          "fix: Improve Yearly Reading Goal modal for better usability and clarity",
         url: "https://github.com/internetarchive/openlibrary/pull/11343",
       },
       {
