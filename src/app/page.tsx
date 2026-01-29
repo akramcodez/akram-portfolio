@@ -14,7 +14,12 @@ import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import Experience from "@/components/Main/Experience";
 import Link from "next/link";
-import { PanelLeftClose, PanelLeftOpen, PanelTopClose, PanelTopOpen } from "lucide-react";
+import {
+  PanelLeftClose,
+  PanelLeftOpen,
+  PanelTopClose,
+  PanelTopOpen,
+} from "lucide-react";
 
 const VALID_SECTIONS = new Set(["meet-me", "skills", "my-work", "socials"]);
 
@@ -39,6 +44,24 @@ export default function Page() {
     return raw.replace(/^#\/?/, "").toLowerCase();
   };
 
+  // Update URL with collapse state
+  const updateUrlWithCollapseState = (collapsed: boolean) => {
+    const url = new URL(window.location.href);
+    if (collapsed) {
+      url.searchParams.set("collapsed", "true");
+    } else {
+      url.searchParams.delete("collapsed");
+    }
+    window.history.replaceState(null, "", url.toString());
+  };
+
+  // Toggle collapse and update URL
+  const handleCollapseToggle = () => {
+    const newCollapseState = !isCollapsed;
+    setIsCollapsed(newCollapseState);
+    updateUrlWithCollapseState(newCollapseState);
+  };
+
   useEffect(() => {
     const loadingTimer = setTimeout(() => {
       setShowLoading(false);
@@ -49,6 +72,13 @@ export default function Page() {
 
   useEffect(() => {
     setMounted(true);
+
+    // Check URL params for collapse state on mount
+    const urlParams = new URLSearchParams(window.location.search);
+    const collapsedParam = urlParams.get("collapsed");
+    if (collapsedParam === "true") {
+      setIsCollapsed(true);
+    }
   }, []);
 
   useEffect(() => {
@@ -136,11 +166,13 @@ export default function Page() {
             <ThemeSelector />
           </div> */}
 
-          <div className={`w-full h-full flex flex-col md:flex-row items-end transition-[gap] duration-300 gap-3 ${isCollapsed ? 'md:gap-0' : ''}`}>
-            <div 
+          <div
+            className={`w-full h-full flex flex-col md:flex-row items-end transition-all duration-500 ease-in-out gap-3 ${isCollapsed ? "md:gap-0" : ""}`}
+          >
+            <div
               className={` 
                  flex flex-col gap-2 items-end transition-all duration-500 ease-in-out overflow-hidden
-                 ${isCollapsed ? "display-none w-full md:w-0 max-h-0 md:max-h-full md:h-full opacity-0" : "w-full h-auto md:w-[18%] md:min-w-56 max-h-[500px] md:max-h-full opacity-100"}
+                 ${isCollapsed ? "w-full md:w-0 max-h-0 md:max-h-full md:h-full opacity-0 pointer-events-none mb-0" : "w-full h-auto md:w-[18%] md:min-w-56 max-h-[600px] md:max-h-full opacity-100 mb-0"}
               `}
             >
               <div className={`w-full hidden md:flex items-end`}>
@@ -157,42 +189,52 @@ export default function Page() {
             </div>
 
             <div
-              className={`w-full flex-1 sm:h-full border-[0.095rem] flex relative ${isCollapsed ? 'rounded-t-2xl' : ''} rounded-b-2xl md:rounded-b-none md:rounded-t-none overflow-hidden ${borderClass} transition-all duration-300 min-h-0`}
+              className={`w-full flex-1 sm:h-full border-[0.095rem] flex relative ${isCollapsed ? "rounded-t-2xl" : ""} rounded-b-2xl md:rounded-b-none md:rounded-t-none overflow-hidden ${borderClass} transition-all duration-300 min-h-0`}
             >
               <button
-                onClick={() => setIsCollapsed(!isCollapsed)}
+                onClick={handleCollapseToggle}
                 className={`absolute z-40 p-2 rounded-full border transition-all duration-300 ease-in-out
-                  ${theme === "dark" 
-                    ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl" 
-                    : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
+                  ${
+                    theme === "dark"
+                      ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
+                      : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
                   }
                   top-3 left-3
                   hidden md:block
                 `}
                 aria-label={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
               >
-                 {isCollapsed ? <PanelLeftOpen className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" /> : <PanelLeftClose className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" />}
+                {isCollapsed ? (
+                  <PanelLeftOpen className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" />
+                ) : (
+                  <PanelLeftClose className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" />
+                )}
               </button>
 
-               <button
-                onClick={() => setIsCollapsed(!isCollapsed)}
+              <button
+                onClick={handleCollapseToggle}
                 className={`absolute z-40 p-1.5 rounded-full border transition-all duration-300 ease-in-out flex items-center justify-center
-                  ${theme === "dark" 
-                    ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl" 
-                    : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
+                  ${
+                    theme === "dark"
+                      ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
+                      : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
                   }
                   top-2 left-2
                   md:hidden
                 `}
                 aria-label={isCollapsed ? "Expand Menu" : "Collapse Menu"}
               >
-                 {isCollapsed ? <PanelTopOpen className="w-4 h-4 pointer-events-none" /> : <PanelTopClose className="w-4 h-4 pointer-events-none" />}
+                {isCollapsed ? (
+                  <PanelTopOpen className="w-4 h-4 pointer-events-none" />
+                ) : (
+                  <PanelTopClose className="w-4 h-4 pointer-events-none" />
+                )}
               </button>
 
               <Background />
 
               <div className="absolute top-2 right-2 md:top-3 md:right-3 z-30">
-                <QuickMenu />
+                <QuickMenu fromSection={activeSection} />
               </div>
 
               <main

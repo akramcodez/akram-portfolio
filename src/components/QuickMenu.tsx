@@ -2,10 +2,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import { MoreVertical, Star, Coffee, Sun, Moon } from "lucide-react";
+import { MoreVertical, Star, Sun, Moon } from "lucide-react";
 import { TbMenu3 } from "react-icons/tb";
+import { LuHeartHandshake } from "react-icons/lu";
 
-export default function QuickMenu() {
+export default function QuickMenu({ fromSection }: { fromSection?: string }) {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,8 @@ export default function QuickMenu() {
   };
 
   const buttonBaseClass = `rounded-full border transition-all duration-300 ease-in-out flex items-center justify-center relative overflow-hidden group`;
-  const themeClass = theme === "dark"
+  const themeClass =
+    theme === "dark"
       ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
       : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl";
 
@@ -49,14 +51,12 @@ export default function QuickMenu() {
       : "bg-white/80 border-black/20 backdrop-blur-xl"
   }`;
 
-  const textClass = "whitespace-nowrap overflow-hidden transition-all duration-300 max-w-0 opacity-0 group-hover:max-w-[150px] group-hover:opacity-100 group-hover:ml-2 text-xs font-medium";
+  const textClass =
+    "whitespace-nowrap overflow-hidden transition-all duration-300 max-w-0 opacity-0 group-hover:max-w-[150px] group-hover:opacity-100 group-hover:ml-2 text-xs font-medium";
 
   return (
-    <div 
-      className="relative"
-      ref={menuRef}
-    >
-      <button 
+    <div className="relative" ref={menuRef}>
+      <button
         className={`${triggerClass}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Quick Menu"
@@ -64,7 +64,7 @@ export default function QuickMenu() {
         <TbMenu3 className="w-4 h-4 md:w-5 md:h-5" />
       </button>
 
-      <div 
+      <div
         className={`${menuClass} ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"}`}
       >
         {/* Star Repo */}
@@ -77,29 +77,26 @@ export default function QuickMenu() {
           <Star className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
           <span className={textClass}>Star Repo</span>
         </Link>
-        
-        {/* Buy Me A Coffee */}
+
+        {/* Support Me */}
         <Link
-          href="https://buymeacoffee.com/akramcodez"
-          target="_blank"
-          rel="noopener noreferrer"
+          href={fromSection ? `/support?from=${fromSection}` : "/support"}
           className={menuItemClass}
         >
-          <Coffee className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+          <LuHeartHandshake className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
           <span className={textClass}>Support Me</span>
         </Link>
 
         {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className={menuItemClass}
-        >
+        <button onClick={toggleTheme} className={menuItemClass}>
           {theme === "dark" ? (
             <Sun className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
           ) : (
             <Moon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
           )}
-          <span className={textClass}>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
+          <span className={textClass}>
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
+          </span>
         </button>
       </div>
     </div>

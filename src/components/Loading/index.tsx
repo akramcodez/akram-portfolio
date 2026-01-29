@@ -1,14 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
-import { useTheme } from "next-themes";
+import React from "react";
 
 const Loading = () => {
-  const { setTheme } = useTheme();
-
-  useEffect(() => {
-    setTheme("dark");
-  }, [setTheme]);
-
   return (
     <div
       className={`fixed inset-0 flex items-center justify-center z-50 bg-black animate-blur-out overflow-hidden`}
