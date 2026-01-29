@@ -8,7 +8,7 @@ const MeetMe = () => {
       id="meet-me"
       className="flex items-center justify-center h-full w-full overflow-auto"
     >
-      <div className="w-full h-full mx-auto max-w-4xl p-2.5 pl-4 md:p-10 flex items-center md:justify-center ">
+      <div className="w-full h-full mx-auto max-w-4xl p-2.5 md:p-0 flex items-center md:justify-center ">
         <div className="space-y-12 md:space-y-16">
           <div className="text-center">
             <h2 className="text-xl md:text-2xl xl:text-3xl font-bold tracking-wider mb-3 md:mb-4">

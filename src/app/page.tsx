@@ -5,6 +5,7 @@ import ControllerHeader from "@/components/Controller/ControllerHeader";
 import { CiCoffeeCup } from "react-icons/ci";
 import MeetMe from "@/components/Main/MeetMe";
 import Skills from "@/components/Main/Skills";
+import QuickMenu from "@/components/QuickMenu";
 import Projects from "@/components/Main/Projects";
 import Socials from "@/components/Main/Socials";
 import Loading from "@/components/Loading";
@@ -125,15 +126,15 @@ export default function Page() {
 
   return (
     <div
-      className={`h-screen animate-blur-in pt-5 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10`}
+      className={`h-screen animate-blur-in pt-2 pr-2 pl-2 pb-2 md:pt-5 md:pr-5 md:pl-5 md:pb-5 xl:pt-8 xl:pr-7 xl:pl-7 xl:pb-7 2xl:pt-10 2xl:pr-10 2xl:pl-10 2xl:pb-10`}
     >
       <div className="flex flex-col items-end w-full h-full">
         <div className="flex w-full flex-1 min-h-0 items-end">
-          <div
+          {/* <div
             className={`w-5 h-30 hidden md:block border-[0.095rem] border-r-0 ${borderClass}`}
           >
             <ThemeSelector />
-          </div>
+          </div> */}
 
           <div className={`w-full h-full flex flex-col md:flex-row items-end transition-[gap] duration-300 gap-3 ${isCollapsed ? 'md:gap-0' : ''}`}>
             <div 
@@ -175,7 +176,7 @@ export default function Page() {
 
                <button
                 onClick={() => setIsCollapsed(!isCollapsed)}
-                className={`absolute z-40 p-1.5 rounded-full border transition-all duration-300 ease-in-out
+                className={`absolute z-40 p-1.5 rounded-full border transition-all duration-300 ease-in-out flex items-center justify-center
                   ${theme === "dark" 
                     ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl" 
                     : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
@@ -190,18 +191,9 @@ export default function Page() {
 
               <Background />
 
-              <Link
-                href="https://buymeacoffee.com/akramcodez"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`absolute top-2 right-2 md:top-3 md:right-3 z-30 p-1.5 md:p-2 rounded-full border transition-all duration-300 ease-in-out ${
-                  theme === "dark"
-                    ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
-                    : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
-                }`}
-              >
-                <CiCoffeeCup className="h-4 w-4 md:h-5 md:w-5" />
-              </Link>
+              <div className="absolute top-2 right-2 md:top-3 md:right-3 z-30">
+                <QuickMenu />
+              </div>
 
               <main
                 ref={mainRef}
