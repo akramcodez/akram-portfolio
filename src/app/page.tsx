@@ -13,6 +13,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import Experience from "@/components/Main/Experience";
 import Link from "next/link";
+import { PanelLeftClose, PanelLeftOpen, PanelTopClose, PanelTopOpen } from "lucide-react";
 
 const VALID_SECTIONS = new Set(["meet-me", "skills", "my-work", "socials"]);
 
@@ -29,6 +30,7 @@ export default function Page() {
   const [activeSection, setActiveSection] = useState<
     "meet-me" | "skills" | "my-work" | "socials"
   >("meet-me");
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const { theme } = useTheme();
   const mainRef = useRef<HTMLDivElement | null>(null);
   const normalizeHash = (raw: string) => {
@@ -126,20 +128,25 @@ export default function Page() {
       className={`h-screen animate-blur-in pt-5 pr-3 pl-3 pb-3 md:pt-10 md:pr-10 md:pl-5 md:pb-5 xl:pt-12 xl:pr-12 xl:pl-7 xl:pb-7 2xl:pt-15 2xl:pr-15 2xl:pl-10 2xl:pb-10`}
     >
       <div className="flex flex-col items-end w-full h-full">
-        <div className="flex w-full h-full items-end">
+        <div className="flex w-full flex-1 min-h-0 items-end">
           <div
             className={`w-5 h-30 hidden md:block border-[0.095rem] border-r-0 ${borderClass}`}
           >
             <ThemeSelector />
           </div>
 
-          <div className="w-full h-full flex flex-col md:flex-row items-end gap-3">
-            <div className="w-full h-auto md:w-[23%] 2xl:w-[20%] md:min-w-60 flex flex-col gap-2 items-end">
-              <div className="w-full hidden md:flex items-end ">
+          <div className={`w-full h-full flex flex-col md:flex-row items-end transition-[gap] duration-300 gap-3 ${isCollapsed ? 'md:gap-0' : ''}`}>
+            <div 
+              className={` 
+                 flex flex-col gap-2 items-end transition-all duration-500 ease-in-out overflow-hidden
+                 ${isCollapsed ? "display-none w-full md:w-0 max-h-0 md:max-h-full md:h-full opacity-0" : "w-full h-auto md:w-[18%] md:min-w-56 max-h-[500px] md:max-h-full opacity-100"}
+              `}
+            >
+              <div className={`w-full hidden md:flex items-end`}>
                 <ControllerHeader />
               </div>
               <div
-                className={`w-full h-full md:w-full  2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
+                className={`w-full h-full md:w-full 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
               >
                 <Controller
                   activeSection={activeSection}
@@ -149,21 +156,51 @@ export default function Page() {
             </div>
 
             <div
-              className={`w-full h-full border-[0.095rem] flex relative rounded-b-2xl  md:rounded-b-none overflow-hidden ${borderClass}`}
+              className={`w-full flex-1 sm:h-full border-[0.095rem] flex relative ${isCollapsed ? 'rounded-t-2xl' : ''} rounded-b-2xl md:rounded-b-none md:rounded-t-none overflow-hidden ${borderClass} transition-all duration-300 min-h-0`}
             >
+              <button
+                onClick={() => setIsCollapsed(!isCollapsed)}
+                className={`absolute z-40 p-2 rounded-full border transition-all duration-300 ease-in-out
+                  ${theme === "dark" 
+                    ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl" 
+                    : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
+                  }
+                  top-3 left-3
+                  hidden md:block
+                `}
+                aria-label={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+              >
+                 {isCollapsed ? <PanelLeftOpen className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" /> : <PanelLeftClose className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" />}
+              </button>
+
+               <button
+                onClick={() => setIsCollapsed(!isCollapsed)}
+                className={`absolute z-40 p-1.5 rounded-full border transition-all duration-300 ease-in-out
+                  ${theme === "dark" 
+                    ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl" 
+                    : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
+                  }
+                  top-2 left-2
+                  md:hidden
+                `}
+                aria-label={isCollapsed ? "Expand Menu" : "Collapse Menu"}
+              >
+                 {isCollapsed ? <PanelTopOpen className="w-4 h-4 pointer-events-none" /> : <PanelTopClose className="w-4 h-4 pointer-events-none" />}
+              </button>
+
               <Background />
 
               <Link
                 href="https://buymeacoffee.com/akramcodez"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`absolute top-3 right-3 z-30 p-2 rounded-full border transition-all duration-300 ease-in-out ${
+                className={`absolute top-2 right-2 md:top-3 md:right-3 z-30 p-1.5 md:p-2 rounded-full border transition-all duration-300 ease-in-out ${
                   theme === "dark"
                     ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
                     : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
                 }`}
               >
-                <CiCoffeeCup className="h-5 w-5" />
+                <CiCoffeeCup className="h-4 w-4 md:h-5 md:w-5" />
               </Link>
 
               <main

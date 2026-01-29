@@ -71,7 +71,7 @@ const Projects = () => {
                       {project.tech}
                     </span>
                   </div>
-                  <p className={`text-sm font-semibold ${getDescClass()}`}>
+                  <p className={` text-xs sm:text-sm font-semibold ${getDescClass()}`}>
                     {project.desc}
                   </p>
                 </Link>
