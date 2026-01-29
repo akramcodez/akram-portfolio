@@ -117,6 +117,14 @@ export const repos = [
         title: "feat: switch from Prettier to Biome for formatting",
         url: "https://github.com/Nano-Collective/nanocoder/pull/139",
       },
+      {
+        title: "feat: add CLI test harness for non-interactive mode",
+        url: "https://github.com/Nano-Collective/nanocoder/pull/154",
+      },
+      {
+        title: "feat: add /settings command for interactive command menu",
+        url: "https://github.com/Nano-Collective/nanocoder/pull/320",
+      }
     ],
   },
   {
