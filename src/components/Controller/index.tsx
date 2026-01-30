@@ -13,6 +13,7 @@ type Props = {
 const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
   const { theme } = useTheme();
   const [screenWidth, setScreenWidth] = useState(0);
+  const [effectiveActiveSection, setEffectiveActiveSection] = useState(activeSection);
 
   useEffect(() => {
     const updateScreenWidth = () => {
@@ -26,12 +27,31 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
     return () => window.removeEventListener("resize", updateScreenWidth);
   }, []);
 
+  // Watch URL for project hashes and override active section
+  useEffect(() => {
+    const checkForProject = () => {
+      const hash = window.location.hash;
+      if (hash.includes("project")) {
+        setEffectiveActiveSection("my-work");
+      } else {
+        setEffectiveActiveSection(activeSection);
+      }
+    };
+
+    // Initial check
+    checkForProject();
+
+    // Listen for hash changes
+    window.addEventListener("hashchange", checkForProject);
+    return () => window.removeEventListener("hashchange", checkForProject);
+  }, [activeSection]);
+
   const borderClass = theme === "dark" ? "border-white/80" : "border-black";
 
   const getActiveButtonClass = (
     section: "meet-me" | "skills" | "my-work" | "socials"
   ) => {
-    const isActive = activeSection === section;
+    const isActive = effectiveActiveSection === section;
     if (theme === "dark") {
       return isActive
         ? "border-white/80 text-white/90 hover:bg-white/90 hover:text-black font-semibold"
@@ -54,7 +74,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             height={40}
             src="/profilePic.jpg"
             alt="Sk Akram"
-            className={`w-14 h-14 2xl:w-20 2xl:h-20 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
+            className={`w-16 h-16 2xl:w-20 2xl:h-20 rounded-2xl object-cover md:mb-3 border-[0.095rem] ${borderClass}`}
           />
         )}
         <div className="flex flex-col items-start ml-4 md:ml-0">
@@ -70,7 +90,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
         <div className="w-full flex md:hidden gap-2">
           <button
             onClick={() => onSectionChange?.("meet-me")}
-            className={`w-full py-1 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
               "meet-me"
             )}`}
           >
@@ -78,7 +98,7 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           </button>
           <button
             onClick={() => onSectionChange?.("skills")}
-            className={`w-full py-1 text-xs font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
+            className={`w-full py-1 text-sm font-semibold border rounded-full transition-all duration-300 ease-in-out cursor-pointer ${getActiveButtonClass(
               "skills"
             )}`}
           >

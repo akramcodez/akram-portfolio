@@ -5,10 +5,12 @@ import { CiLocationArrow1 } from "react-icons/ci";
 import { GoLinkExternal } from "react-icons/go";
 import { projects } from "@/data/data";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Projects = () => {
   const { theme } = useTheme();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const router = useRouter();
 
   const getProjectClass = () => {
     const baseClass =
@@ -56,11 +58,14 @@ const Projects = () => {
               onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="flex items-center md:justify-between">
-                <Link
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 group"
+                <div
+                  onClick={() => {
+                    const slug = project.name
+                      .toLowerCase()
+                      .replace(/\s+/g, "-");
+                    window.location.hash = `#project-${slug}`;
+                  }}
+                  className="flex-1 group cursor-pointer"
                 >
                   <div className="flex items-center gap-2 md:gap-2.5 md:mb-1">
                     <h3 className="text-base md:text-lg font-semibold tracking-wide">
@@ -75,7 +80,7 @@ const Projects = () => {
                   <p className={` text-xs sm:text-sm font-semibold ${getDescClass()}`}>
                     {project.desc}
                   </p>
-                </Link>
+                </div>
                 <Link
                   href={project.liveLink}
                   target="_blank"

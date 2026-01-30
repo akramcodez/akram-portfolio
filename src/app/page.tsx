@@ -14,6 +14,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import Experience from "@/components/Main/Experience";
 import Link from "next/link";
+import ProjectDetail from "@/components/Main/ProjectDetail";
 import {
   PanelLeftClose,
   PanelLeftOpen,
@@ -37,6 +38,7 @@ export default function Page() {
     "meet-me" | "skills" | "my-work" | "socials"
   >("meet-me");
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const { theme } = useTheme();
   const mainRef = useRef<HTMLDivElement | null>(null);
   const normalizeHash = (raw: string) => {
@@ -83,23 +85,49 @@ export default function Page() {
 
   useEffect(() => {
     const initial = normalizeHash(window.location.hash || "");
-    if (!initial || !VALID_SECTIONS.has(initial)) {
+    if (!initial || (!VALID_SECTIONS.has(initial) && !initial.startsWith("project-"))) {
       window.history.replaceState(null, "", "#meet-me");
       setActiveSection("meet-me");
     } else if (VALID_SECTIONS.has(initial)) {
       setActiveSection(initial as typeof activeSection);
+    } else if (initial.startsWith("project-")) {
+      setActiveSection("my-work");
     }
 
     const applyHash = () => {
       const h = normalizeHash(window.location.hash || "");
       if (h && VALID_SECTIONS.has(h)) {
         setActiveSection(h as typeof activeSection);
+      } else if (h && h.startsWith("project-")) {
+        setActiveSection("my-work");
       }
     };
 
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
   }, []);
+
+  // Handle Hash change for projects
+  useEffect(() => {
+    const handleHashCheck = () => {
+      const hash = window.location.hash.slice(1); // remove #
+      if (hash.startsWith("project-")) {
+        const projectName = hash.replace("project-", "");
+        setSelectedProject(projectName);
+        setActiveSection("my-work");
+      } else {
+        setSelectedProject(null);
+      }
+    };
+
+    // Initial check
+    handleHashCheck();
+
+    window.addEventListener("hashchange", handleHashCheck);
+    return () => window.removeEventListener("hashchange", handleHashCheck);
+  }, []);
+
+
 
   const scrollToSection = (section: typeof activeSection) => {
     const container = mainRef.current;
@@ -119,6 +147,15 @@ export default function Page() {
   };
 
   const handleSectionChange = (section: typeof activeSection) => {
+    if (selectedProject) {
+      setSelectedProject(null);
+      window.location.hash = `#${section}`;
+      setTimeout(() => {
+        scrollToSection(section);
+      }, 100);
+      return;
+    }
+    
     if (activeSection === section) {
       scrollToSection(section);
     } else {
@@ -138,6 +175,10 @@ export default function Page() {
 
   useEffect(() => {
     const currentHash = normalizeHash(window.location.hash || "");
+    // Don't override project URLs - they have their own hash format
+    if (currentHash.startsWith("project-")) {
+      return;
+    }
     if (activeSection !== currentHash) {
       const newUrl = `#${activeSection}`;
       window.history.replaceState(null, "", newUrl);
@@ -243,11 +284,26 @@ export default function Page() {
               >
                 <div className="h-full w-full flex items-center justify-center">
                   <div className="h-full w-full">
-                    <MeetMe />
-                    <Skills />
-                    <Experience />
-                    <Projects />
-                    <Socials />
+                    {selectedProject ? (
+                      <ProjectDetail
+                        projectId={selectedProject}
+                        onBack={() => {
+                          setSelectedProject(null);
+                          window.location.hash = "#my-work";
+                          setTimeout(() => {
+                            scrollToSection("my-work");
+                          }, 100);
+                        }}
+                      />
+                    ) : (
+                      <>
+                        <MeetMe />
+                        <Skills />
+                        <Experience />
+                        <Projects />
+                        <Socials />
+                      </>
+                    )}
                   </div>
                 </div>
               </main>
