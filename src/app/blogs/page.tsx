@@ -4,15 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import QuickMenu from "@/components/QuickMenu";
+import { blogPosts as posts } from "@/data/blogPosts";
 
-// Blog posts data - add your future articles here
-const posts = [
-  {
-    slug: "open-source-decoded",
-    title: "Open Source Decoded: Your First Step Into Open Source",
-    excerpt: "If you keep hearing about open source and feel curious about what it is, how it can help you, its benefits, how to start contributing, and how to find good projects - you're in the right place.",
-  },
-];
 
 export default function BlogsPage() {
   const { theme } = useTheme();
