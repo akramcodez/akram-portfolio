@@ -167,19 +167,19 @@ export default function Page() {
           </div> */}
 
           <div
-            className={`w-full h-full flex flex-col md:flex-row items-end transition-all duration-500 ease-in-out gap-3 ${isCollapsed ? "md:gap-0" : ""}`}
+            className={`w-full h-full flex flex-col md:flex-row items-end md:items-stretch transition-all duration-500 ease-in-out gap-3 ${isCollapsed ? "md:gap-0" : ""}`}
           >
             <div
               className={` 
-                 flex flex-col gap-2 items-end transition-all duration-500 ease-in-out overflow-hidden
-                 ${isCollapsed ? "w-full md:w-0 max-h-0 md:max-h-full md:h-full opacity-0 pointer-events-none mb-0" : "w-full h-auto md:w-[18%] md:min-w-56 max-h-[600px] md:max-h-full opacity-100 mb-0"}
+                 flex flex-col gap-2 items-end justify-end transition-all duration-500 ease-in-out overflow-hidden
+                 ${isCollapsed ? "w-full md:w-0 max-h-0 md:max-h-full md:h-full opacity-0 pointer-events-none mb-0" : "w-full h-auto md:w-[18%] md:min-w-56 max-h-[600px] md:max-h-full md:h-full opacity-100 mb-0"}
               `}
             >
               <div className={`w-full hidden md:flex items-end`}>
                 <ControllerHeader />
               </div>
               <div
-                className={`w-full h-full md:w-full 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
+                className={`w-full h-auto md:h-fit md:w-full 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
               >
                 <Controller
                   activeSection={activeSection}
@@ -189,7 +189,7 @@ export default function Page() {
             </div>
 
             <div
-              className={`w-full flex-1 sm:h-full border-[0.095rem] flex relative ${isCollapsed ? "rounded-t-2xl" : ""} rounded-b-2xl md:rounded-b-none md:rounded-t-none overflow-hidden ${borderClass} transition-all duration-300 min-h-0`}
+              className={`w-full flex-1 sm:h-full border-[0.095rem] flex relative ${isCollapsed ? "rounded-t-2xl" : ""} rounded-b-2xl md:rounded-b-none md:rounded-t-none overflow-hidden ${borderClass} transition-all duration-500 min-h-0`}
             >
               <button
                 onClick={handleCollapseToggle}

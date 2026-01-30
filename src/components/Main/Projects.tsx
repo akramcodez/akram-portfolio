@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import { CiLocationArrow1 } from "react-icons/ci";
+import { GoLinkExternal } from "react-icons/go";
 import { projects } from "@/data/data";
 import Link from "next/link";
 
@@ -82,7 +83,7 @@ const Projects = () => {
                   className="ml-4"
                 >
                   <div className={getArrowClass(index)}>
-                    <span className="text-lg md:text-xl">→</span>
+                    <span className="text-lg md:text-xl"><GoLinkExternal /></span>
                   </div>
                 </Link>
               </div>
