@@ -2,18 +2,18 @@
 import Background from "@/components/Background";
 import Controller from "@/components/Controller";
 import ControllerHeader from "@/components/Controller/ControllerHeader";
-import { CiCoffeeCup } from "react-icons/ci";
+
 import MeetMe from "@/components/Main/MeetMe";
 import Skills from "@/components/Main/Skills";
 import QuickMenu from "@/components/QuickMenu";
 import Projects from "@/components/Main/Projects";
 import Socials from "@/components/Main/Socials";
 import Loading from "@/components/Loading";
-import { ThemeSelector } from "@/components/Theme/theme-selector";
+
 import { useTheme } from "next-themes";
 import { useEffect, useState, useRef } from "react";
 import Experience from "@/components/Main/Experience";
-import Link from "next/link";
+
 import ProjectDetail from "@/components/Main/ProjectDetail";
 import {
   PanelLeftClose,

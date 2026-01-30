@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ArrowLeft, ExternalLink, Github, Database, Terminal, Code2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -17,7 +17,7 @@ const OsFit = ({ onBack }: Props) => {
     theme === "dark"
       ? "bg-white/5 hover:bg-white/10"
       : "bg-black/5 hover:bg-black/10";
-  const iconClass = theme === "dark" ? "text-white/70" : "text-black/70";
+
 
   return (
     <div className="flex flex-col h-full w-full px-4 pt-20 pr-2 pb-4 md:p-12 md:pr-10 animate-in fade-in zoom-in duration-300 overflow-y-auto scrollbar-thin">
@@ -108,7 +108,7 @@ const OsFit = ({ onBack }: Props) => {
             <div className={`p-4 rounded-2xl border ${borderClass} ${theme === "dark" ? "bg-white/5" : "bg-black/5"}`}>
               <h3 className="font-semibold mb-2 text-sm md:text-base opacity-90">Explain Code</h3>
               <p className="text-xs md:text-sm opacity-70">
-                Don't understand a complex file? OsFit breaks down the logic, explaining functions and flowcharts to help you grasp the codebase quickly.
+                Don&apos;t understand a complex file? OsFit breaks down the logic, explaining functions and flowcharts to help you grasp the codebase quickly.
               </p>
             </div>
             <div className={`p-4 rounded-2xl border ${borderClass} ${theme === "dark" ? "bg-white/5" : "bg-black/5"}`}>

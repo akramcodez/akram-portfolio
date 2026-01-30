@@ -52,7 +52,7 @@ export default function ArticlePage() {
             </h1>
             <QuickMenu />
           </div>
-          <p className="text-center opacity-70">This article doesn't exist.</p>
+          <p className="text-center opacity-70">This article doesn&apos;t exist.</p>
         </div>
       </div>
     );
