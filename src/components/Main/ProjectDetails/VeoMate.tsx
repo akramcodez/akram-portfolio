@@ -124,7 +124,7 @@ const VeoMate = ({ onBack }: Props) => {
 
         {/* Status */}
         <div className={`p-5 rounded-2xl border ${borderClass} ${theme === "dark" ? "bg-white/5" : "bg-black/5"}`}>
-          <h3 className="font-semibold text-sm md:text-base mb-2">🚧 Currently in Development</h3>
+          <h3 className="font-semibold text-sm md:text-base mb-2">Currently in Development</h3>
           <p className="text-xs md:text-sm opacity-70">
             We are currently in active development. Stay tuned for updates as we build the future of work.
           </p>
