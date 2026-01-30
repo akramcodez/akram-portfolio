@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MoreVertical, Star, Sun, Moon } from "lucide-react";
 import { TbMenu3 } from "react-icons/tb";
 import { LuHeartHandshake } from "react-icons/lu";
+import { RiArticleLine } from "react-icons/ri";
 
 export default function QuickMenu({ fromSection }: { fromSection?: string }) {
   const { theme, setTheme } = useTheme();
@@ -78,6 +79,15 @@ export default function QuickMenu({ fromSection }: { fromSection?: string }) {
           <span className={textClass}>Star Repo</span>
         </Link>
 
+        {/* Blogs */}
+        <Link
+          href={fromSection ? `/blogs?from=${fromSection}` : "/blogs"}
+          className={menuItemClass}
+        >
+          <RiArticleLine className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+          <span className={textClass}>Blogs</span>
+        </Link>
+        
         {/* Support Me */}
         <Link
           href={fromSection ? `/support?from=${fromSection}` : "/support"}
