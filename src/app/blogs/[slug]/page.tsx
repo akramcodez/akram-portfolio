@@ -5,6 +5,10 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 import QuickMenu from "@/components/QuickMenu";
+import { CiLinkedin } from "react-icons/ci";
+import { FaXTwitter } from "react-icons/fa6";
+import { AiFillMediumSquare } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
 import { blogPosts } from "@/data/blogPosts";
 
 
@@ -33,6 +37,8 @@ export default function ArticlePage() {
       : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl";
 
   const borderClass = theme === "dark" ? "border-white/20" : "border-black/20";
+  
+  const iconClass = theme === "dark" ? "text-white/70 hover:text-white" : "text-black/60 hover:text-black";
 
   const backHref = fromSection ? `/blogs?from=${fromSection}` : "/blogs";
 
@@ -127,6 +133,42 @@ export default function ArticlePage() {
             );
           })}
         </article>
+
+        {/* Footer Socials */}
+        <div className="flex justify-end items-center gap-3 mt-12">
+            <Link
+              href="https://x.com/akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <FaXTwitter className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://github.com/akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <FaGithub className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://medium.com/@akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <AiFillMediumSquare className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <CiLinkedin className="w-5 h-5" /> 
+            </Link>
+        </div>
       </div>
     </div>
   );

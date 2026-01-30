@@ -4,6 +4,10 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import QuickMenu from "@/components/QuickMenu";
+import { CiLinkedin } from "react-icons/ci";
+import { FaXTwitter } from "react-icons/fa6";
+import { AiFillMediumSquare } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
 import { blogPosts as posts } from "@/data/blogPosts";
 
 
@@ -26,10 +30,12 @@ export default function BlogsPage() {
     theme === "dark"
       ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
       : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl";
+  
+  const iconClass = theme === "dark" ? "text-white/70 hover:text-white" : "text-black/60 hover:text-black";
 
   return (
     <div className="min-h-screen animate-blur-in relative">
-      <div className={`max-w-3xl mx-auto relative z-10 border-x-2 ${borderClass} px-4 md:px-8 py-8 md:py-12 min-h-screen`}>
+      <div className={`max-w-3xl mx-auto relative z-10 border-x-2 ${borderClass} px-4 md:px-8 py-8 md:py-12 min-h-screen flex flex-col`}>
         {/* Header */}
         <div className="flex items-center justify-between mb-8 md:mb-12">
           <button
@@ -64,6 +70,42 @@ export default function BlogsPage() {
               <p className="text-sm md:text-base opacity-70 line-clamp-2">{post.excerpt}</p>
             </Link>
           ))}
+        </div>
+
+        {/* Footer Socials */}
+        <div className="flex justify-end items-center gap-3 mt-auto">
+            <Link
+              href="https://x.com/akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <FaXTwitter className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://github.com/akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <FaGithub className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://medium.com/@akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <AiFillMediumSquare className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <CiLinkedin className="w-5 h-5" /> 
+            </Link>
         </div>
       </div>
     </div>
