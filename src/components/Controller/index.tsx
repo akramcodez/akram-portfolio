@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 import Image from "next/image";
 
 type Props = {
@@ -124,6 +125,8 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
           </button>
         </div>
 
+
+
         {buttons.slice(0, 2).map((label, index) => (
           <button
             key={label}
@@ -150,6 +153,8 @@ const Controller = ({ activeSection = "meet-me", onSectionChange }: Props) => {
             {label}
           </button>
         ))}
+        
+
       </div>
     </div>
   );

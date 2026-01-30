@@ -46,10 +46,9 @@ export default function SupportPage() {
 
   return (
     <div className="min-h-screen p-4 md:p-8 lg:p-12 animate-blur-in">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center justify-between mb-12">
             <button
               onClick={() => {
                 console.log("Back button clicked, fromSection:", fromSection);
@@ -70,18 +69,11 @@ export default function SupportPage() {
             >
               <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
             </button>
-
+            <h1 className="text-2xl md:text-4xl font-bold tracking-wider">
+              SUPPORT
+            </h1>
             <QuickMenu />
           </div>
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-wider">
-              SUPPORT MY WORK
-            </h1>
-            <p className="text-sm md:text-base opacity-70 mt-2">
-              Your support helps me continue building amazing projects
-            </p>
-          </div>
-        </div>
 
         {/* Payment Options */}
         <div className="grid md:grid-cols-2 gap-6">

@@ -217,7 +217,7 @@ export default function Page() {
               `}
             >
               <div className={`w-full hidden md:flex items-end`}>
-                <ControllerHeader />
+                <ControllerHeader activeSection={activeSection} />
               </div>
               <div
                 className={`w-full h-auto md:h-fit md:w-full 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}

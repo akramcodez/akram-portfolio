@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
-import { RiTwitterXLine } from "react-icons/ri";
+import { RiTwitterXLine, RiArticleLine } from "react-icons/ri";
 import { FiLinkedin, FiGithub } from "react-icons/fi";
 import { TbMailUp } from "react-icons/tb";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
-const ControllerHeader = () => {
+type Props = {
+  activeSection?: string;
+};
+
+const ControllerHeader = ({ activeSection }: Props) => {
   const { theme } = useTheme();
 
   const iconColorClass = theme === "dark" ? "text-white/70" : "text-black/60";
@@ -53,7 +57,7 @@ const ControllerHeader = () => {
               className={`h-5 w-5 ${iconColorClass} ${iconHoverClass}`}
             />
           </Link>
-          <Link
+          {/* <Link
             target="_blank"
             rel="noopener noreferrer"
             href="https://mail.google.com/mail/u/0/?fs=1&to=skakram00zz@gmail.com&tf=cm"
@@ -61,6 +65,14 @@ const ControllerHeader = () => {
           >
             <TbMailUp
               className={`h-5 w-5  ${iconColorClass} ${iconHoverClass}`}
+            />
+          </Link> */}
+          <Link
+            href={`/blogs?from=${activeSection || "meet-me"}`}
+            className="cursor-pointer"
+          >
+            <RiArticleLine
+              className={`h-5 w-5 ${iconColorClass} ${iconHoverClass}`}
             />
           </Link>
         </div>
