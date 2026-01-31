@@ -3,10 +3,11 @@ import React from "react";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 import QuickMenu from "@/components/QuickMenu";
-import { CiLinkedin } from "react-icons/ci";
+import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { AiFillMediumSquare } from "react-icons/ai";
+import { IoLogoMedium } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { blogPosts as posts } from "@/data/blogPosts";
 
@@ -16,6 +17,7 @@ export default function BlogsPage() {
   const [mounted, setMounted] = React.useState(false);
   const [fromSection, setFromSection] = React.useState<string | null>(null);
 
+  const router = useRouter(); 
   React.useEffect(() => {
     setMounted(true);
     const params = new URLSearchParams(window.location.search);
@@ -41,9 +43,9 @@ export default function BlogsPage() {
           <button
             onClick={() => {
               if (fromSection) {
-                window.location.href = `/#${fromSection}`;
+                router.push(`/#${fromSection}`);
               } else {
-                window.location.href = "/";
+                router.push("/");
               }
             }}
             className={`inline-flex items-center justify-center p-1.5 md:p-2 rounded-full border transition-all duration-300 ease-in-out cursor-pointer ${bgClass}`}
@@ -74,38 +76,38 @@ export default function BlogsPage() {
 
         {/* Footer Socials */}
         <div className="flex justify-end items-center gap-3 mt-auto">
-            <Link
-              href="https://x.com/akramcodez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-            >
-              <FaXTwitter className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://github.com/akramcodez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-            >
-              <FaGithub className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://medium.com/@akramcodez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-            >
-              <AiFillMediumSquare className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/akramcodez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-            >
-              <CiLinkedin className="w-5 h-5" /> 
-            </Link>
+          <Link
+            href="https://www.linkedin.com/in/akramcodez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={iconClass}
+          >
+            <FaLinkedin className="w-5 h-5" /> 
+          </Link>
+          <Link
+            href="https://medium.com/@akramcodez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={iconClass}
+          >
+            <IoLogoMedium className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://github.com/akramcodez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={iconClass}
+          >
+            <FaGithub className="w-5 h-5" />
+          </Link>
+          <Link
+            href="https://x.com/akramcodez"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={iconClass}
+          >
+            <FaXTwitter className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </div>

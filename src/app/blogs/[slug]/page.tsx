@@ -5,9 +5,9 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 import QuickMenu from "@/components/QuickMenu";
-import { CiLinkedin } from "react-icons/ci";
+import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { AiFillMediumSquare } from "react-icons/ai";
+import { IoLogoMedium } from "react-icons/io5";
 import { FaGithub } from "react-icons/fa";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -136,13 +136,21 @@ export default function ArticlePage() {
 
         {/* Footer Socials */}
         <div className="flex justify-end items-center gap-3 mt-12">
-            <Link
-              href="https://x.com/akramcodez"
+          <Link
+              href="https://www.linkedin.com/in/akramcodez"
               target="_blank"
               rel="noopener noreferrer"
               className={iconClass}
             >
-              <FaXTwitter className="w-5 h-5" />
+              <FaLinkedin className="w-5 h-5" /> 
+            </Link>
+            <Link
+              href="https://medium.com/@akramcodez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={iconClass}
+            >
+              <IoLogoMedium className="w-5 h-5" />
             </Link>
             <Link
               href="https://github.com/akramcodez"
@@ -153,20 +161,12 @@ export default function ArticlePage() {
               <FaGithub className="w-5 h-5" />
             </Link>
             <Link
-              href="https://medium.com/@akramcodez"
+              href="https://x.com/akramcodez"
               target="_blank"
               rel="noopener noreferrer"
               className={iconClass}
             >
-              <AiFillMediumSquare className="w-5 h-5" />
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/akramcodez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={iconClass}
-            >
-              <CiLinkedin className="w-5 h-5" /> 
+              <FaXTwitter className="w-5 h-5" />
             </Link>
         </div>
       </div>
