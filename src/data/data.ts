@@ -92,6 +92,15 @@ export const projects = [
 
 export const repos = [
   {
+    name: "openclaw",
+    prs: [
+      {
+        title: "fix: L2-normalize local embedding vectors to fix semantic search",
+        url: "https://github.com/openclaw/openclaw/pull/5332",
+      },
+    ],
+  },
+  {
     name: "browser-use",
     prs: [
       {
