@@ -101,8 +101,8 @@ export default function ArticlePage() {
             // Handle bullet points
             if (trimmedBlock.startsWith("• ")) {
               return (
-                <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-sm md:text-base">
-                  <span className="mr-2 md:mr-3 text-lg leading-[1.6rem]">•</span>
+                <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-[13px] md:text-base">
+                  <span className="mr-2 md:mr-3 text-base md:text-lg leading-[1.4rem] md:leading-[1.6rem]">•</span>
                   <p className="flex-1">
                     {renderInlineMarkdown(trimmedBlock.replace("• ", ""))}
                   </p>
@@ -115,8 +115,8 @@ export default function ArticlePage() {
               const match = trimmedBlock.match(/^(\d+)\.\s(.+)/);
               if (match) {
                 return (
-                  <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-sm md:text-base">
-                    <span className="mr-2 md:mr-3 font-semibold min-w-[1.25rem] md:min-w-[1.5rem]">{match[1]}.</span>
+                  <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-[13px] md:text-base">
+                    <span className="mr-2 md:mr-3 font-semibold min-w-[1.1rem] md:min-w-[1.5rem] text-[13px] md:text-base">{match[1]}.</span>
                     <p className="flex-1">
                       {renderInlineMarkdown(match[2])}
                     </p>

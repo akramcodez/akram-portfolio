@@ -65,12 +65,15 @@ Now assume you've found a project **XYZ** that matches your tech stack and inter
 The **very first step** is understanding the repository. Ask yourself:
 
 • What problem does this project solve?
+
 • Why do people use it? You don't need deep knowledge just a **basic idea** of what the project does.
 
 Once you understand the project, **fork the repository** and then **clone it to your local machine**. Good repositories always have a **README** and usually a **CONTRIBUTING guide**. These files explain:
 
 • How to set up the project locally
+
 • Rules for contributing
+
 • Code style and guidelines
 
 Reading these is **very important**.
@@ -80,7 +83,9 @@ Next, go to the **Issues** section. If you're a beginner, start by looking for l
 If you still can't find an issue, don't worry. Use the product or application yourself. While using it, try to find **small problems** for example:
 
 • Padding or margin issues
+
 • Small UI bugs
+
 • Typos or unclear text
 
 Create an issue for it and politely ask the maintainer if you can work on it. Whether they allow it depends on the repo's workflow, but many maintainers appreciate this.
@@ -92,6 +97,7 @@ Now create a **new branch** for your work, like fix/header-padding. Search for t
 Once done, write a **clear commit message**, push your branch, and create a **pull request**. In the PR description, clearly explain:
 
 • What issue you fixed
+
 • How you fixed it
 
 After opening the PR, **stay active**. Maintainers may request changes respond politely, make updates, and push fixes.
