@@ -83,6 +83,16 @@ export default function ArticlePage() {
 
         {/* Article Content */}
         <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none">
+          {post.image && (
+            <div className={`hidden md:block mb-8 rounded-2xl overflow-hidden border ${borderClass} shadow-2xl`}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src={post.image} 
+                alt={post.title} 
+                className="w-full h-auto object-cover m-0" 
+              />
+            </div>
+          )}
           <h1 className="text-2xl md:text-4xl font-bold tracking-tight mb-6 md:mb-8 text-center md:text-left">
             {post.title}
           </h1>
