@@ -95,6 +95,14 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: don't lowercase Slack channel IDs",
+        url: "https://github.com/openclaw/openclaw/pull/14055",
+      },
+      {
+        title: "fix: preserve original filename for WhatsApp inbound documents",
+        url: "https://github.com/openclaw/openclaw/pull/12691",
+      },
+      {
         title: "fix: L2-normalize local embedding vectors to fix semantic search",
         url: "https://github.com/openclaw/openclaw/pull/5332",
       },
