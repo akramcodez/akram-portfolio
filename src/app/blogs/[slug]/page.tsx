@@ -84,7 +84,7 @@ export default function ArticlePage() {
         {/* Article Content */}
         <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none">
           {post.image && (
-            <div className={`hidden md:block mb-8 rounded-2xl overflow-hidden border ${borderClass} shadow-2xl`}>
+            <div className={`mb-6 md:mb-8 rounded-2xl overflow-hidden border ${borderClass} shadow-2xl`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
                 src={post.image} 
@@ -135,6 +135,21 @@ export default function ArticlePage() {
               }
             }
             
+            // Handle Images
+            if (trimmedBlock.startsWith("IMAGE: ")) {
+              const imageUrl = trimmedBlock.replace("IMAGE: ", "").trim();
+              return (
+                <div key={index} className={`mb-8 rounded-2xl overflow-hidden border ${borderClass} shadow-xl active:scale-[0.99] transition-transform duration-300`}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src={imageUrl} 
+                    alt="Article visual" 
+                    className="w-full h-auto object-cover m-0" 
+                  />
+                </div>
+              );
+            }
+
             // Regular paragraphs
             return (
               <p key={index} className="mb-4 opacity-80 leading-relaxed text-sm md:text-lg">

@@ -8,6 +8,85 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "history-of-programming",
+    title: "History of Programming: How We Taught Machines to Think",
+    excerpt: "Programming didn't start with JavaScript or AI. It started with a question so simple it almost sounds stupid: What if we could teach machines to think?",
+    image: "/blogs/programminghistory.png",
+    content: `Programming didn't start with JavaScript, Python, or AI. It started with a question so simple it almost sounds stupid: **What if we could teach machines to think?** This is the story of how we tried, failed, adapted, argued endlessly and somehow built the digital world we now live in.
+
+## Before Computers, There Was Nothing
+
+Before laptops, servers, and smartphones, there was silence. No code. No software. No bugs. Then humans invented **numbers**. First came **one**. Later came **zero** a number so empty that people dismissed it as useless. History would prove that to be one of our worst assumptions.
+
+Thousands of years later, electricity entered the picture. Electricity has only two states: **on** and **off**. Someone noticed the similarity. On looked like **1**. Off looked like **0**. That was the moment we accidentally created the foundation of computing.
+
+IMAGE: /blogs/onoff.png
+
+## Teaching Machines Using Lightning
+
+Early computers didn’t understand words, symbols, or intentions. They understood **voltage**. Each tiny decision - on or off - became a **bit**. And when engineers grouped eight of those bits together, they unlocked numbers, characters, and meaning itself.
+
+They called this group a **byte** - misspelled on purpose, because the future always sounds better when it’s slightly wrong. Now machines could count. And once machines could count, they could calculate. And once they could calculate, humans realized they could automate thinking.
+
+## When Code Was Painful
+
+Early programmers worked directly with ones and zeros. This wasn’t creativity it was punishment. So assembly language was invented. Instead of raw binary, programmers could use symbolic commands. It was still difficult, but at least it felt human.
+
+Then came a revolutionary idea: **What if programmers wrote code for humans and let machines translate it themselves?** The compiler was born.
+
+IMAGE: /blogs/firstcompiler.png
+
+A compiler takes readable code and turns it into machine instructions. You never have to see the ones and zeros again and computers couldn’t be happier.
+
+## High-Level Languages Changed Everything
+
+With compilers came **high-level programming languages**. Languages designed for scientists. Languages designed for businesses. Languages designed for governments. Some of this code still runs global financial systems today. Nobody fully understands it. Nobody dares rewrite it.
+
+But it works. And that’s enough.
+
+## When Programming Got Philosophical
+
+Then things got strange in a good way. Some languages treated **code as data**. Programs could inspect themselves. Memory could clean itself up automatically. Execution could happen live.
+
+Programming stopped being just about controlling machines and started becoming about **expressing ideas**. In the late 1960s and early 1970s, one idea gained universal agreement: **Readable code matters.**
+
+## Power, Speed, and Dangerous Freedom
+
+Then came **C**.
+
+IMAGE: /blogs/ccreator.png
+
+C was fast. C was powerful. C trusted the programmer completely, sometimes too much. It allowed direct access to memory, which meant you could build operating systems… or crash everything instantly.
+
+Using C, developers built Unix a philosophy disguised as an operating system. Small programs. One purpose each. Connected through simple pipes. This idea shaped everything that followed.
+
+## Complexity Took Over
+
+Someone eventually asked: “What if C, but with more abstraction?” That question created **C++** objects, classes, inheritance, and endless debates.
+
+Despite the arguments, C++ built much of the modern world: game engines, browsers, databases, and infrastructure that still powers the internet today.
+
+## A Language Explosion
+
+The following decades were chaos - in the best way. New programming languages appeared everywhere. Each one tried to fix something broken in the last. Each one introduced new trade-offs.
+
+Then the web happened. JavaScript was meant to be temporary. A small scripting language for browsers. It now runs servers, phones, databases, and even spacecraft. Nobody planned this.
+
+## The “Programming Is Dead” Panic
+
+Recently, something new arrived.
+
+IMAGE: /blogs/allais.png
+
+Machines started **suggesting code**. Then **writing code**. Then generating entire applications.
+
+People panicked. “Programming is dead,” they said. But they were wrong. Typing code was never the job. Syntax was never the job. The job was - and always has been - **thinking**.
+
+Understanding problems. Breaking reality into steps. Modeling systems. Making trade-offs. Deciding what matters. The keyboard has changed before. It will change again.
+
+Programming isn’t dying. It’s evolving, just like it always has...`,
+  },
+  {
     slug: "bitcoin-from-nothing-to-decentralized-money",
     title: "Bitcoin: From Nothing to Decentralized Money",
     excerpt: "In 2008, while the world was busy watching banks fail, a small piece of code quietly appeared on the internet. This is the story of Bitcoin's journey to becoming digital gold.",
