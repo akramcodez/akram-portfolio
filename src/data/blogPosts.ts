@@ -9,7 +9,7 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: "history-of-programming",
-    title: "History of Programming: How We Taught Machines to Think",
+    title: "History of Programming...",
     excerpt: "Programming didn't start with JavaScript or AI. It started with a question so simple it almost sounds stupid: What if we could teach machines to think?",
     image: "/blogs/programminghistory.png",
     content: `Programming didn't start with JavaScript, Python, or AI. It started with a question so simple it almost sounds stupid: **What if we could teach machines to think?** This is the story of how we tried, failed, adapted, argued endlessly and somehow built the digital world we now live in.
