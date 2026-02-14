@@ -95,6 +95,14 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: allow device-paired clients to retrieve TTS API keys",
+        url: "https://github.com/openclaw/openclaw/pull/14613",
+      },
+      {
+        title: "feat: expose /compact command in Telegram native menu",
+        url: "https://github.com/openclaw/openclaw/pull/10352",
+      },
+      {
         title: "fix: don't lowercase Slack channel IDs",
         url: "https://github.com/openclaw/openclaw/pull/14055",
       },
