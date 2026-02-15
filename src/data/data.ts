@@ -95,6 +95,10 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: make sensitive field whitelist case-insensitive",
+        url: "https://github.com/openclaw/openclaw/pull/16148",
+      },
+      {
         title: "fix: allow device-paired clients to retrieve TTS API keys",
         url: "https://github.com/openclaw/openclaw/pull/14613",
       },
