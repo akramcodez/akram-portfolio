@@ -8,9 +8,92 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "einstein-vs-the-education-system",
+    title: "Einstein vs the Education System",
+    excerpt:
+      "Imagine a student who keeps asking why when the teacher only wants a what. Unimpressed by memorized answers, restless in rigid classrooms, slowly suffocated by a system that values silence over curiosity.",
+    image: "/blogs/einstein-cover.jpg",
+    content: `Imagine a student who keeps asking **why** when the teacher only wants a **what**.
+
+Unimpressed by memorized answers, restless in rigid classrooms, slowly suffocated by a system that values silence over curiosity.
+
+Now imagine that same student growing up to reshape how we understand time, space, and reality itself.
+
+That student was **Albert Einstein**.
+
+IMAGE: /blogs/einstein-1.png
+
+And his story exposes a flaw in education that still exists today.
+
+## A System Built for Factories, Not Minds
+
+Modern schooling didn’t grow out of a love for learning. It grew out of the Industrial Revolution. Its priorities were efficiency and uniformity: fixed schedules, standardized curricula, obedience, repetition.
+
+This worked when society needed factory workers who could follow instructions without deviation. But human minds were never meant to be standardized.
+
+IMAGE: /blogs/einstein-2.jpg
+
+Einstein didn’t fit this mold not because he lacked ability, but because he refused to reduce thinking to repetition. He wanted reasons, not rules. To a system that equates discipline with intelligence, that kind of thinking looks like defiance.
+
+## Why Einstein Struggled in School
+
+Einstein didn’t struggle with learning. He struggled with **meaningless learning**.
+
+Memorization replaced understanding. Curiosity became disruption. Questions beyond the syllabus were discouraged. School demanded answers without context; Einstein wanted meaning.
+
+He believed learning should feel like exploration, not obedience. When learning is forced, the mind doesn’t fail it resists, because it senses that something essential is missing.
+
+## One Size Fits All, Even Though No Mind Is the Same
+
+Every mind works differently. Some think visually. Some learn by doing. Some need silence, others movement. Yet education moves at one speed, toward one narrow definition of success.
+
+Einstein’s mind was built for imagination and abstraction. There was no space for that in a system obsessed with uniform outcomes. So he was labeled average. Difficult. Unremarkable.
+
+History disagreed.
+
+## Thought Experiments vs Standardized Tests
+
+Einstein didn’t think in exams. He thought in images.
+
+He imagined riding a beam of light. He imagined time behaving differently for different observers. He imagined gravity as curved space, not a force.
+
+These ideas didn’t come from test preparation. They came from freedom to think slowly and deeply.
+
+Standardized tests reward speed and recall. Einstein’s breakthroughs came from patience, imagination, and mental play. Even the inventor of standardized testing later admitted such tests were too crude to measure intelligence yet we built entire systems around them.
+
+## His Genius Emerged Outside the Classroom
+
+After school, Einstein didn’t step into academic success. The system still didn’t recognize him. So he worked at a patent office.
+
+Away from exams, rankings, and rigid expectations, he finally had space to think. It was there outside formal education that he produced work that changed physics forever.
+
+The system didn’t create Einstein’s genius.
+It simply failed to destroy it.
+
+## What This Really Tells Us
+
+This isn’t about rejecting education or glorifying rebellion. It’s about acknowledging an uncomfortable truth:
+
+IMAGE: /blogs/einstein-3.jpg
+
+Education often rewards compliance more than curiosity, correct answers more than good questions, uniformity more than individuality.
+
+We no longer live in a factory economy. We live in a world shaped by creativity, problem-solving, and adaptability. The future doesn’t belong to those who memorize best. It belongs to those who can think clearly and question deeply.
+
+Einstein didn’t succeed because he fit into the system.
+He succeeded because he outgrew it.
+
+If we want a future driven by innovation, we must stop teaching students how to fit in and start giving them space to think.
+
+Thanks for reading.
+
+You can read more of my blogs at **x.com/akramcodez/articles** or on **medium.com/@akramcodez**`,
+  },
+  {
     slug: "history-of-programming",
     title: "History of Programming...",
-    excerpt: "Programming didn't start with JavaScript or AI. It started with a question so simple it almost sounds stupid: What if we could teach machines to think?",
+    excerpt:
+      "Programming didn't start with JavaScript or AI. It started with a question so simple it almost sounds stupid: What if we could teach machines to think?",
     image: "/blogs/programminghistory.png",
     content: `Programming didn't start with JavaScript, Python, or AI. It started with a question so simple it almost sounds stupid: **What if we could teach machines to think?** This is the story of how we tried, failed, adapted, argued endlessly and somehow built the digital world we now live in.
 
@@ -89,7 +172,8 @@ Programming isn’t dying. It’s evolving, just like it always has...`,
   {
     slug: "bitcoin-from-nothing-to-decentralized-money",
     title: "Bitcoin: From Nothing to Decentralized Money",
-    excerpt: "In 2008, while the world was busy watching banks fail, a small piece of code quietly appeared on the internet. This is the story of Bitcoin's journey to becoming digital gold.",
+    excerpt:
+      "In 2008, while the world was busy watching banks fail, a small piece of code quietly appeared on the internet. This is the story of Bitcoin's journey to becoming digital gold.",
     image: "/blogs/bitcoinhistory.png",
     content: `In 2008, while the world was busy watching banks fail and governments rush to clean up the mess, a small piece of code quietly appeared on the internet. No press release. No funding round. No famous founder. Just a document uploaded by someone using the name **Satoshi Nakamoto**.
 
@@ -167,7 +251,8 @@ That’s why its story matters.`,
   {
     slug: "open-source-decoded",
     title: "Open Source Decoded: Your First Step Into Open Source",
-    excerpt: "If you keep hearing about open source and feel curious about what it is, how it can help you, its benefits, how to start contributing, and how to find good projects - you're in the right place.",
+    excerpt:
+      "If you keep hearing about open source and feel curious about what it is, how it can help you, its benefits, how to start contributing, and how to find good projects - you're in the right place.",
     image: "/blogs/opensource.png",
     content: `If you keep hearing about **open source** and feel curious about what it is, how it can help you, its benefits, how to start contributing, and how to find good projects - so you’re in the right place.
 

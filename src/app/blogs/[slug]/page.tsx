@@ -82,7 +82,7 @@ export default function ArticlePage() {
         </div>
 
         {/* Article Content */}
-        <article className="prose prose-base md:prose-lg dark:prose-invert max-w-none">
+        <article className="prose prose-base sm:prose-lg dark:prose-invert max-w-none">
           {post.image && (
             <div className={`mb-6 md:mb-8 rounded-2xl overflow-hidden border ${borderClass} shadow-2xl`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -93,7 +93,7 @@ export default function ArticlePage() {
               />
             </div>
           )}
-          <h1 className="text-2xl md:text-4xl font-bold tracking-tight mb-6 md:mb-8 text-center md:text-left">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-6 md:mb-8 text-center md:text-left">
             {post.title}
           </h1>
           {post.content.split("\n\n").map((block, index) => {
@@ -102,7 +102,7 @@ export default function ArticlePage() {
             // Handle H2 headings
             if (trimmedBlock.startsWith("## ")) {
               return (
-                <h2 key={index} className="text-xl md:text-3xl font-bold mt-6 md:mt-8 mb-3 md:mb-4">
+                <h2 key={index} className="text-xl sm:text-2xl md:text-3xl font-bold mt-6 md:mt-8 mb-3 md:mb-4">
                   {trimmedBlock.replace("## ", "")}
                 </h2>
               );
@@ -111,8 +111,8 @@ export default function ArticlePage() {
             // Handle bullet points
             if (trimmedBlock.startsWith("• ")) {
               return (
-                <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-[13px] md:text-base">
-                  <span className="mr-2 md:mr-3 text-base md:text-lg leading-[1.4rem] md:leading-[1.6rem]">•</span>
+                <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-sm sm:text-base md:text-lg">
+                  <span className="mr-2 md:mr-3 text-base sm:text-lg leading-[1.4rem] md:leading-[1.6rem]">•</span>
                   <p className="flex-1">
                     {renderInlineMarkdown(trimmedBlock.replace("• ", ""))}
                   </p>
@@ -125,8 +125,8 @@ export default function ArticlePage() {
               const match = trimmedBlock.match(/^(\d+)\.\s(.+)/);
               if (match) {
                 return (
-                  <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-[13px] md:text-base">
-                    <span className="mr-2 md:mr-3 font-semibold min-w-[1.1rem] md:min-w-[1.5rem] text-[13px] md:text-base">{match[1]}.</span>
+                  <div key={index} className="flex items-start mb-3 opacity-80 leading-relaxed pl-2 text-sm sm:text-base md:text-lg">
+                    <span className="mr-2 md:mr-3 font-semibold min-w-[1.1rem] md:min-w-[1.5rem] text-sm sm:text-base md:text-lg">{match[1]}.</span>
                     <p className="flex-1">
                       {renderInlineMarkdown(match[2])}
                     </p>
@@ -152,7 +152,7 @@ export default function ArticlePage() {
 
             // Regular paragraphs
             return (
-              <p key={index} className="mb-4 opacity-80 leading-relaxed text-sm md:text-lg">
+              <p key={index} className="mb-4 opacity-80 leading-relaxed text-base sm:text-lg">
                 {renderInlineMarkdown(trimmedBlock)}
               </p>
             );
@@ -200,12 +200,12 @@ export default function ArticlePage() {
 }
 
 // Helper function to render inline markdown (bold, italic, and links)
-function renderInlineMarkdown(text: string) {
+function renderInlineMarkdown(text: string): React.ReactNode {
   const parts: React.ReactNode[] = [];
   let currentIndex = 0;
   
-  // Regex to match **bold**, *italic*, and URLs (including specific akramcodez.tech case)
-  const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|\bhttps?:\/\/[^\s]+|\bakramcodez\.tech\S*)/g;
+  // Regex to match **bold**, *italic*, URLs, and newlines
+  const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|\bhttps?:\/\/[^\s]+|\bakramcodez\.tech\S*|\bmedium\.com\S*|\bx\.com\S*|\n)/g;
   let match;
   
   while ((match = regex.exec(text)) !== null) {
@@ -217,20 +217,23 @@ function renderInlineMarkdown(text: string) {
     const matchedText = match[0];
     
     if (matchedText.startsWith("**") && matchedText.endsWith("**")) {
-      // Bold text
+      // Bold text (with recursive call to handle links inside bold)
       parts.push(
         <strong key={match.index} className="font-bold">
-          {matchedText.slice(2, -2)}
+          {renderInlineMarkdown(matchedText.slice(2, -2))}
         </strong>
       );
     } else if (matchedText.startsWith("*") && matchedText.endsWith("*")) {
       // Italic text
       parts.push(
         <em key={match.index} className="italic">
-          {matchedText.slice(1, -1)}
+          {renderInlineMarkdown(matchedText.slice(1, -1))}
         </em>
       );
-    } else if (matchedText.startsWith("http") || matchedText.startsWith("akramcodez.tech")) {
+    } else if (matchedText === "\n") {
+      // Handle newlines as <br />
+      parts.push(<br key={match.index} />);
+    } else if (matchedText.startsWith("http") || matchedText.startsWith("akramcodez.tech") || matchedText.startsWith("medium.com") || matchedText.startsWith("x.com")) {
       // Links
       const href = matchedText.startsWith("http") ? matchedText : `https://${matchedText}`;
       parts.push(
