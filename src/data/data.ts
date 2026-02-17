@@ -95,6 +95,15 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: add optional chaining for runResult.meta.agentMeta access",
+        url: "https://github.com/openclaw/openclaw/pull/18026",
+      },
+      {
+        title:
+          "feat: add stuck loop detection and exponential backoff infrastructure for agent polling",
+        url: "https://github.com/openclaw/openclaw/pull/17118",
+      },
+      {
         title: "fix: make sensitive field whitelist case-insensitive",
         url: "https://github.com/openclaw/openclaw/pull/16148",
       },
@@ -115,7 +124,8 @@ export const repos = [
         url: "https://github.com/openclaw/openclaw/pull/12691",
       },
       {
-        title: "fix: L2-normalize local embedding vectors to fix semantic search",
+        title:
+          "fix: L2-normalize local embedding vectors to fix semantic search",
         url: "https://github.com/openclaw/openclaw/pull/5332",
       },
     ],
@@ -153,7 +163,7 @@ export const repos = [
       {
         title: "feat: add /settings command for interactive command menu",
         url: "https://github.com/Nano-Collective/nanocoder/pull/320",
-      }
+      },
     ],
   },
   {

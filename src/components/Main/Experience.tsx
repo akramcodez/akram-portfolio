@@ -54,7 +54,7 @@ const Experience = () => {
             href="https://github.com/akramcodez"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline flex items-center gap-1 text-xs md:text-sm font-medium pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 pb-2 md:pb-4 mb-2 md:mb-4 border-b"
+            className="underline flex items-center justify-center gap-1 text-xs md:text-sm font-medium pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 pb-2 md:pb-4 mb-2 md:mb-4"
           >
             GitHub
             <CiLocationArrow1 className="inline-block ml-0.5 h-5 w-5" />
@@ -73,7 +73,7 @@ function OpenSourceSummary() {
   const [maxHeights, setMaxHeights] = useState<Record<number, string>>({});
   const sortedRepos = useMemo(() => {
     return [...repos].sort(
-      (a, b) => (b.prs?.length ?? 0) - (a.prs?.length ?? 0)
+      (a, b) => (b.prs?.length ?? 0) - (a.prs?.length ?? 0),
     );
   }, []);
 
