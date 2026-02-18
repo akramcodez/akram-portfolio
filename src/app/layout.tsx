@@ -4,8 +4,6 @@ import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const siteUrl = "https://akramcodez.tech";
-
 const nunito = localFont({
   src: "./fonts/Nunito/Nunito-VariableFont_wght.ttf",
   display: "swap",
@@ -40,22 +38,9 @@ const thasadith = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: "Sk Akram",
-    template: "%s | Sk Akram",
-  },
-  description:
-    "Explore Sk Akram's full stack developer portfolio, projects, blogs, and contact details. Discover work in Next.js, React, TypeScript, Node.js, and modern web development.",
-  alternates: {
-    canonical: "./",
-  },
-  icons: {
-    icon: [{ url: "/favicon.ico" }],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-  },
+  metadataBase: new URL("https://www.akramcodez.tech"),
+  title: "Sk Akram",
+  description: "Hey! I'm Sk Akram, Software Developer",
   keywords: [
     "Sk Akram",
     "Full Stack Developer",
@@ -84,16 +69,15 @@ export const metadata: Metadata = {
 
   openGraph: {
     title: "Sk Akram Portfolio",
-    description:
-      "Portfolio, blogs, and project highlights by Sk Akram. Explore full stack development work with Next.js, React, TypeScript, and Node.js.",
-    url: siteUrl,
+    description: "Sk Akram - Software Developer",
+    url: "https://www.akramcodez.tech",
     siteName: "Sk Akram",
     images: [
       {
-        url: `${siteUrl}/og-image.jpg?v=2`,
+        url: "https://www.akramcodez.tech/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: "Sk Akram",
+        alt: "Sk Akram Portfolio",
       },
     ],
     locale: "en_US",
@@ -102,10 +86,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Sk Akram",
-    description:
-      "Explore projects, blogs, and contact details by Sk Akram, a full stack developer building with Next.js, React, TypeScript, and Node.js.",
-    images: [`${siteUrl}/og-image.jpg?v=2`],
+    title: "Sk Akram Portfolio",
+    description: "Sk Akram - Software Developer",
+    images: ["https://www.akramcodez.tech/og-image.jpg?v=2"],
     creator: "@akramcodez",
   },
 
@@ -117,44 +100,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Sk Akram",
-    url: siteUrl,
-    inLanguage: "en",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${siteUrl}/blogs?query={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
-  };
-
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Sk Akram",
-    url: siteUrl,
-    jobTitle: "Full Stack Developer",
-    sameAs: [
-      "https://github.com/akramcodez",
-      "https://x.com/akramcodez",
-      "https://www.linkedin.com/in/akramcodez",
-      "https://medium.com/@akramcodez",
-    ],
-  };
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${nunito.variable} ${thasadith.variable}`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-        />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
           <Analytics />

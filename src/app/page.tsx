@@ -9,11 +9,9 @@ import QuickMenu from "@/components/QuickMenu";
 import Projects from "@/components/Main/Projects";
 import Socials from "@/components/Main/Socials";
 import Loading from "@/components/Loading";
-import Link from "next/link";
-import Image from "next/image";
 
 import { useTheme } from "next-themes";
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import Experience from "@/components/Main/Experience";
 
 import ProjectDetail from "@/components/Main/ProjectDetail";
@@ -87,10 +85,7 @@ export default function Page() {
 
   useEffect(() => {
     const initial = normalizeHash(window.location.hash || "");
-    if (
-      !initial ||
-      (!VALID_SECTIONS.has(initial) && !initial.startsWith("project-"))
-    ) {
+    if (!initial || (!VALID_SECTIONS.has(initial) && !initial.startsWith("project-"))) {
       window.history.replaceState(null, "", "#meet-me");
       setActiveSection("meet-me");
     } else if (VALID_SECTIONS.has(initial)) {
@@ -132,7 +127,9 @@ export default function Page() {
     return () => window.removeEventListener("hashchange", handleHashCheck);
   }, []);
 
-  const scrollToSection = useCallback((section: typeof activeSection) => {
+
+
+  const scrollToSection = (section: typeof activeSection) => {
     const container = mainRef.current;
     if (!container) return;
 
@@ -147,7 +144,7 @@ export default function Page() {
     const offset = targetRect.top - containerRect.top + container.scrollTop;
 
     container.scrollTo({ top: offset, behavior: "smooth" });
-  }, []);
+  };
 
   const handleSectionChange = (section: typeof activeSection) => {
     if (selectedProject) {
@@ -158,7 +155,7 @@ export default function Page() {
       }, 100);
       return;
     }
-
+    
     if (activeSection === section) {
       scrollToSection(section);
     } else {
@@ -174,7 +171,7 @@ export default function Page() {
     }, 200);
 
     return () => clearTimeout(scrollTimer);
-  }, [activeSection, mounted, showLoading, scrollToSection]);
+  }, [activeSection, mounted, showLoading]);
 
   useEffect(() => {
     const currentHash = normalizeHash(window.location.hash || "");
@@ -188,40 +185,20 @@ export default function Page() {
     }
   }, [activeSection]);
 
+  if (showLoading) {
+    return <Loading />;
+  }
+
+  if (!mounted) {
+    return null;
+  }
+
   const borderClass = theme === "dark" ? "border-white/80" : "border-black";
 
   return (
     <div
-      className={`h-screen animate-blur-in pt-2 pr-2 pl-2 pb-2 md:pt-5 md:pr-5 md:pl-5 md:pb-5 xl:pt-8 xl:pr-7 xl:pl-7 xl:pb-7 2xl:pt-10 2xl:pr-10 2xl:pl-10 2xl:pb-10 relative`}
+      className={`h-screen animate-blur-in pt-2 pr-2 pl-2 pb-2 md:pt-5 md:pr-5 md:pl-5 md:pb-5 xl:pt-8 xl:pr-7 xl:pl-7 xl:pb-7 2xl:pt-10 2xl:pr-10 2xl:pl-10 2xl:pb-10`}
     >
-      <div className="sr-only">
-        <h1>Sk Akram Full Stack Developer Portfolio</h1>
-        <p>
-          Explore Sk Akram&apos;s software developer portfolio, projects, blogs,
-          skills, and social profiles.
-        </p>
-        <Image
-          src="/profilePic.jpg"
-          alt="Sk Akram full stack developer profile image"
-          width={1200}
-          height={630}
-          priority
-        />
-        <nav>
-          <Link href="/#meet-me">About</Link>
-          <Link href="/#skills">Skills</Link>
-          <Link href="/#my-work">Projects</Link>
-          <Link href="/#socials">Socials</Link>
-          <Link href="/blogs">Blogs</Link>
-          <Link href="/support">Support</Link>
-        </nav>
-        <p>
-          Follow on <a href="https://github.com/akramcodez">GitHub</a>,{" "}
-          <a href="https://x.com/akramcodez">X</a>, and{" "}
-          <a href="https://www.linkedin.com/in/akramcodez">LinkedIn</a>.
-        </p>
-      </div>
-
       <div className="flex flex-col items-end w-full h-full">
         <div className="flex w-full flex-1 min-h-0 items-end">
           {/* <div
@@ -338,8 +315,6 @@ export default function Page() {
           <p className="text-xs opacity-80 pr-2 pt-0.5">© Sk Akram</p>
         </div>
       </div>
-
-      {showLoading && <Loading />}
     </div>
   );
 }

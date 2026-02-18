@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 
@@ -15,8 +16,7 @@ const MeetMe = () => {
             </h2>
             <p className="text-sm lg:text-base xl:text-md leading-relaxed max-w-3xl mx-auto ">
               Hi! I&apos;m <span className="[font-weight:700]">Sk Akram</span>,
-              a <span className="[font-weight:700]">19 y/o</span> software
-              developer ッ who&apos;s always ready to{" "}
+              a <span className="[font-weight:700]">19 y/o</span> software developer ッ who&apos;s always ready to{" "}
               <span className="[font-weight:700]">explore</span> new things. I
               actively contribute to{" "}
               <span className="[font-weight:700]">open source</span>, build
