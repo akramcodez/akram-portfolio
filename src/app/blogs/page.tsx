@@ -85,7 +85,7 @@ export default function BlogsPage() {
         </div>
 
         {/* Footer Socials */}
-        <div className="flex justify-end items-center gap-3 mt-auto pt-2">
+        <div className="flex justify-end items-center gap-3 mt-auto pt-4">
           <Link
             href="https://www.linkedin.com/in/akramcodez"
             target="_blank"
