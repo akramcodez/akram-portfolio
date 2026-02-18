@@ -95,6 +95,10 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: sanitize native command names for Telegram API",
+        url: "https://github.com/openclaw/openclaw/pull/19257",
+      },
+      {
         title: "fix: add optional chaining for runResult.meta.agentMeta access",
         url: "https://github.com/openclaw/openclaw/pull/18026",
       },
