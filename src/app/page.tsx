@@ -81,11 +81,29 @@ export default function Page() {
     if (collapsedParam === "true") {
       setIsCollapsed(true);
     }
+
+    // If ?repo= param is present, navigate to my-work section
+    const repoParam = urlParams.get("repo");
+    if (repoParam) {
+      setActiveSection("my-work");
+    }
   }, []);
 
   useEffect(() => {
     const initial = normalizeHash(window.location.hash || "");
-    if (!initial || (!VALID_SECTIONS.has(initial) && !initial.startsWith("project-"))) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const repoParam = urlParams.get("repo");
+
+    if (repoParam) {
+      // ?repo= param takes precedence — open my-work
+      const url = new URL(window.location.href);
+      url.hash = "my-work";
+      window.history.replaceState(null, "", url.toString());
+      setActiveSection("my-work");
+    } else if (
+      !initial ||
+      (!VALID_SECTIONS.has(initial) && !initial.startsWith("project-"))
+    ) {
       window.history.replaceState(null, "", "#meet-me");
       setActiveSection("meet-me");
     } else if (VALID_SECTIONS.has(initial)) {
@@ -95,6 +113,12 @@ export default function Page() {
     }
 
     const applyHash = () => {
+      // If ?repo= is still in the URL, keep my-work active
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("repo")) {
+        setActiveSection("my-work");
+        return;
+      }
       const h = normalizeHash(window.location.hash || "");
       if (h && VALID_SECTIONS.has(h)) {
         setActiveSection(h as typeof activeSection);
@@ -127,8 +151,6 @@ export default function Page() {
     return () => window.removeEventListener("hashchange", handleHashCheck);
   }, []);
 
-
-
   const scrollToSection = (section: typeof activeSection) => {
     const container = mainRef.current;
     if (!container) return;
@@ -155,7 +177,14 @@ export default function Page() {
       }, 100);
       return;
     }
-    
+
+    // Clear ?repo= param when navigating away from my-work
+    if (section !== "my-work") {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("repo");
+      window.history.replaceState(null, "", url.toString());
+    }
+
     if (activeSection === section) {
       scrollToSection(section);
     } else {
@@ -174,16 +203,27 @@ export default function Page() {
   }, [activeSection, mounted, showLoading]);
 
   useEffect(() => {
+    // Wait until mount effects have resolved the correct section from the URL
+    if (!mounted) return;
+
     const currentHash = normalizeHash(window.location.hash || "");
     // Don't override project URLs - they have their own hash format
     if (currentHash.startsWith("project-")) {
       return;
     }
-    if (activeSection !== currentHash) {
-      const newUrl = `#${activeSection}`;
-      window.history.replaceState(null, "", newUrl);
+    const url = new URL(window.location.href);
+    // Clear repo param when navigating away from my-work
+    if (activeSection !== "my-work") {
+      url.searchParams.delete("repo");
     }
-  }, [activeSection]);
+    if (activeSection !== currentHash) {
+      url.hash = activeSection;
+      window.history.replaceState(null, "", url.toString());
+    } else if (activeSection !== "my-work" && url.searchParams.has("repo")) {
+      // Param was already cleaned up above, persist the change
+      window.history.replaceState(null, "", url.toString());
+    }
+  }, [activeSection, mounted]);
 
   if (showLoading) {
     return <Loading />;

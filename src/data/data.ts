@@ -95,6 +95,10 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: use SID-based ACL classification for non-English Windows",
+        url: "https://github.com/openclaw/openclaw/pull/23415",
+      },
+      {
         title: "fix: sanitize native command names for Telegram API",
         url: "https://github.com/openclaw/openclaw/pull/19257",
       },

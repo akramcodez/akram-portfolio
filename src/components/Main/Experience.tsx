@@ -94,8 +94,35 @@ function OpenSourceSummary() {
     setMaxHeights(newHeights);
   }, [openRepo, sortedRepos]);
 
+  // Read ?repo= param on mount and auto-open matching repo
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const repoParam = params.get("repo");
+    if (repoParam) {
+      const idx = sortedRepos.findIndex(
+        (r) => r.name.toLowerCase() === repoParam.toLowerCase(),
+      );
+      if (idx !== -1) {
+        setOpenRepo(idx);
+      }
+    }
+  }, [sortedRepos]);
+
   const toggleRepo = (idx: number) => {
-    setOpenRepo((cur) => (cur === idx ? null : idx));
+    const newOpen = openRepo === idx ? null : idx;
+    setOpenRepo(newOpen);
+
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      if (newOpen !== null) {
+        url.searchParams.set("repo", sortedRepos[newOpen].name);
+        url.hash = "my-work";
+      } else {
+        url.searchParams.delete("repo");
+      }
+      window.history.replaceState(null, "", url.toString());
+    }
   };
 
   return (
