@@ -95,6 +95,10 @@ export const repos = [
     name: "openclaw",
     prs: [
       {
+        title: "fix: force supportsDeveloperRole=false for non-native OpenAI endpoints",
+        url: "https://github.com/openclaw/openclaw/pull/29479",
+      },
+      {
         title: "fix: use SID-based ACL classification for non-English Windows",
         url: "https://github.com/openclaw/openclaw/pull/23415",
       },
