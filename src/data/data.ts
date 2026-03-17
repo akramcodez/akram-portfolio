@@ -245,6 +245,10 @@ export const repos = [
     name: "internetarchive",
     prs: [
       {
+        title: "fix: align focus ring on search input to container border",
+        url: "https://github.com/internetarchive/openlibrary/pull/12069",
+      },
+      {
         title: "fix: improve homepage accessibility for screen readers",
         url: "https://github.com/internetarchive/openlibrary/pull/11355",
       },
