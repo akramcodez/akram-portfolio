@@ -245,6 +245,18 @@ export const repos = [
     name: "internetarchive",
     prs: [
       {
+        title: "feat: auto-sync docs wiki into docs/wiki/ on container start",
+        url: "https://github.com/internetarchive/openlibrary/pull/12351",
+      },
+      {
+        title: "fix: add noopener noreferrer to external links with target blank",
+        url: "https://github.com/internetarchive/openlibrary/pull/12348",
+      },
+      {
+        title: "fix: password reflected in DOM on failed login",
+        url: "https://github.com/internetarchive/openlibrary/pull/12328",
+      },
+      {
         title: "fix: align focus ring on search input to container border",
         url: "https://github.com/internetarchive/openlibrary/pull/12069",
       },
