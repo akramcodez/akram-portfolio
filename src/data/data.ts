@@ -245,6 +245,14 @@ export const repos = [
     name: "internetarchive",
     prs: [
       {
+        title: "Remove Vue files from temporary ESLint formatting exemptions",
+        url: "https://github.com/internetarchive/openlibrary/pull/12453",
+      },
+      {
+        title: "fix: add FastAPI route alias for .json check-in POSTs to match legacy web.py behavior",
+        url: "https://github.com/internetarchive/openlibrary/pull/12394",
+      },
+      {
         title: "feat: auto-sync docs wiki into docs/wiki/ on container start",
         url: "https://github.com/internetarchive/openlibrary/pull/12351",
       },
