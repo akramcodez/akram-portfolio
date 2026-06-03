@@ -22,20 +22,62 @@ const Experience = () => {
           </h2>
         </div>
 
-        <div className="w-full pt-2 md:pt-4 mt-2 md:mt-4 border-t border-current border-opacity-20 mb-0">
+        <div className="w-full pt-1 mb-0 flex flex-col text-left border-t border-current border-opacity-20">
+          <Link
+            href="https://www.linkedin.com/company/nano-collective/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="hover:bg-accent-foreground/5 p-2 md:p-2.5 -mx-2 md:-mx-2.5 rounded-lg transition-colors">
+              <h3 className="text-sm md:text-lg font-semibold mb-1">
+                Nano Collective
+              </h3>
+              <p className="text-[10px] sm:text-[11px] md:text-xs font-medium flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                <span className="cursor-pointer opacity-90">
+                  Software Development Intern
+                </span>
+                <span className="opacity-70 whitespace-nowrap">
+                  Jun 2026 to present
+                </span>
+              </p>
+            </div>
+          </Link>
+
           <Link
             href="https://www.linkedin.com/company/kebulan-technologies/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <div className="text-left">
-              <h3 className="text-lg md:text-2xl font-semibold">
+            <div className="hover:bg-accent-foreground/5 p-2 md:p-2.5 -mx-2 md:-mx-2.5 rounded-lg transition-colors">
+              <h3 className="text-sm md:text-lg font-semibold mb-2">
                 Kebulan Grid
               </h3>
-              <p className="text-[11px] sm:text-sm font-medium flex items-center justify-between">
-                <span className="cursor-pointer">SDE | Fulltime</span>{" "}
-                <span>Nov 2025 to present</span>
-              </p>
+              <div className="flex flex-col ml-1.5 md:ml-2">
+                <div className="relative pl-4 md:pl-5 pb-4">
+                  {/* Vertical Line spanning from center of dot 1 to bottom of container + distance to dot 2 center */}
+                  <div className="absolute left-[3px] top-[8px] md:top-[10px] bottom-[-8px] md:bottom-[-10px] w-[2px] bg-current/80" />
+                  <div className="absolute z-10 w-2 h-2 rounded-full bg-current left-0 top-1 md:top-1.5" />
+                  <p className="text-[10px] sm:text-[11px] md:text-xs font-medium flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                    <span className="cursor-pointer opacity-90">
+                      Software Engineer (Part-time)
+                    </span>
+                    <span className="opacity-70 whitespace-nowrap">
+                      May 2026 to present
+                    </span>
+                  </p>
+                </div>
+                <div className="relative pl-4 md:pl-5">
+                  <div className="absolute z-10 w-2 h-2 rounded-full bg-current left-0 top-1 md:top-1.5" />
+                  <p className="text-[10px] sm:text-[11px] md:text-xs font-medium flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+                    <span className="cursor-pointer opacity-90">
+                      Software Engineer (Full-time)
+                    </span>
+                    <span className="opacity-70 whitespace-nowrap">
+                      Nov 2025 to May 2026
+                    </span>
+                  </p>
+                </div>
+              </div>
             </div>
           </Link>
         </div>
