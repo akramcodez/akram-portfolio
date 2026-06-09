@@ -102,12 +102,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta
-          name="ahrefs-site-verification"
-          content="ef15ac1244452fb61c12a68a8606959843c3b7055cef4d9af3544223335da012"
-        />
-      </head>
       <body className={`${nunito.variable} ${thasadith.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           {children}
