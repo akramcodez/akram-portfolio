@@ -92,6 +92,16 @@ export const projects = [
 
 export const repos = [
   {
+    name: "growthbook",
+    prs: [
+      {
+        title:
+          "fix(helm): update sub-chart appVersion to 4.4.0",
+        url: "https://github.com/growthbook/growthbook/pull/6048",
+      }
+    ],
+  },
+  {
     name: "openclaw",
     prs: [
       {
@@ -159,6 +169,14 @@ export const repos = [
   {
     name: "nanocoder",
     prs: [
+      {
+        title: "fix: add timeout, output limits, and abort support",
+        url: "https://github.com/Nano-Collective/nanocoder/pull/547",
+      },
+      {
+        title: "fix: resolve autosave race, history truncation, and resume rebase",
+        url: "https://github.com/Nano-Collective/nanocoder/pull/545",
+      },
       {
         title:
           "feat: add conversation checkpoint system with interactive loading",
@@ -360,6 +378,10 @@ export const repos = [
   {
     name: "circuitverse",
     prs: [
+      {
+        title: "Fix: translation for Member since in Arabic",
+        url: "https://github.com/CircuitVerse/CircuitVerse/pull/6005",
+      },
       {
         title: "fix: rtl modal close buttons position",
         url: "https://github.com/CircuitVerse/CircuitVerse/pull/6034",
