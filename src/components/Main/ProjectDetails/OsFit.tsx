@@ -50,7 +50,7 @@ const OsFit = ({ onBack }: Props) => {
                 <Github className="w-4 h-4 md:w-5 md:h-5" />
               </Link>
               <Link
-                href="https://osfit.akramcodez.tech"
+                href="https://osfit.akramcodez.com"
                 target="_blank"
                 className={`p-1.5 md:p-2 rounded-full border ${borderClass} ${bgClass} transition-all`}
               >

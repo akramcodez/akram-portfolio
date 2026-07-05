@@ -400,7 +400,7 @@ I’ll share **my real open-source journey**, what I learned, and the **mistakes
 
 ## Why listen to me?
 
-I’ve been contributing to open source for the past **6 months**. In **December 2025**, I made **35 PRs**, and in **January 2026**, I’ve already made **10 PRs**. I’ve contributed to projects like **Internet Archive, Activepieces, DodoPayments**, and more. You can also check out **all my merged PRs here →** akramcodez.tech/#my-work
+I’ve been contributing to open source for the past **6 months**. In **December 2025**, I made **35 PRs**, and in **January 2026**, I’ve already made **10 PRs**. I’ve contributed to projects like **Internet Archive, Activepieces, DodoPayments**, and more. You can also check out **all my merged PRs here →** akramcodez.com/#my-work
 
 ## What is open source?
 

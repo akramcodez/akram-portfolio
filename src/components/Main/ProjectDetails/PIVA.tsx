@@ -49,7 +49,7 @@ const PIVA = ({ onBack }: Props) => {
                 <Github className="w-4 h-4 md:w-5 md:h-5" />
               </Link>
               <Link
-                href="https://piva.akramcodez.tech"
+                href="https://piva.akramcodez.com"
                 target="_blank"
                 className={`p-1.5 md:p-2 rounded-full border ${borderClass} ${bgClass} transition-all`}
               >

@@ -8,6 +8,6 @@ A modern, minimalist portfolio built with Next.js 15, featuring smooth theme swi
 
 Built with TypeScript, Tailwind CSS, and next-themes for an elegant dark/light mode experience.
 
-<a href='https://akramcodez.tech'>
+<a href='https://akramcodez.com'>
    <img width="2866" height="1490" alt="image" src="https://github.com/user-attachments/assets/11f87792-b913-4a91-be08-0d5b8d14cf8c" />
 </a>

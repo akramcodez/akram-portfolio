@@ -205,7 +205,7 @@ function renderInlineMarkdown(text: string): React.ReactNode {
   let currentIndex = 0;
   
   // Regex to match **bold**, *italic*, URLs, and newlines
-  const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|\bhttps?:\/\/[^\s]+|\bakramcodez\.tech\S*|\bmedium\.com\S*|\bx\.com\S*|\n)/g;
+  const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|\bhttps?:\/\/[^\s]+|\bakramcodez\.com\S*|\bmedium\.com\S*|\bx\.com\S*|\n)/g;
   let match;
   
   while ((match = regex.exec(text)) !== null) {
@@ -233,7 +233,7 @@ function renderInlineMarkdown(text: string): React.ReactNode {
     } else if (matchedText === "\n") {
       // Handle newlines as <br />
       parts.push(<br key={match.index} />);
-    } else if (matchedText.startsWith("http") || matchedText.startsWith("akramcodez.tech") || matchedText.startsWith("medium.com") || matchedText.startsWith("x.com")) {
+    } else if (matchedText.startsWith("http") || matchedText.startsWith("akramcodez.com") || matchedText.startsWith("medium.com") || matchedText.startsWith("x.com")) {
       // Links
       const href = matchedText.startsWith("http") ? matchedText : `https://${matchedText}`;
       parts.push(

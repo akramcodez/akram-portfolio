@@ -65,7 +65,7 @@ export const projects = [
     tech: "Next.js • Tailwind • Supabase",
     desc: "AI-powered tool for analyzing GitHub files and solving issues. Supports 20+ languages",
     link: "https://github.com/akramcodez/osfit",
-    liveLink: "https://osfit.akramcodez.tech",
+    liveLink: "https://osfit.akramcodez.com",
   },
   {
     name: "VeoMate",
@@ -79,7 +79,7 @@ export const projects = [
     tech: "Next.js • Prisma • T3 Stack",
     desc: "AI-powered webinar platform",
     link: "https://github.com/akramcodez/piva",
-    liveLink: "https://piva.akramcodez.tech",
+    liveLink: "https://piva.akramcodez.com",
   },
   {
     name: "MyTube",
