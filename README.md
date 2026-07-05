@@ -1,6 +1,6 @@
 # Sk Akram - Portfolio
 
-Hi, I'm Sk Akram, a passionate Web developer. I create beautiful, responsive applications with clean code and elegant user experiences.
+Hi! I'm Sk Akram, a 19 y/o software developer ッ who's always ready to explore new things. I actively contribute to open source, build real-world projects, and continuously sharpen my DSA skills.
 
 ## About This Portfolio
 
