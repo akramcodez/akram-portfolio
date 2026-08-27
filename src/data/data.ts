@@ -92,6 +92,16 @@ export const projects = [
 
 export const repos = [
   {
+    name: "temporalio/sdk-typescript",
+    prs: [
+      {
+        title:
+          "test: adapt integration tests for Temporal Cloud",
+        url: "https://github.com/temporalio/sdk-typescript/pull/2354",
+      }
+    ],
+  },
+  {
     name: "growthbook",
     prs: [
       {
@@ -169,6 +179,10 @@ export const repos = [
   {
     name: "nanocoder",
     prs: [
+      {
+        title: "Become a Nanocoder Maintainer and merge many more PRs",
+        url: "https://github.com/Nano-Collective/nanocoder/issues?q=is%3Apr%20author%3Aakramcodez%20is%3Amerged",
+      },
       {
         title: "fix: add timeout, output limits, and abort support",
         url: "https://github.com/Nano-Collective/nanocoder/pull/547",
