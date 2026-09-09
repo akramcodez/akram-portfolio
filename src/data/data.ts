@@ -92,6 +92,26 @@ export const projects = [
 
 export const repos = [
   {
+    name: "appwrite",
+    prs: [
+      {
+        title:
+          "fix: prevent user enumeration on password recovery endpoint",
+        url: "https://github.com/appwrite/appwrite/pull/13438",
+      }
+    ],
+  },
+  {
+    name: "Zed",
+    prs: [
+      {
+        title:
+          "Ensure stale git commit template are not persisted",
+        url: "https://github.com/zed-industries/zed/pull/63604",
+      }
+    ],
+  },
+  {
     name: "temporalio/sdk-typescript",
     prs: [
       {
