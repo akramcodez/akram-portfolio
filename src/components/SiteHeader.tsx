@@ -7,10 +7,9 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 const nav = [
-  { label: "about", href: "/#about" },
-  { label: "work", href: "/#work" },
-  { label: "projects", href: "/#projects" },
-  { label: "writing", href: "/#writing" },
+  { label: "about", href: "/" },
+  { label: "work", href: "/work" },
+  { label: "projects", href: "/projects" },
   { label: "github", href: "https://github.com/akramcodez", external: true },
 ];
 
@@ -21,11 +20,9 @@ export default function SiteHeader() {
 
   useEffect(() => setMounted(true), []);
 
-  const onHome = pathname === "/";
-
   return (
-    <header className="border-b border-border">
-      <div className="max-w-5xl mx-auto px-5 md:px-8 pt-6 pb-5">
+    <header>
+      <div className="max-w-5xl mx-auto px-5 md:px-8 pt-6 pb-5 border-b border-border">
         <div className="flex items-start justify-between gap-4">
           <div>
             <Link
@@ -57,8 +54,11 @@ export default function SiteHeader() {
         </div>
 
         <nav className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-1">
-          {nav.map((item) =>
-            item.external ? (
+          {nav.map((item) => {
+            const isActive =
+              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+
+            return item.external ? (
               <a
                 key={item.label}
                 href={item.href}
@@ -72,13 +72,16 @@ export default function SiteHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                scroll={onHome}
-                className="mono text-[12px] text-muted-foreground hover:text-primary transition-colors duration-150"
+                className={`mono text-[12px] transition-colors duration-150 ${
+                  isActive
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {item.label}
               </Link>
-            ),
-          )}
+            );
+          })}
         </nav>
       </div>
     </header>

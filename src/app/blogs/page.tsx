@@ -1,5 +1,4 @@
 import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 import SectionMarker from "@/components/SectionMarker";
 import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
@@ -69,8 +68,6 @@ export default function BlogsPage() {
           </p>
         </div>
       </main>
-
-      <SiteFooter />
     </div>
   );
 }

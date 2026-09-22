@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 import { blogPosts } from "@/data/blogPosts";
 
 export default function ArticlePage() {
@@ -24,7 +23,6 @@ export default function ArticlePage() {
             ← back to writing
           </Link>
         </main>
-        <SiteFooter />
       </div>
     );
   }
@@ -148,8 +146,6 @@ export default function ArticlePage() {
           </div>
         </article>
       </main>
-
-      <SiteFooter />
     </div>
   );
 }

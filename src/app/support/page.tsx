@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
 import SiteHeader from "@/components/SiteHeader";
-import SiteFooter from "@/components/SiteFooter";
 import SectionMarker from "@/components/SectionMarker";
 
 export default function SupportPage() {
@@ -133,8 +132,6 @@ export default function SupportPage() {
           </p>
         </div>
       </main>
-
-      <SiteFooter />
     </div>
   );
 }

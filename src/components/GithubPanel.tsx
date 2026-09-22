@@ -15,10 +15,10 @@ type Data = {
 
 const cellColor = [
   "bg-[#e6e5dd] dark:bg-[#22221d]",
-  "bg-[#b9ccf2]",
-  "bg-[#7ba1ec]",
-  "bg-[#3f6fd8]",
-  "bg-[#1647b0]",
+  "bg-[#b9ccf2] dark:bg-white/20",
+  "bg-[#7ba1ec] dark:bg-white/40",
+  "bg-[#3f6fd8] dark:bg-white/60",
+  "bg-[#1647b0] dark:bg-white/90",
 ];
 
 export default function GithubPanel() {
@@ -111,13 +111,26 @@ export default function GithubPanel() {
                     </span>
                   ))}
                 </div>
-                <div className="grid grid-rows-7 grid-flow-col gap-[2px]">
+                <div
+                  className="grid grid-rows-7 grid-flow-col gap-[2px]"
+                  style={{
+                    gridTemplateColumns: `repeat(${data.weeks.length}, 1fr)`,
+                  }}
+                >
                   {data.weeks.flatMap((w, wi) =>
-                    w.days.map((d) => (
+                    w.days.map((d, di) => (
                       <span
                         key={`${wi}-${d.date}`}
                         title={`${d.count} contribution${d.count === 1 ? "" : "s"} · ${d.date}`}
                         className={`w-full aspect-square rounded-[1px] ${cellColor[d.level]}`}
+                        style={
+                          wi === 0 && di === 0
+                            ? {
+                                gridRowStart:
+                                  new Date(d.date + "T00:00:00").getDay() + 1,
+                              }
+                            : undefined
+                        }
                       />
                     )),
                   )}

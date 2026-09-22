@@ -57,7 +57,7 @@
   --foreground: #f1f0e9;
   --card: #151512;
   --card-foreground: #f1f0e9;
-  --primary: #7ba1f0;
+  --primary: #f1f0e9;
   --primary-foreground: #0e0e0c;
   --muted: #1a1a16;
   --muted-foreground: #9a988c;
@@ -65,7 +65,7 @@
   --accent-foreground: #f1f0e9;
   --border: #26261f;
   --input: #26261f;
-  --ring: #7ba1f0;
+  --ring: #f1f0e9;
   --ink: #f1f0e9;
 }
 

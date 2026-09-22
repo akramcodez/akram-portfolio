@@ -7,9 +7,9 @@ export const revalidate = 3600;
 const LOGIN = "akramcodez";
 
 const GQL = `
-query ($login: String!, $from: DateTime!) {
+query ($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
-    contributionsCollection(from: $from) {
+    contributionsCollection(from: $from, to: $to) {
       contributionCalendar {
         totalContributions
         weeks {
@@ -45,8 +45,12 @@ export async function GET() {
     );
   }
 
+  const to = new Date();
+  to.setUTCHours(23, 59, 59, 999);
+
   const from = new Date();
   from.setMonth(from.getMonth() - 3);
+  from.setUTCHours(0, 0, 0, 0);
 
   try {
     const res = await fetch("https://api.github.com/graphql", {
@@ -58,7 +62,7 @@ export async function GET() {
       },
       body: JSON.stringify({
         query: GQL,
-        variables: { login: LOGIN, from: from.toISOString() },
+        variables: { login: LOGIN, from: from.toISOString(), to: to.toISOString() },
       }),
       next: { revalidate },
     });
