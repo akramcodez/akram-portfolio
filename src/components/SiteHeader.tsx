@@ -5,6 +5,9 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Dancing_Script } from "next/font/google";
+
+const dancingScript = Dancing_Script({ subsets: ["latin"], weight: ["700"] });
 
 const nav = [
   { label: "about", href: "/" },
@@ -27,9 +30,9 @@ export default function SiteHeader() {
           <div>
             <Link
               href="/"
-              className="text-lg font-bold tracking-[0.18em] leading-none"
+              className={`text-4xl leading-none transition-transform hover:scale-[1.02] ${dancingScript.className}`}
             >
-              SK AKRAM
+              Sk Akram
             </Link>
             <p className="mono text-[11px] text-muted-foreground mt-2">
               full-stack developer / open-source contributor
