@@ -94,7 +94,7 @@ export default function GithubPanel() {
         ) : (
           <>
             <div className="overflow-x-auto pb-1">
-              <div className="min-w-[430px]">
+              <div>
                 <div
                   className="grid gap-[2px] mb-1"
                   style={{
@@ -129,7 +129,7 @@ export default function GithubPanel() {
               <span className="text-primary font-medium">
                 {data.totalContributions.toLocaleString()}
               </span>{" "}
-              contributions in the last year
+              contributions in the last 3 months
             </p>
           </>
         )}

@@ -46,7 +46,7 @@ export async function GET() {
   }
 
   const from = new Date();
-  from.setFullYear(from.getFullYear() - 1);
+  from.setMonth(from.getMonth() - 3);
 
   try {
     const res = await fetch("https://api.github.com/graphql", {
