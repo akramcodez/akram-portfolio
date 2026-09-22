@@ -45,9 +45,9 @@ function social(name: string) {
 function projectWhy(name: string) {
   switch (name) {
     case "PIVA":
-      return "Webinars that talk back — built it to turn one-way presentations into live, AI-driven conversations.";
+      return "Webinars that talk back. Built it to turn one-way presentations into live, AI-driven conversations.";
     case "OsFit":
-      return "Built for the Apify × Lingo.dev hackathon — fitness coaching that works in 20+ languages.";
+      return "Built for the Apify × Lingo.dev hackathon: fitness coaching that works in 20+ languages.";
     case "MyTube":
       return "A YouTube clone built to learn how video platforms actually work under the hood.";
     case "VeoMate":
@@ -96,11 +96,11 @@ export default function Home() {
           <section id="about" className="scroll-mt-20">
             <SectionMarker right="cs student · india">about</SectionMarker>
             <p className="text-[15px] leading-relaxed max-w-xl">
-              hi, i&apos;m akram — a full-stack developer who likes building
-              things, breaking things, and contributing to software i actually
-              use. i&apos;m a computer science student who learned to code by
-              shipping: most of what i know came from getting real pull
-              requests reviewed, rejected, and merged.
+              hi, i&apos;m akram. i&apos;m a full-stack developer who likes
+              building things, breaking things, and contributing to software
+              i actually use. i&apos;m a computer science student who learned
+              to code by shipping: most of what i know came from getting real
+              pull requests reviewed, rejected, and merged.
             </p>
             <p className="text-[15px] leading-relaxed max-w-xl mt-4">
               right now i&apos;m mostly into{" "}
@@ -148,7 +148,7 @@ export default function Home() {
                   Nanocoder
                 </a>
                 , a community-first AI coding agent for the terminal. Features,
-                bug fixes, PR reviews, GitHub workflows — whatever a real
+                bug fixes, PR reviews, GitHub workflows. whatever a real
                 production open-source project needs.
               </p>
             </div>
@@ -349,7 +349,7 @@ export default function Home() {
                   /support
                 </Link>{" "}
                 <span className="text-muted-foreground">
-                  — fund more open source
+                  · fund more open source
                 </span>
               </li>
               <li>
@@ -362,7 +362,7 @@ export default function Home() {
                   /source
                 </a>{" "}
                 <span className="text-muted-foreground">
-                  — this site&apos;s code
+                  · this site&apos;s code
                 </span>
               </li>
             </ul>
@@ -448,7 +448,7 @@ export default function Home() {
                   /support
                 </Link>{" "}
                 <span className="text-muted-foreground">
-                  — fund more open source
+                  · fund more open source
                 </span>
               </li>
               <li>
@@ -461,7 +461,7 @@ export default function Home() {
                   /source
                 </a>{" "}
                 <span className="text-muted-foreground">
-                  — this site&apos;s code
+                  · this site&apos;s code
                 </span>
               </li>
             </ul>

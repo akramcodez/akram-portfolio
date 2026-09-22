@@ -28,8 +28,8 @@ export default function SupportPage() {
           <SectionMarker right="voluntary, always">support</SectionMarker>
 
           <p className="text-[15px] leading-relaxed text-foreground/85">
-            most of my work is open source and free. if something i built saved
-            you time, or you just want to fund more late-night commits —
+            most of my work is open source and free. if something i built
+            saved you time, or you just want to fund more late-night commits,
             here&apos;s how. no pressure either way; a star on github works
             too.
           </p>
@@ -129,7 +129,7 @@ export default function SupportPage() {
           </div>
 
           <p className="mono text-[11px] text-muted-foreground mt-6">
-            thanks — it keeps the servers on and the prs flowing.
+            thanks. it keeps the servers on and the prs flowing.
           </p>
         </div>
       </main>

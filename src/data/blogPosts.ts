@@ -93,7 +93,7 @@ But something unexpected happens.
 
 Developers sharpen again.
 
-Manual coding returns. Debugging becomes thoughtful instead of reactive. Human-written content improves in originality and voice. Fundamentals — data structures, system design, core logic suddenly matter far more than prompt engineering.
+Manual coding returns. Debugging becomes thoughtful instead of reactive. Human-written content improves in originality and voice. Fundamentals (data structures, system design, core logic) suddenly matter far more than prompt engineering.
 
 For developers especially, this week feels personal.
 

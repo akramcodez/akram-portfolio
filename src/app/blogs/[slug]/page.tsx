@@ -18,7 +18,7 @@ export default function ArticlePage() {
         <SiteHeader />
         <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-10">
           <p className="mono text-[12px] text-muted-foreground">
-            404 — post not found
+            404 · post not found
           </p>
           <Link href="/blogs" className="mono text-[12px] link-quiet mt-2 inline-block">
             ← back to writing

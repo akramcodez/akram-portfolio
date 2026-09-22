@@ -14,7 +14,7 @@ type RepoItem = { name: string; desc: string; pushedAt: string };
 
 type Data = {
   login: string;
-  totalContributions: number;
+  totalContributions: number | null;
   weeks: { days: ContributionDay[] }[];
   events: EventItem[];
   repos: RepoItem[];
@@ -151,40 +151,48 @@ export default function GithubPanel() {
       const from = new Date();
       from.setFullYear(from.getFullYear() - 1);
 
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      };
+
       const [gqlRes, eventsRes, reposRes] = await Promise.all([
         fetch("https://api.github.com/graphql", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          },
+          headers,
           body: JSON.stringify({
             query: GQL,
             variables: { login, from: from.toISOString() },
           }),
-        }),
+        }).catch(() => null),
         fetch(`https://api.github.com/users/${login}/events/public?per_page=100`),
         fetch(
           `https://api.github.com/users/${login}/repos?per_page=100&type=owner&sort=pushed`,
         ),
       ]);
 
-      if (!gqlRes.ok || !eventsRes.ok || !reposRes.ok) throw new Error("fetch failed");
+      if (!eventsRes.ok || !reposRes.ok) throw new Error("fetch failed");
 
-      const gql = await gqlRes.json();
-      const calendar =
-        gql?.data?.user?.contributionsCollection?.contributionCalendar;
-      if (!calendar) throw new Error("no calendar");
+      let totalContributions: number | null = null;
+      let weeks: { days: ContributionDay[] }[] = [];
 
-      const weeks = calendar.weeks.map(
-        (w: { contributionDays: { date: string; contributionCount: number; contributionLevel: string }[] }) => ({
-          days: w.contributionDays.map((d) => ({
-            date: d.date,
-            count: d.contributionCount,
-            level: LEVELS[d.contributionLevel] ?? 0,
-          })),
-        }),
-      );
+      if (gqlRes && gqlRes.ok) {
+        const gql = await gqlRes.json();
+        const calendar =
+          gql?.data?.user?.contributionsCollection?.contributionCalendar;
+        if (calendar) {
+          totalContributions = calendar.totalContributions;
+          weeks = calendar.weeks.map(
+            (w: { contributionDays: { date: string; contributionCount: number; contributionLevel: string }[] }) => ({
+              days: w.contributionDays.map((d) => ({
+                date: d.date,
+                count: d.contributionCount,
+                level: LEVELS[d.contributionLevel] ?? 0,
+              })),
+            }),
+          );
+        }
+      }
 
       const rawEvents = (await eventsRes.json()) as {
         id: string;
@@ -224,7 +232,7 @@ export default function GithubPanel() {
 
       setData({
         login,
-        totalContributions: calendar.totalContributions,
+        totalContributions,
         weeks,
         events,
         repos,
@@ -274,7 +282,7 @@ export default function GithubPanel() {
       <div className="mt-3 border border-border p-3">
         {failed ? (
           <p className="mono text-[11px] text-muted-foreground">
-            activity unavailable —{" "}
+            activity unavailable ·{" "}
             <a
               href="https://github.com/akramcodez"
               target="_blank"
@@ -292,46 +300,62 @@ export default function GithubPanel() {
           </div>
         ) : (
           <>
-            <div className="overflow-x-auto pb-1">
-              <div className="min-w-[430px]">
-                <div
-                  className="grid gap-[2px] mb-1"
-                  style={{
-                    gridTemplateColumns: `repeat(${data.weeks.length}, 1fr)`,
-                  }}
-                >
-                  {months.map((m, i) => (
-                    <span
-                      key={i}
-                      className="mono text-[9px] text-muted-foreground leading-none"
-                      style={{ gridColumn: `span ${m.span}` }}
-                    >
-                      {m.label}
-                    </span>
-                  ))}
-                </div>
-                <div
-                  className="grid grid-rows-7 grid-flow-col gap-[2px]"
-                >
-                  {data.weeks.flatMap((w, wi) =>
-                    w.days.map((d) => (
+            {data.weeks.length > 0 && (
+              <div className="overflow-x-auto pb-1">
+                <div className="min-w-[430px]">
+                  <div
+                    className="grid gap-[2px] mb-1"
+                    style={{
+                      gridTemplateColumns: `repeat(${data.weeks.length}, 1fr)`,
+                    }}
+                  >
+                    {months.map((m, i) => (
                       <span
-                        key={`${wi}-${d.date}`}
-                        title={`${d.count} contribution${d.count === 1 ? "" : "s"} · ${d.date}`}
-                        className={`w-full aspect-square rounded-[1px] ${cellColor[d.level]}`}
-                      />
-                    )),
-                  )}
+                        key={i}
+                        className="mono text-[9px] text-muted-foreground leading-none"
+                        style={{ gridColumn: `span ${m.span}` }}
+                      >
+                        {m.label}
+                      </span>
+                    ))}
+                  </div>
+                  <div
+                    className="grid grid-rows-7 grid-flow-col gap-[2px]"
+                  >
+                    {data.weeks.flatMap((w, wi) =>
+                      w.days.map((d) => (
+                        <span
+                          key={`${wi}-${d.date}`}
+                          title={`${d.count} contribution${d.count === 1 ? "" : "s"} · ${d.date}`}
+                          className={`w-full aspect-square rounded-[1px] ${cellColor[d.level]}`}
+                        />
+                      )),
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
-            <p className="mono text-[11px] text-muted-foreground mt-3">
-              <span className="text-primary font-medium">
-                {data.totalContributions.toLocaleString()}
-              </span>{" "}
-              contributions in the last year
-            </p>
+            {data.totalContributions !== null ? (
+              <p className="mono text-[11px] text-muted-foreground mt-3">
+                <span className="text-primary font-medium">
+                  {data.totalContributions.toLocaleString()}
+                </span>{" "}
+                contributions in the last year
+              </p>
+            ) : (
+              <p className="mono text-[11px] text-muted-foreground mt-3">
+                recent public activity ·{" "}
+                <a
+                  href={`https://github.com/${data.login}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-quiet"
+                >
+                  full graph on github ↗
+                </a>
+              </p>
+            )}
 
             {data.events.length > 0 && (
               <ul className="mt-3 space-y-1.5 border-t border-border pt-3">
@@ -370,7 +394,7 @@ export default function GithubPanel() {
                       {r.desc && (
                         <span className="text-muted-foreground">
                           {" "}
-                          — {r.desc}
+                          · {r.desc}
                         </span>
                       )}
                     </li>

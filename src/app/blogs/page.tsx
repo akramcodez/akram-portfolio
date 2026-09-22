@@ -5,7 +5,7 @@ import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 
 export const metadata = {
-  title: "Writing — SK Akram",
+  title: "Writing | SK Akram",
   description: "Notes on software, open source and things i'm figuring out.",
 };
 

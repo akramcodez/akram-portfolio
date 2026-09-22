@@ -23,9 +23,9 @@ const plexMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.akramcodez.com"),
-  title: "SK Akram — full-stack developer & open-source contributor",
+  title: "SK Akram · full-stack developer & open-source contributor",
   description:
-    "SK Akram (@akramcodez) — full-stack developer, CS student, open-source contributor. 50+ merged PRs across Zed, Zulip, CircuitVerse, Ghostfolio, Activepieces and more. Currently building at Nano Collective.",
+    "SK Akram (@akramcodez), full-stack developer, CS student, open-source contributor. 50+ merged PRs across Zed, Zulip, CircuitVerse, Ghostfolio, Activepieces and more. Currently building at Nano Collective.",
   keywords: [
     "Sk Akram",
     "akramcodez",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   publisher: "SK Akram",
 
   openGraph: {
-    title: "SK Akram — full-stack developer & open-source contributor",
+    title: "SK Akram · full-stack developer & open-source contributor",
     description:
       "Full-stack developer who learns by shipping. 50+ merged open-source PRs. Currently working with Nano Collective / Nanocoder.",
     url: "https://www.akramcodez.com",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "SK Akram — full-stack developer & open-source contributor",
+    title: "SK Akram · full-stack developer & open-source contributor",
     description:
       "Full-stack developer who learns by shipping. 50+ merged open-source PRs. Currently working with Nano Collective / Nanocoder.",
     images: ["https://www.akramcodez.com/og-image.jpg?v=2"],
