@@ -26,6 +26,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+:root {
+  --font-nunito: "Nunito", ui-sans-serif, system-ui, sans-serif;
+}
+
 /*
  * Palette taken from the reference engraving:
  * warm paper white, woodcut ink black, and one restrained indigo blue.

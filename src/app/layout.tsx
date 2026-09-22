@@ -4,12 +4,6 @@ import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-const nunito = localFont({
-  src: "./fonts/Nunito/Nunito-VariableFont_wght.ttf",
-  display: "swap",
-  variable: "--font-nunito",
-});
-
 const plexMono = localFont({
   src: [
     {
@@ -92,7 +86,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${nunito.variable} ${plexMono.variable}`}>
+      <body className={plexMono.variable}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
           <Analytics />
