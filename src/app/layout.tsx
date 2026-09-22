@@ -10,74 +10,63 @@ const nunito = localFont({
   variable: "--font-nunito",
 });
 
-const thasadith = localFont({
+const plexMono = localFont({
   src: [
     {
-      path: "./fonts/Thasadith/Thasadith-Regular.ttf",
+      path: "./fonts/ibm-plex-mono/IBMPlexMono-Regular.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/Thasadith/Thasadith-Bold.ttf",
-      weight: "700",
+      path: "./fonts/ibm-plex-mono/IBMPlexMono-Medium.ttf",
+      weight: "500",
       style: "normal",
-    },
-    {
-      path: "./fonts/Thasadith/Thasadith-Italic.ttf",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "./fonts/Thasadith/Thasadith-BoldItalic.ttf",
-      weight: "700",
-      style: "italic",
     },
   ],
   display: "swap",
-  variable: "--font-thasadith",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.akramcodez.com"),
-  title: "Sk Akram",
-  description: "Hey! I'm Sk Akram, Software Developer",
+  title: "SK Akram — full-stack developer & open-source contributor",
+  description:
+    "SK Akram (@akramcodez) — full-stack developer, CS student, open-source contributor. 50+ merged PRs across Zed, Zulip, CircuitVerse, Ghostfolio, Activepieces and more. Currently building at Nano Collective.",
   keywords: [
     "Sk Akram",
+    "akramcodez",
     "Full Stack Developer",
-    "MERN Stack",
+    "Open Source Contributor",
+    "Nano Collective",
+    "Nanocoder",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
-    "MongoDB",
-    "JavaScript",
     "TypeScript",
-    "Backend Developer",
     "Computer Science Student",
-    "Web Developer",
     "Portfolio",
-    "Freelancer",
-    "Internship",
   ],
   authors: [
     {
-      name: "Sk Akram",
+      name: "SK Akram",
       url: "https://github.com/akramcodez",
     },
   ],
-  creator: "Sk Akram",
-  publisher: "Sk Akram",
+  creator: "SK Akram",
+  publisher: "SK Akram",
 
   openGraph: {
-    title: "Sk Akram Portfolio",
-    description: "Sk Akram - Software Developer",
+    title: "SK Akram — full-stack developer & open-source contributor",
+    description:
+      "Full-stack developer who learns by shipping. 50+ merged open-source PRs. Currently working with Nano Collective / Nanocoder.",
     url: "https://www.akramcodez.com",
-    siteName: "Sk Akram",
+    siteName: "SK Akram",
     images: [
       {
         url: "https://www.akramcodez.com/og-image.jpg?v=2",
         width: 1200,
         height: 630,
-        alt: "Sk Akram Portfolio",
+        alt: "SK Akram",
       },
     ],
     locale: "en_US",
@@ -86,8 +75,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Sk Akram Portfolio",
-    description: "Sk Akram - Software Developer",
+    title: "SK Akram — full-stack developer & open-source contributor",
+    description:
+      "Full-stack developer who learns by shipping. 50+ merged open-source PRs. Currently working with Nano Collective / Nanocoder.",
     images: ["https://www.akramcodez.com/og-image.jpg?v=2"],
     creator: "@akramcodez",
   },
@@ -102,8 +92,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${nunito.variable} ${thasadith.variable}`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <body className={`${nunito.variable} ${plexMono.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
           <Analytics />
         </ThemeProvider>

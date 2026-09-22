@@ -1,360 +1,489 @@
 "use client";
-import Background from "@/components/Background";
-import Controller from "@/components/Controller";
-import ControllerHeader from "@/components/Controller/ControllerHeader";
 
-import MeetMe from "@/components/Main/MeetMe";
-import Skills from "@/components/Main/Skills";
-import QuickMenu from "@/components/QuickMenu";
-import Projects from "@/components/Main/Projects";
-import Socials from "@/components/Main/Socials";
-import Loading from "@/components/Loading";
+import Link from "next/link";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
+import SectionMarker from "@/components/SectionMarker";
+import GithubPanel from "@/components/GithubPanel";
+import { projects, repos, socials } from "@/data/data";
+import { blogPosts } from "@/data/blogPosts";
 
-import { useTheme } from "next-themes";
-import { useEffect, useState, useRef } from "react";
-import Experience from "@/components/Main/Experience";
+const INTERESTS = [
+  "AI",
+  "developer tools",
+  "open source",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Node.js",
+];
 
-import ProjectDetail from "@/components/Main/ProjectDetail";
-import {
-  PanelLeftClose,
-  PanelLeftOpen,
-  PanelTopClose,
-  PanelTopOpen,
-} from "lucide-react";
+const ORGS = [
+  "Nano Collective",
+  "Zed",
+  "CircuitVerse",
+  "Zulip",
+  "Ghostfolio",
+  "Activepieces",
+  "Requestly",
+  "OpenLibrary",
+];
 
-const VALID_SECTIONS = new Set(["meet-me", "skills", "my-work", "socials"]);
+const FEATURED_REPOS = [
+  "nanocoder",
+  "internetarchive",
+  "activepieces",
+  "ghostfolio",
+];
 
-const SECTION_ID_MAP: Record<string, string> = {
-  "meet-me": "meet-me",
-  skills: "skills",
-  "my-work": "experience",
-  socials: "socials",
-};
+const totalPRs = repos.reduce((acc, r) => acc + r.prs.length, 0);
 
-export default function Page() {
-  const [showLoading, setShowLoading] = useState(true);
-  const [mounted, setMounted] = useState(false);
-  const [activeSection, setActiveSection] = useState<
-    "meet-me" | "skills" | "my-work" | "socials"
-  >("meet-me");
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
-  const { theme } = useTheme();
-  const mainRef = useRef<HTMLDivElement | null>(null);
-  const normalizeHash = (raw: string) => {
-    if (!raw) return "";
-    return raw.replace(/^#\/?/, "").toLowerCase();
-  };
+function social(name: string) {
+  return socials.find((s) => s.name.toLowerCase() === name.toLowerCase());
+}
 
-  // Update URL with collapse state
-  const updateUrlWithCollapseState = (collapsed: boolean) => {
-    const url = new URL(window.location.href);
-    if (collapsed) {
-      url.searchParams.set("collapsed", "true");
-    } else {
-      url.searchParams.delete("collapsed");
-    }
-    window.history.replaceState(null, "", url.toString());
-  };
-
-  // Toggle collapse and update URL
-  const handleCollapseToggle = () => {
-    const newCollapseState = !isCollapsed;
-    setIsCollapsed(newCollapseState);
-    updateUrlWithCollapseState(newCollapseState);
-  };
-
-  useEffect(() => {
-    const loadingTimer = setTimeout(() => {
-      setShowLoading(false);
-    }, 1100);
-
-    return () => clearTimeout(loadingTimer);
-  }, []);
-
-  useEffect(() => {
-    setMounted(true);
-
-    // Check URL params for collapse state on mount
-    const urlParams = new URLSearchParams(window.location.search);
-    const collapsedParam = urlParams.get("collapsed");
-    if (collapsedParam === "true") {
-      setIsCollapsed(true);
-    }
-
-    // If ?repo= param is present, navigate to my-work section
-    const repoParam = urlParams.get("repo");
-    if (repoParam) {
-      setActiveSection("my-work");
-    }
-  }, []);
-
-  useEffect(() => {
-    const initial = normalizeHash(window.location.hash || "");
-    const urlParams = new URLSearchParams(window.location.search);
-    const repoParam = urlParams.get("repo");
-
-    if (repoParam) {
-      // ?repo= param takes precedence — open my-work
-      const url = new URL(window.location.href);
-      url.hash = "my-work";
-      window.history.replaceState(null, "", url.toString());
-      setActiveSection("my-work");
-    } else if (
-      !initial ||
-      (!VALID_SECTIONS.has(initial) && !initial.startsWith("project-"))
-    ) {
-      window.history.replaceState(null, "", "#meet-me");
-      setActiveSection("meet-me");
-    } else if (VALID_SECTIONS.has(initial)) {
-      setActiveSection(initial as typeof activeSection);
-    } else if (initial.startsWith("project-")) {
-      setActiveSection("my-work");
-    }
-
-    const applyHash = () => {
-      // If ?repo= is still in the URL, keep my-work active
-      const params = new URLSearchParams(window.location.search);
-      if (params.get("repo")) {
-        setActiveSection("my-work");
-        return;
-      }
-      const h = normalizeHash(window.location.hash || "");
-      if (h && VALID_SECTIONS.has(h)) {
-        setActiveSection(h as typeof activeSection);
-      } else if (h && h.startsWith("project-")) {
-        setActiveSection("my-work");
-      }
-    };
-
-    window.addEventListener("hashchange", applyHash);
-    return () => window.removeEventListener("hashchange", applyHash);
-  }, []);
-
-  // Handle Hash change for projects
-  useEffect(() => {
-    const handleHashCheck = () => {
-      const hash = window.location.hash.slice(1); // remove #
-      if (hash.startsWith("project-")) {
-        const projectName = hash.replace("project-", "");
-        setSelectedProject(projectName);
-        setActiveSection("my-work");
-      } else {
-        setSelectedProject(null);
-      }
-    };
-
-    // Initial check
-    handleHashCheck();
-
-    window.addEventListener("hashchange", handleHashCheck);
-    return () => window.removeEventListener("hashchange", handleHashCheck);
-  }, []);
-
-  const scrollToSection = (section: typeof activeSection) => {
-    const container = mainRef.current;
-    if (!container) return;
-
-    const id = SECTION_ID_MAP[section];
-    if (!id) return;
-
-    const target = container.querySelector(`#${id}`) as HTMLElement | null;
-    if (!target) return;
-
-    const containerRect = container.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    const offset = targetRect.top - containerRect.top + container.scrollTop;
-
-    container.scrollTo({ top: offset, behavior: "smooth" });
-  };
-
-  const handleSectionChange = (section: typeof activeSection) => {
-    if (selectedProject) {
-      setSelectedProject(null);
-      window.location.hash = `#${section}`;
-      setTimeout(() => {
-        scrollToSection(section);
-      }, 100);
-      return;
-    }
-
-    // Clear ?repo= param when navigating away from my-work
-    if (section !== "my-work") {
-      const url = new URL(window.location.href);
-      url.searchParams.delete("repo");
-      window.history.replaceState(null, "", url.toString());
-    }
-
-    if (activeSection === section) {
-      scrollToSection(section);
-    } else {
-      setActiveSection(section);
-    }
-  };
-
-  useEffect(() => {
-    if (!mounted || showLoading) return;
-
-    const scrollTimer = setTimeout(() => {
-      scrollToSection(activeSection);
-    }, 200);
-
-    return () => clearTimeout(scrollTimer);
-  }, [activeSection, mounted, showLoading]);
-
-  useEffect(() => {
-    // Wait until mount effects have resolved the correct section from the URL
-    if (!mounted) return;
-
-    const currentHash = normalizeHash(window.location.hash || "");
-    // Don't override project URLs - they have their own hash format
-    if (currentHash.startsWith("project-")) {
-      return;
-    }
-    const url = new URL(window.location.href);
-    // Clear repo param when navigating away from my-work
-    if (activeSection !== "my-work") {
-      url.searchParams.delete("repo");
-    }
-    if (activeSection !== currentHash) {
-      url.hash = activeSection;
-      window.history.replaceState(null, "", url.toString());
-    } else if (activeSection !== "my-work" && url.searchParams.has("repo")) {
-      // Param was already cleaned up above, persist the change
-      window.history.replaceState(null, "", url.toString());
-    }
-  }, [activeSection, mounted]);
-
-  if (showLoading) {
-    return <Loading />;
+function projectWhy(name: string) {
+  switch (name) {
+    case "PIVA":
+      return "Webinars that talk back — built it to turn one-way presentations into live, AI-driven conversations.";
+    case "OsFit":
+      return "Built for the Apify × Lingo.dev hackathon — fitness coaching that works in 20+ languages.";
+    case "MyTube":
+      return "A YouTube clone built to learn how video platforms actually work under the hood.";
+    case "VeoMate":
+      return "Workplace tools forget everything. This one remembers. Currently being built.";
+    default:
+      return "";
   }
+}
 
-  if (!mounted) {
-    return null;
-  }
+function projectBlurb(name: string, desc: string) {
+  if (name === "OsFit")
+    return "Multilingual fitness app for the Apify × Lingo.dev hackathon.";
+  return desc.endsWith(".") ? desc : `${desc}.`;
+}
 
-  const borderClass = theme === "dark" ? "border-white/80" : "border-black";
+function ArrowLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mono text-[11px] text-muted-foreground hover:text-primary transition-colors duration-150"
+    >
+      → {children}
+    </a>
+  );
+}
+
+export default function Home() {
+  const email = social("email");
 
   return (
-    <div
-      className={`h-screen animate-blur-in pt-2 pr-2 pl-2 pb-2 md:pt-5 md:pr-5 md:pl-5 md:pb-5 xl:pt-8 xl:pr-7 xl:pl-7 xl:pb-7 2xl:pt-10 2xl:pr-10 2xl:pl-10 2xl:pb-10`}
-    >
-      <div className="flex flex-col items-end w-full h-full">
-        <div className="flex w-full flex-1 min-h-0 items-end">
-          {/* <div
-            className={`w-5 h-30 hidden md:block border-[0.095rem] border-r-0 ${borderClass}`}
-          >
-            <ThemeSelector />
-          </div> */}
+    <div className="min-h-screen flex flex-col animate-fade-in">
+      <SiteHeader />
 
-          <div
-            className={`w-full h-full flex flex-col md:flex-row items-end md:items-stretch transition-all duration-500 ease-in-out gap-3 ${isCollapsed ? "md:gap-0" : ""}`}
-          >
-            <div
-              className={` 
-                 flex flex-col gap-2 items-end justify-end transition-all duration-500 ease-in-out overflow-hidden
-                 ${isCollapsed ? "w-full md:w-0 max-h-0 md:max-h-full md:h-full opacity-0 pointer-events-none mb-0" : "w-full h-auto md:w-[18%] md:min-w-56 max-h-[600px] md:max-h-full md:h-full opacity-100 mb-0"}
-              `}
+      <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10 lg:grid lg:grid-cols-[1fr_310px] lg:gap-12">
+        {/* ── Left / main column ─────────────────────────────── */}
+        <div className="min-w-0 space-y-12">
+          {/* about */}
+          <section id="about" className="scroll-mt-20">
+            <SectionMarker right="cs student · india">about</SectionMarker>
+            <p className="text-[15px] leading-relaxed max-w-xl">
+              hi, i&apos;m akram — a full-stack developer who likes building
+              things, breaking things, and contributing to software i actually
+              use. i&apos;m a computer science student who learned to code by
+              shipping: most of what i know came from getting real pull
+              requests reviewed, rejected, and merged.
+            </p>
+            <p className="text-[15px] leading-relaxed max-w-xl mt-4">
+              right now i&apos;m mostly into{" "}
+              <span className="mono text-[13px]">
+                {INTERESTS.map((t, i) => (
+                  <span key={t}>
+                    <span className={i < 3 ? "text-primary" : ""}>{t}</span>
+                    {i < INTERESTS.length - 1 && " · "}
+                  </span>
+                ))}
+              </span>
+            </p>
+            <p className="mono text-[11px] text-muted-foreground mt-4">
+              @akramcodez{" "}
+              <span className="text-primary animate-blink">▊</span>
+            </p>
+          </section>
+
+          {/* work */}
+          <section id="work" className="scroll-mt-20">
+            <SectionMarker
+              right={`${totalPRs}+ merged prs · ${repos.length} projects`}
             >
-              <div className={`w-full hidden md:flex items-end`}>
-                <ControllerHeader activeSection={activeSection} />
+              work
+            </SectionMarker>
+
+            <div className="border border-border p-4">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-bold">Nano Collective</h3>
+                <p className="mono text-[11px] text-primary">
+                  currently · here now
+                </p>
               </div>
-              <div
-                className={`w-full h-auto md:h-fit md:w-full 2xl:min-h-auto border-[0.095rem] rounded-t-2xl ${borderClass} flex md:flex-col`}
-              >
-                <Controller
-                  activeSection={activeSection}
-                  onSectionChange={handleSectionChange}
-                />
-              </div>
+              <p className="mono text-[11px] text-muted-foreground mt-1">
+                open-source contributor → maintainer
+              </p>
+              <p className="text-sm text-foreground/85 mt-3 leading-relaxed">
+                Building{" "}
+                <a
+                  href="https://github.com/Nano-Collective/nanocoder"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-quiet"
+                >
+                  Nanocoder
+                </a>
+                , a community-first AI coding agent for the terminal. Features,
+                bug fixes, PR reviews, GitHub workflows — whatever a real
+                production open-source project needs.
+              </p>
             </div>
 
-            <div
-              className={`w-full flex-1 sm:h-full border-[0.095rem] flex relative ${isCollapsed ? "rounded-t-2xl" : ""} rounded-b-2xl md:rounded-b-none md:rounded-t-none overflow-hidden ${borderClass} transition-all duration-500 min-h-0`}
-            >
-              <button
-                onClick={handleCollapseToggle}
-                className={`absolute z-40 p-2 rounded-full border transition-all duration-300 ease-in-out
-                  ${
-                    theme === "dark"
-                      ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
-                      : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
-                  }
-                  top-3 left-3
-                  hidden md:block
-                `}
-                aria-label={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
-              >
-                {isCollapsed ? (
-                  <PanelLeftOpen className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" />
-                ) : (
-                  <PanelLeftClose className="w-4 h-4 md:w-5 md:h-5 pointer-events-none" />
-                )}
-              </button>
+            <div className="mt-6">
+              <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground mb-2">
+                OPEN SOURCE
+              </p>
+              <p className="text-[15px] leading-relaxed">
+                <span className="text-primary font-bold">
+                  {totalPRs}+ merged PRs
+                </span>{" "}
+                across projects people actually use.
+              </p>
+              <p className="mono text-[11px] text-muted-foreground mt-2 leading-relaxed">
+                {ORGS.join(" · ")}
+              </p>
+            </div>
 
-              <button
-                onClick={handleCollapseToggle}
-                className={`absolute z-40 p-1.5 rounded-full border transition-all duration-300 ease-in-out flex items-center justify-center
-                  ${
-                    theme === "dark"
-                      ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
-                      : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
-                  }
-                  top-2 left-2
-                  md:hidden
-                `}
-                aria-label={isCollapsed ? "Expand Menu" : "Collapse Menu"}
-              >
-                {isCollapsed ? (
-                  <PanelTopOpen className="w-4 h-4 pointer-events-none" />
-                ) : (
-                  <PanelTopClose className="w-4 h-4 pointer-events-none" />
-                )}
-              </button>
-
-              <Background />
-
-              <div className="absolute top-2 right-2 md:top-3 md:right-3 z-30">
-                <QuickMenu fromSection={activeSection} />
+            <div className="mt-6">
+              <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground mb-2">
+                SELECTED CONTRIBUTIONS
+              </p>
+              <div className="border border-border divide-y divide-border">
+                {FEATURED_REPOS.map((name) => {
+                  const repo = repos.find((r) => r.name === name);
+                  if (!repo) return null;
+                  return (
+                    <details key={repo.name} className="group px-3 py-2.5">
+                      <summary className="flex items-baseline justify-between gap-3 cursor-pointer list-none select-none">
+                        <span className="flex items-baseline gap-2 min-w-0">
+                          <span className="mono text-[11px] text-muted-foreground group-open:text-primary transition-colors">
+                            [+]
+                          </span>
+                          <span className="text-sm font-semibold truncate">
+                            {repo.name === "internetarchive"
+                              ? "internetarchive/openlibrary"
+                              : repo.name}
+                          </span>
+                        </span>
+                        <span className="mono text-[11px] text-muted-foreground shrink-0">
+                          {repo.prs.length} pr{repo.prs.length > 1 ? "s" : ""}
+                        </span>
+                      </summary>
+                      <ul className="mt-2.5 ml-6 space-y-1.5 pb-1">
+                        {repo.prs.map((pr) => (
+                          <li
+                            key={pr.url}
+                            className="mono text-[11px] leading-relaxed"
+                          >
+                            <a
+                              href={pr.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="link-quiet"
+                            >
+                              {pr.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </details>
+                  );
+                })}
               </div>
+              <p className="mono text-[11px] text-muted-foreground mt-2.5">
+                full list on{" "}
+                <a
+                  href="https://github.com/akramcodez"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-quiet"
+                >
+                  github.com/akramcodez ↗
+                </a>
+              </p>
+            </div>
+          </section>
 
-              <main
-                ref={mainRef}
-                className="h-full w-full absolute z-10 overflow-auto scrollbar-thin"
-              >
-                <div className="h-full w-full flex items-center justify-center">
-                  <div className="h-full w-full">
-                    {selectedProject ? (
-                      <ProjectDetail
-                        projectId={selectedProject}
-                        onBack={() => {
-                          setSelectedProject(null);
-                          window.location.hash = "#my-work";
-                          setTimeout(() => {
-                            scrollToSection("my-work");
-                          }, 100);
-                        }}
-                      />
-                    ) : (
-                      <>
-                        <MeetMe />
-                        <Skills />
-                        <Experience />
-                        <Projects />
-                        <Socials />
-                      </>
-                    )}
+          {/* projects */}
+          <section id="projects" className="scroll-mt-20">
+            <SectionMarker right="things i built">projects</SectionMarker>
+            <div className="divide-y divide-border border-y border-border">
+              {projects.map((p) => (
+                <article key={p.name} className="py-4">
+                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                    <h3 className="mono text-[13px] font-medium tracking-[0.1em]">
+                      {p.name.toUpperCase()}
+                    </h3>
+                    <p className="mono text-[11px] text-muted-foreground">
+                      {p.tech}
+                    </p>
+                  </div>
+                  <p className="text-sm mt-1.5 text-foreground/90">
+                    {projectBlurb(p.name, p.desc)}{" "}
+                    <span className="text-muted-foreground">
+                      {projectWhy(p.name)}
+                    </span>
+                  </p>
+                  <div className="flex gap-4 mt-2">
+                    <ArrowLink href={p.liveLink}>live</ArrowLink>
+                    <ArrowLink href={p.link}>source</ArrowLink>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* writing */}
+          <section id="writing" className="scroll-mt-20">
+            <SectionMarker
+              right={
+                <Link href="/blogs" className="link-quiet">
+                  all posts →
+                </Link>
+              }
+            >
+              writing
+            </SectionMarker>
+            <div className="divide-y divide-border border-y border-border">
+              {blogPosts.map((post) => (
+                <div key={post.slug} className="py-3 flex items-start gap-4">
+                  <span className="mono text-[11px] text-muted-foreground mt-[3px] shrink-0 w-14">
+                    *
+                  </span>
+                  <div className="min-w-0">
+                    <Link
+                      href={`/blogs/${post.slug}`}
+                      className="text-sm font-semibold link-quiet"
+                    >
+                      {post.title}
+                    </Link>
+                    <p className="text-sm text-muted-foreground mt-0.5 line-clamp-1">
+                      {post.excerpt}
+                    </p>
                   </div>
                 </div>
-              </main>
+              ))}
             </div>
-          </div>
+          </section>
         </div>
 
-        <div className="w-50 h-5 flex justify-end">
-          <p className="text-xs opacity-80 pr-2 pt-0.5">© Sk Akram</p>
+        {/* ── Right / sidebar column (desktop) ───────────────── */}
+        <aside className="hidden lg:block space-y-9">
+          <GithubPanel />
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              CURRENT STATUS
+            </p>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li className="flex items-baseline gap-2">
+                <span className="mono text-[11px] text-primary">●</span>
+                building at Nano Collective
+              </li>
+              <li className="flex items-baseline gap-2">
+                <span className="mono text-[11px] text-primary">●</span>
+                open to interesting opportunities
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              LINKS
+            </p>
+            <ul className="mt-3 space-y-1.5">
+              {["GitHub", "X (Twitter)", "LinkedIn", "Email"].map((name) => {
+                const s = social(name);
+                if (!s) return null;
+                return (
+                  <li key={name} className="mono text-[12px]">
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-quiet"
+                    >
+                      {name === "X (Twitter)" ? "x" : name.toLowerCase()}
+                    </a>
+                    <span className="text-muted-foreground">
+                      {" "}
+                      · {name === "Email" ? "skakram00zz" : s.handle}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              META
+            </p>
+            <ul className="mt-3 space-y-1.5 mono text-[12px]">
+              <li>
+                <Link href="/support" className="link-quiet">
+                  /support
+                </Link>{" "}
+                <span className="text-muted-foreground">
+                  — fund more open source
+                </span>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/akramcodez/akram-portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-quiet"
+                >
+                  /source
+                </a>{" "}
+                <span className="text-muted-foreground">
+                  — this site&apos;s code
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              STACK
+            </p>
+            <p className="mono text-[12px] mt-3 leading-loose text-foreground/80">
+              typescript · next.js · react · node.js · prisma · postgres ·
+              supabase
+            </p>
+            <p className="mono text-[10px] text-muted-foreground mt-2">
+              tools are replaceable; shipping isn&apos;t.
+            </p>
+          </section>
+
+          <p className="mono text-[11px] text-muted-foreground pt-2">
+            $ whoami
+            <br />
+            <span className="text-foreground/80">
+              builder, contributor, cs student
+            </span>
+          </p>
+        </aside>
+
+        {/* ── Mobile: reordered extras ───────────────────────── */}
+        <div className="lg:hidden mt-12 space-y-9">
+          <GithubPanel />
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              CURRENT STATUS
+            </p>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li className="flex items-baseline gap-2">
+                <span className="mono text-[11px] text-primary">●</span>
+                building at Nano Collective
+              </li>
+              <li className="flex items-baseline gap-2">
+                <span className="mono text-[11px] text-primary">●</span>
+                open to interesting opportunities
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              LINKS
+            </p>
+            <ul className="mt-3 space-y-1.5">
+              {["GitHub", "X (Twitter)", "LinkedIn", "Email"].map((name) => {
+                const s = social(name);
+                if (!s) return null;
+                return (
+                  <li key={name} className="mono text-[12px]">
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-quiet"
+                    >
+                      {name === "X (Twitter)" ? "x" : name.toLowerCase()}
+                    </a>
+                    <span className="text-muted-foreground">
+                      {" "}
+                      · {name === "Email" ? "skakram00zz" : s.handle}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              META
+            </p>
+            <ul className="mt-3 space-y-1.5 mono text-[12px]">
+              <li>
+                <Link href="/support" className="link-quiet">
+                  /support
+                </Link>{" "}
+                <span className="text-muted-foreground">
+                  — fund more open source
+                </span>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/akramcodez/akram-portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-quiet"
+                >
+                  /source
+                </a>{" "}
+                <span className="text-muted-foreground">
+                  — this site&apos;s code
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+              STACK
+            </p>
+            <p className="mono text-[12px] mt-3 leading-loose text-foreground/80">
+              typescript · next.js · react · node.js · prisma · postgres ·
+              supabase
+            </p>
+            <p className="mono text-[10px] text-muted-foreground mt-2">
+              tools are replaceable; shipping isn&apos;t.
+            </p>
+          </section>
         </div>
-      </div>
+      </main>
+
+      <SiteFooter />
+      {email && <span className="hidden" aria-hidden>{email.handle}</span>}
     </div>
   );
 }
