@@ -35,7 +35,7 @@ export default function SiteHeader() {
               Sk Akram
             </Link>
             <p className="mono text-[11px] text-muted-foreground mt-2">
-              full-stack developer / open-source contributor
+              software engineer / tech creator
             </p>
           </div>
 

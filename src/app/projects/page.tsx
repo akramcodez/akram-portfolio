@@ -2,7 +2,7 @@
 
 import SiteHeader from "@/components/SiteHeader";
 import SectionMarker from "@/components/SectionMarker";
-import Sidebar from "@/components/Sidebar";
+
 import { projects, socials } from "@/data/data";
 
 function social(name: string) {
@@ -57,8 +57,7 @@ export default function ProjectsPage() {
       <SiteHeader />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
-        <div className="lg:grid lg:grid-cols-[1fr_1px_310px] lg:gap-6">
-        <div className="min-w-0 space-y-12">
+        <div className="min-w-0 space-y-12 w-full">
           {/* projects */}
           <section id="projects" className="scroll-mt-20">
             <SectionMarker right="things i built">projects</SectionMarker>
@@ -87,9 +86,6 @@ export default function ProjectsPage() {
               ))}
             </div>
           </section>
-        </div>
-
-        <Sidebar />
         </div>
       </main>
 

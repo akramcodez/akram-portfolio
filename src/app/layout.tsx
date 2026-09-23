@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/providers/theme-provder";
 import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 const plexMono = localFont({
   src: [
@@ -86,9 +93,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={plexMono.variable}>
+      <body className={`${plexMono.variable} ${inter.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          {children}
+          <div className="min-h-screen max-w-5xl mx-auto border-x border-border bg-background">
+            {children}
+          </div>
           <Analytics />
         </ThemeProvider>
       </body>

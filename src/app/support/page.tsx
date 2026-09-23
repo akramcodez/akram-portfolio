@@ -23,7 +23,7 @@ export default function SupportPage() {
       <SiteHeader />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
-        <div className="max-w-2xl">
+        <div className="w-full">
           <SectionMarker right="voluntary, always">support</SectionMarker>
 
           <p className="text-[15px] leading-relaxed text-foreground/85">
@@ -106,25 +106,7 @@ export default function SupportPage() {
               </a>
             </div>
 
-            {/* GitHub */}
-            <div className="py-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-              <div className="min-w-40">
-                <p className="mono text-[13px] font-medium tracking-[0.08em]">
-                  FREE OPTION
-                </p>
-                <p className="mono text-[10px] text-muted-foreground mt-0.5">
-                  costs nothing, means a lot
-                </p>
-              </div>
-              <a
-                href="https://github.com/akramcodez"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mono text-[13px] link-quiet break-all"
-              >
-                star a repo on github ↗
-              </a>
-            </div>
+
           </div>
 
           <p className="mono text-[11px] text-muted-foreground mt-6">

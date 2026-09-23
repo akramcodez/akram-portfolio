@@ -14,7 +14,7 @@ export default function BlogsPage() {
       <SiteHeader />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
-        <div className="max-w-2xl">
+        <div className="w-full">
           <SectionMarker
             right={
               <a

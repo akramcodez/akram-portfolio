@@ -2,7 +2,7 @@
 
 import SiteHeader from "@/components/SiteHeader";
 import SectionMarker from "@/components/SectionMarker";
-import Sidebar from "@/components/Sidebar";
+
 import { repos, socials } from "@/data/data";
 
 const ORGS = [
@@ -37,8 +37,7 @@ export default function WorkPage() {
       <SiteHeader />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
-        <div className="lg:grid lg:grid-cols-[1fr_1px_310px] lg:gap-6">
-        <div className="min-w-0 space-y-12">
+        <div className="min-w-0 space-y-12 w-full">
           {/* work */}
           <section id="work" className="scroll-mt-20">
             <SectionMarker
@@ -147,9 +146,6 @@ export default function WorkPage() {
               </p>
             </div>
           </section>
-        </div>
-
-        <Sidebar />
         </div>
       </main>
 

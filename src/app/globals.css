@@ -26,9 +26,7 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  --font-nunito: "Nunito", ui-sans-serif, system-ui, sans-serif;
-}
+
 
 /*
  * Palette taken from the reference engraving:
@@ -78,7 +76,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
     font-size: 15px;
     line-height: 1.65;
   }
@@ -94,7 +92,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 code,

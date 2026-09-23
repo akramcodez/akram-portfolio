@@ -32,7 +32,7 @@ export default function ArticlePage() {
       <SiteHeader />
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
-        <article className="max-w-2xl">
+        <article className="w-full">
           <p className="mono text-[11px] text-muted-foreground mb-4">
             <Link href="/blogs" className="link-quiet">
               ← writing
