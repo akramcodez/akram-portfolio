@@ -1,5 +1,5 @@
 import SiteHeader from "@/components/SiteHeader";
-import SectionMarker from "@/components/SectionMarker";
+
 import Link from "next/link";
 import { blogPosts } from "@/data/blogPosts";
 
@@ -15,57 +15,30 @@ export default function BlogsPage() {
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
         <div className="w-full">
-          <SectionMarker
-            right={
-              <a
-                href="https://x.com/akramcodez/articles"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link-quiet"
-              >
-                more on x ↗
-              </a>
-            }
-          >
-            writing
-          </SectionMarker>
-          <p className="text-[15px] text-foreground/85 leading-relaxed mb-8">
-            notes on software, open source and things i&apos;m still figuring
-            out. published here first, cross-posted to x and medium.
-          </p>
 
-          <div className="divide-y divide-border border-y border-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {blogPosts.map((post) => (
-              <article key={post.slug} className="py-5">
-                <Link
-                  href={`/blogs/${post.slug}`}
-                  className="text-base font-bold link-quiet"
-                >
-                  {post.title}
-                </Link>
-                <p className="text-sm text-muted-foreground mt-1.5 leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <p className="mono text-[11px] text-muted-foreground mt-2">
-                  <Link href={`/blogs/${post.slug}`} className="hover:text-primary transition-colors">
-                    read →
-                  </Link>
-                </p>
-              </article>
+              <Link
+                key={post.slug}
+                href={`/blogs/${post.slug}`}
+                className="group flex flex-col border border-border rounded-sm p-5 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300 bg-card/20 h-full"
+              >
+                <article className="flex flex-col h-full">
+                  <h2 className="text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">
+                    {post.excerpt}
+                  </p>
+                  <p className="mono text-[10px] text-primary mt-6 font-semibold uppercase tracking-wider">
+                    read article →
+                  </p>
+                </article>
+              </Link>
             ))}
           </div>
 
-          <p className="mono text-[11px] text-muted-foreground mt-6">
-            also on{" "}
-            <a
-              href="https://medium.com/@akramcodez"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-quiet"
-            >
-              medium.com/@akramcodez ↗
-            </a>
-          </p>
+
         </div>
       </main>
     </div>

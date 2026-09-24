@@ -66,13 +66,14 @@ export const projects = [
     desc: "AI-powered tool for analyzing GitHub files and solving issues. Supports 20+ languages",
     link: "https://github.com/akramcodez/osfit",
     liveLink: "https://osfit.akramcodez.com",
+    video: "https://x.com/akramcodez/status/2005999816070029547",
   },
   {
-    name: "VeoMate",
-    tech: "Currently in building state",
-    desc: "The Context-Aware Work & Communication Platform",
-    link: "https://github.com/akramcodez/veomate-waitlist",
-    liveLink: "https://waitlist.veomate.com",
+    name: "RepoTune",
+    tech: "CLI • TypeScript",
+    desc: "Repository quality toolkit for open source maintainers. Scan any repo in seconds.",
+    link: "https://github.com/akramcodez/repotune",
+    liveLink: "https://www.npmjs.com/package/repotune",
   },
   {
     name: "PIVA",
@@ -80,6 +81,7 @@ export const projects = [
     desc: "AI-powered webinar platform",
     link: "https://github.com/akramcodez/piva",
     liveLink: "https://piva.akramcodez.com",
+    video: "https://x.com/akramcodez/status/1948605383528120502",
   },
   {
     name: "MyTube",

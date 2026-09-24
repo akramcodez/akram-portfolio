@@ -39,12 +39,9 @@ export default function ArticlePage() {
             </Link>
           </p>
 
-          <h1 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight">
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight leading-tight pb-4 border-b border-border">
             {post.title}
           </h1>
-          <p className="mono text-[11px] text-muted-foreground mt-3 pb-4 border-b border-border">
-            sk akram · {post.slug}
-          </p>
 
           {post.image && (
             <div className="my-6 border border-border">

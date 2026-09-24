@@ -49,7 +49,7 @@ export default function WorkPage() {
 
             <div className="space-y-4">
               <div className="border border-border p-4 flex gap-4 items-start">
-                <img src="/afterquery.png" alt="AfterQuery Experts logo" className="w-9 h-9 rounded-md object-cover bg-white border border-border shrink-0" />
+                <img src="/afterquery.png" alt="AfterQuery Experts logo" className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-medium text-[15px] text-foreground">
@@ -68,7 +68,7 @@ export default function WorkPage() {
               </div>
 
               <div className="border border-border p-4 flex gap-4 items-start">
-                <img src="/nc.png" alt="Nano Collective logo" className="w-9 h-9 rounded-md object-cover bg-white border border-border shrink-0" />
+                <img src="/nc.png" alt="Nano Collective logo" className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-medium text-[15px] text-foreground">
@@ -87,7 +87,7 @@ export default function WorkPage() {
               </div>
 
               <div className="border border-border p-4 flex gap-4 items-start">
-                <img src="/kebulan.png" alt="Kebulan Grid logo" className="w-9 h-9 rounded-md object-cover bg-white border border-border shrink-0" />
+                <img src="/kebulan.png" alt="Kebulan Grid logo" className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="font-medium text-[15px] text-foreground">

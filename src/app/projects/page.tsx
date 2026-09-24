@@ -14,11 +14,11 @@ function projectWhy(name: string) {
     case "PIVA":
       return "Webinars that talk back. Built it to turn one-way presentations into live, AI-driven conversations.";
     case "OsFit":
-      return "Built for the Apify × Lingo.dev hackathon: fitness coaching that works in 20+ languages.";
+      return "Built it to seamlessly analyze code and fix complex issues right from GitHub.";
     case "MyTube":
       return "A YouTube clone built to learn how video platforms actually work under the hood.";
-    case "VeoMate":
-      return "Workplace tools forget everything. This one remembers. Currently being built.";
+    case "RepoTune":
+      return "Offline-first CLI. Built it to enforce pristine repos without needing API keys or complex setups.";
     default:
       return "";
   }
@@ -26,7 +26,9 @@ function projectWhy(name: string) {
 
 function projectBlurb(name: string, desc: string) {
   if (name === "OsFit")
-    return "Multilingual fitness app for the Apify × Lingo.dev hackathon.";
+    return "AI-powered tool for analyzing GitHub files and solving issues.";
+  if (name === "RepoTune")
+    return "Repository quality toolkit for open source maintainers.";
   return desc.endsWith(".") ? desc : `${desc}.`;
 }
 
@@ -61,29 +63,44 @@ export default function ProjectsPage() {
           {/* projects */}
           <section id="projects" className="scroll-mt-20">
             <SectionMarker right="things i built">projects</SectionMarker>
-            <div className="divide-y divide-border border-y border-border">
-              {projects.map((p) => (
-                <article key={p.name} className="py-4">
-                  <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                    <h3 className="mono text-[13px] font-medium tracking-[0.1em]">
-                      {p.name.toUpperCase()}
-                    </h3>
-                    <p className="mono text-[11px] text-muted-foreground">
-                      {p.tech}
-                    </p>
-                  </div>
-                  <p className="text-sm mt-1.5 text-foreground/90">
-                    {projectBlurb(p.name, p.desc)}{" "}
-                    <span className="text-muted-foreground">
-                      {projectWhy(p.name)}
-                    </span>
-                  </p>
-                  <div className="flex gap-4 mt-2">
-                    <ArrowLink href={p.liveLink}>live</ArrowLink>
-                    <ArrowLink href={p.link}>source</ArrowLink>
-                  </div>
-                </article>
-              ))}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+              {projects.map((p) => {
+                const imageName = p.name === 'VeoMate' ? 'waitlist-veomate.png' : `${p.name.toLowerCase()}.png`;
+                return (
+                  <article key={p.name} className="flex flex-col border border-border rounded-sm overflow-hidden group hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300 bg-card/20">
+                    <div className="aspect-video w-full overflow-hidden border-b border-border bg-muted/30 relative">
+                      <img 
+                        src={`/${imageName}`} 
+                        alt={`${p.name} screenshot`} 
+                        className="w-full h-full object-cover object-top" 
+                      />
+                    </div>
+                    <div className="p-5 flex flex-col flex-1">
+                      <div className="mb-3">
+                        <h3 className="font-semibold text-[16px] text-foreground mb-1">
+                          {p.name}
+                        </h3>
+                        <p className="mono text-[10px] tracking-wider font-semibold text-primary uppercase">
+                          {p.tech}
+                        </p>
+                      </div>
+                      <p className="text-[14px] text-foreground/80 leading-relaxed mb-6 flex-1">
+                        {projectBlurb(p.name, p.desc)}{" "}
+                        <span className="text-muted-foreground">
+                          {projectWhy(p.name)}
+                        </span>
+                      </p>
+                      <div className="flex gap-5 mt-auto pt-4 border-t border-border/50">
+                        <ArrowLink href={p.liveLink}>live</ArrowLink>
+                        <ArrowLink href={p.link}>source</ArrowLink>
+                        {(p as any).video && (
+                          <ArrowLink href={(p as any).video}>video</ArrowLink>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </section>
         </div>

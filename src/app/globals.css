@@ -18,7 +18,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-ink: var(--ink);
-  --font-sans: var(--font-nunito);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -44,8 +44,8 @@
   --muted-foreground: #6e6c63;
   --accent: #ecebe2;
   --accent-foreground: #16150f;
-  --border: #e2e1d7;
-  --input: #e2e1d7;
+  --border: #d5d4c8;
+  --input: #d5d4c8;
   --ring: #1647b0;
   --ink: #16150f;
 }
@@ -70,9 +70,6 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-duration: 400ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   html {
     scroll-behavior: smooth;
