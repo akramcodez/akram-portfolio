@@ -27,31 +27,22 @@ export default function SupportPage() {
           <SectionMarker right="voluntary, always">support</SectionMarker>
 
           <p className="text-[15px] leading-relaxed text-foreground/85">
-            most of my work is open source and free. if something i built
-            saved you time, or you just want to fund more late-night commits,
-            here&apos;s how. no pressure either way; a star on github works
-            too.
+            if my open source work saved you time, you can fund my late-night commits below, or simply support me with a follow or a star.
           </p>
 
-          <div className="mt-8 divide-y divide-border border-y border-border">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* UPI */}
-            <div className="py-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-              <div className="min-w-40">
-                <p className="mono text-[13px] font-medium tracking-[0.08em]">
-                  UPI
-                </p>
-                <p className="mono text-[10px] text-muted-foreground mt-0.5">
-                  india · instant · no fees
-                </p>
+            <div className="flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[16px] text-foreground">UPI</h3>
+                <p className="text-[13px] text-muted-foreground mt-1">India · Instant · No fees</p>
               </div>
-              <div className="flex items-center gap-3 min-w-0">
-                <span className="mono text-[13px] break-all">
-                  skakram00zz@oksbi
-                </span>
+              <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between gap-2">
+                <span className="mono text-[12px] truncate">skakram00zz@oksbi</span>
                 <button
                   onClick={() => copyToClipboard("skakram00zz@oksbi")}
                   aria-label="Copy UPI ID"
-                  className="mono text-[11px] text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 cursor-pointer shrink-0"
+                  className="mono text-[11px] text-primary hover:text-foreground transition-colors inline-flex items-center gap-1 cursor-pointer shrink-0 uppercase font-medium"
                 >
                   {copiedUPI ? (
                     <>
@@ -67,49 +58,62 @@ export default function SupportPage() {
             </div>
 
             {/* Wise */}
-            <div className="py-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-              <div className="min-w-40">
-                <p className="mono text-[13px] font-medium tracking-[0.08em]">
-                  WISE
-                </p>
-                <p className="mono text-[10px] text-muted-foreground mt-0.5">
-                  international · low fees
-                </p>
+            <a href="https://wise.com/pay/business/skakram" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[16px] text-foreground group-hover:text-primary transition-colors">Wise</h3>
+                <p className="text-[13px] text-muted-foreground mt-1">International · Low fees</p>
               </div>
-              <a
-                href="https://wise.com/pay/business/skakram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mono text-[13px] link-quiet break-all"
-              >
-                wise.com/pay/business/skakram ↗
-              </a>
-            </div>
-
-            {/* Buy me a coffee */}
-            <div className="py-4 flex flex-wrap items-baseline gap-x-6 gap-y-2">
-              <div className="min-w-40">
-                <p className="mono text-[13px] font-medium tracking-[0.08em]">
-                  COFFEE
-                </p>
-                <p className="mono text-[10px] text-muted-foreground mt-0.5">
-                  one-time or monthly
-                </p>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[11px] text-primary font-medium uppercase">send via wise ↗</span>
               </div>
-              <a
-                href="https://buymeacoffee.com/akramcodez"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mono text-[13px] link-quiet break-all"
-              >
-                buymeacoffee.com/akramcodez ↗
-              </a>
-            </div>
+            </a>
 
+            {/* Coffee */}
+            <a href="https://buymeacoffee.com/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[16px] text-foreground group-hover:text-primary transition-colors">Buy Me a Coffee</h3>
+                <p className="text-[13px] text-muted-foreground mt-1">One-time or monthly</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[11px] text-primary font-medium uppercase">buy coffee ↗</span>
+              </div>
+            </a>
 
+            {/* GitHub */}
+            <a href="https://github.com/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[16px] text-foreground group-hover:text-primary transition-colors">GitHub</h3>
+                <p className="text-[13px] text-muted-foreground mt-1">Star my repos or follow me</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[11px] text-primary font-medium uppercase">github.com/akramcodez ↗</span>
+              </div>
+            </a>
+
+            {/* X (Twitter) */}
+            <a href="https://x.com/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[16px] text-foreground group-hover:text-primary transition-colors">X (Twitter)</h3>
+                <p className="text-[13px] text-muted-foreground mt-1">Follow me for updates</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[11px] text-primary font-medium uppercase">x.com/akramcodez ↗</span>
+              </div>
+            </a>
+
+            {/* LinkedIn */}
+            <a href="https://linkedin.com/in/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[16px] text-foreground group-hover:text-primary transition-colors">LinkedIn</h3>
+                <p className="text-[13px] text-muted-foreground mt-1">Connect with me</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[11px] text-primary font-medium uppercase">in/akramcodez ↗</span>
+              </div>
+            </a>
           </div>
 
-          <p className="mono text-[11px] text-muted-foreground mt-6">
+          <p className="mono text-[11px] text-muted-foreground mt-8">
             thanks. it keeps the servers on and the prs flowing.
           </p>
         </div>
