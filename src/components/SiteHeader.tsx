@@ -34,7 +34,7 @@ export default function SiteHeader() {
             >
               Sk Akram
             </Link>
-            <p className="mono text-[11px] text-muted-foreground mt-2">
+            <p className="mono text-[10px] md:text-[11px] text-muted-foreground mt-2">
               software engineer / tech creator
             </p>
           </div>
@@ -67,7 +67,7 @@ export default function SiteHeader() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mono text-[12px] text-muted-foreground hover:text-primary transition-colors duration-150"
+                className="mono text-[11px] md:text-[12px] text-muted-foreground hover:text-primary transition-colors duration-150"
               >
                 {item.label} ↗
               </a>
@@ -75,7 +75,7 @@ export default function SiteHeader() {
               <Link
                 key={item.label}
                 href={item.href}
-                className={`mono text-[12px] transition-colors duration-150 ${
+                className={`mono text-[11px] md:text-[12px] transition-colors duration-150 ${
                   isActive
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary"

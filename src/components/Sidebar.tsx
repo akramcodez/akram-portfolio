@@ -17,10 +17,10 @@ export default function Sidebar() {
         <GithubPanel />
 
         <section>
-          <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+          <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
             CURRENT STATUS
           </p>
-          <ul className="mt-3 space-y-2 mono text-[12px]">
+          <ul className="mt-3 space-y-2 mono text-[11px] md:text-[12px]">
             <li className="flex items-baseline gap-2">
               <span className="text-primary">*</span>
               software engineer at nano collective
@@ -33,7 +33,7 @@ export default function Sidebar() {
         </section>
 
         <section>
-          <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+          <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
             LINKS
           </p>
           <ul className="mt-3 space-y-1.5">
@@ -41,7 +41,7 @@ export default function Sidebar() {
               const s = social(name);
               if (!s) return null;
               return (
-                <li key={name} className="mono text-[12px]">
+                <li key={name} className="mono text-[11px] md:text-[12px]">
                   <a
                     href={s.url}
                     target="_blank"
@@ -61,10 +61,10 @@ export default function Sidebar() {
         </section>
 
         <section>
-          <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+          <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
             PAGES
           </p>
-          <ul className="mt-3 space-y-1.5 mono text-[12px]">
+          <ul className="mt-3 space-y-1.5 mono text-[11px] md:text-[12px]">
             <li>
               <Link href="/blogs" className="link-quiet">
                 /blogs
@@ -90,10 +90,10 @@ export default function Sidebar() {
         <GithubPanel />
 
         <section>
-          <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+          <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
             CURRENT STATUS
           </p>
-          <ul className="mt-3 space-y-2 mono text-[12px]">
+          <ul className="mt-3 space-y-2 mono text-[11px] md:text-[12px]">
             <li className="flex items-baseline gap-2">
               <span className="text-primary">*</span>
               software engineer at nano collective
@@ -106,7 +106,7 @@ export default function Sidebar() {
         </section>
 
         <section>
-          <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+          <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
             LINKS
           </p>
           <ul className="mt-3 space-y-1.5">
@@ -114,7 +114,7 @@ export default function Sidebar() {
               const s = social(name);
               if (!s) return null;
               return (
-                <li key={name} className="mono text-[12px]">
+                <li key={name} className="mono text-[11px] md:text-[12px]">
                   <a
                     href={s.url}
                     target="_blank"
@@ -134,10 +134,10 @@ export default function Sidebar() {
         </section>
 
         <section>
-          <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+          <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
             PAGES
           </p>
-          <ul className="mt-3 space-y-1.5 mono text-[12px]">
+          <ul className="mt-3 space-y-1.5 mono text-[11px] md:text-[12px]">
             <li>
               <Link href="/blogs" className="link-quiet">
                 /blogs

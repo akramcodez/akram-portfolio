@@ -425,3 +425,60 @@ export const repos = [
     ],
   },
 ];
+
+export const aboutContent = [
+  <>
+    I&apos;m <span className="font-medium text-foreground">Sk Akram</span>, a software engineer from <span className="font-medium text-foreground">India</span>. I&apos;m currently a Software Engineer at <a href="https://nanocollective.org/" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">Nano Collective</a> and also work part-time as a Software Engineer at <a href="https://experts.afterquery.com/" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">AfterQuery Experts</a>. I&apos;ve worked across projects involving <span className="font-medium text-foreground">AI</span>, <span className="font-medium text-foreground">developer tooling</span>, and <span className="font-medium text-foreground">full-stack web development</span>.
+  </>,
+  <>
+    I&apos;m also an active <span className="font-medium text-foreground">open-source contributor</span> with <span className="font-medium text-foreground">60+ merged PRs</span> across projects and organizations including <a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">OpenClaw</a>, <a href="https://github.com/activepieces/activepieces" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">Activepieces</a>, <a href="https://github.com/internetarchive/openlibrary" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">Internet Archive</a>, <a href="https://github.com/zed-industries/zed" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">zed</a>, and <a href="https://github.com/dodopayments/billingsdk" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">DodoPayments</a>. I really like working on hard things because I want to keep growing and in the process provide meaningful value to others. Outside of software engineering, I share what I&apos;m building, learning, and some random thoughts with a <span className="font-medium text-foreground">6K+ audience</span> on <a href="https://x.com/akramcodez" target="_blank" rel="noopener noreferrer" className="link-quiet font-medium text-foreground">X (@akramcodez)</a>.
+  </>
+];
+
+export const experiences = [
+  {
+    company: "AfterQuery Experts",
+    logo: "/afterquery.png",
+    link: "https://experts.afterquery.com",
+    roles: [
+      {
+        title: "Software Engineer",
+        type: "Part-time",
+        location: "Remote",
+        period: "Aug 2026 - Present",
+      }
+    ]
+  },
+  {
+    company: "Nano Collective",
+    logo: "/nc.png",
+    link: "http://nanocollective.org",
+    roles: [
+      {
+        title: "Software Developer",
+        type: "Full-time",
+        location: "Remote",
+        period: "Jun 2026 - Present",
+      }
+    ]
+  },
+  {
+    company: "Kebulan Grid",
+    logo: "/kebulan.png",
+    link: "https://kebulangrid.com",
+    roles: [
+      {
+        title: "Full-stack Developer",
+        type: "Part-time",
+        location: "Remote",
+        period: "May 2026 - Aug 2026",
+      },
+      {
+        title: "Full-stack Developer",
+        type: "Full-time",
+        location: "Remote",
+        period: "Nov 2025 - Apr 2026",
+      }
+    ]
+  }
+];

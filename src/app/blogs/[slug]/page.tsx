@@ -16,10 +16,10 @@ export default function ArticlePage() {
       <div className="min-h-screen flex flex-col animate-fade-in">
         <SiteHeader />
         <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-10">
-          <p className="mono text-[12px] text-muted-foreground">
+          <p className="mono text-[11px] md:text-[12px] text-muted-foreground">
             404 · post not found
           </p>
-          <Link href="/blogs" className="mono text-[12px] link-quiet mt-2 inline-block">
+          <Link href="/blogs" className="mono text-[11px] md:text-[12px] link-quiet mt-2 inline-block">
             ← back to writing
           </Link>
         </main>
@@ -33,7 +33,7 @@ export default function ArticlePage() {
 
       <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
         <article className="w-full">
-          <p className="mono text-[11px] text-muted-foreground mb-4">
+          <p className="mono text-[10px] md:text-[11px] text-muted-foreground mb-4">
             <Link href="/blogs" className="link-quiet">
               ← writing
             </Link>
@@ -73,7 +73,7 @@ export default function ArticlePage() {
                 return (
                   <div
                     key={index}
-                    className="flex items-start mb-2.5 text-[15px] leading-relaxed"
+                    className="flex items-start mb-2.5 text-[14px] md:text-[15px] leading-relaxed"
                   >
                     <span className="mr-3 text-primary">•</span>
                     <p className="flex-1">
@@ -89,9 +89,9 @@ export default function ArticlePage() {
                   return (
                     <div
                       key={index}
-                      className="flex items-start mb-2.5 text-[15px] leading-relaxed"
+                      className="flex items-start mb-2.5 text-[14px] md:text-[15px] leading-relaxed"
                     >
-                      <span className="mr-3 mono text-[13px] text-primary min-w-[1.4rem]">
+                      <span className="mr-3 mono text-[12px] md:text-[13px] text-primary min-w-[1.4rem]">
                         {match[1]}.
                       </span>
                       <p className="flex-1">{renderInlineMarkdown(match[2])}</p>
@@ -117,7 +117,7 @@ export default function ArticlePage() {
               return (
                 <p
                   key={index}
-                  className="mb-4 text-[15px] leading-relaxed text-foreground/90"
+                  className="mb-4 text-[14px] md:text-[15px] leading-relaxed text-foreground/90"
                 >
                   {renderInlineMarkdown(trimmedBlock)}
                 </p>
@@ -126,10 +126,10 @@ export default function ArticlePage() {
           </div>
 
           <div className="mt-10 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-3">
-            <Link href="/blogs" className="mono text-[11px] link-quiet">
+            <Link href="/blogs" className="mono text-[10px] md:text-[11px] link-quiet">
               ← more writing
             </Link>
-            <p className="mono text-[11px] text-muted-foreground">
+            <p className="mono text-[10px] md:text-[11px] text-muted-foreground">
               discuss on{" "}
               <a
                 href="https://x.com/akramcodez"

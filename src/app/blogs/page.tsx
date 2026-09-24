@@ -24,13 +24,13 @@ export default function BlogsPage() {
                 className="group flex flex-col border border-border rounded-sm p-5 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300 bg-card/20 h-full"
               >
                 <article className="flex flex-col h-full">
-                  <h2 className="text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <h2 className="text-[15px] md:text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors">
                     {post.title}
                   </h2>
-                  <p className="text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">
+                  <p className="text-[13px] md:text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">
                     {post.excerpt}
                   </p>
-                  <p className="mono text-[10px] text-primary mt-6 font-semibold uppercase tracking-wider">
+                  <p className="mono text-[9px] md:text-[10px] text-primary mt-6 font-semibold uppercase tracking-wider">
                     read article →
                   </p>
                 </article>

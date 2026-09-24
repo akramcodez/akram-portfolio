@@ -4,7 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SectionMarker from "@/components/SectionMarker";
 import { IoIosGitMerge } from "react-icons/io";
 
-import { repos, socials } from "@/data/data";
+import { repos, socials, experiences } from "@/data/data";
 
 const ORGS = [
   "Nano Collective",
@@ -48,76 +48,48 @@ export default function WorkPage() {
             </SectionMarker>
 
             <div className="space-y-4">
-              <div className="border border-border p-4 flex gap-4 items-start">
-                <img src="/afterquery.png" alt="AfterQuery Experts logo" className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-medium text-[15px] text-foreground">
-                      <a href="https://experts.afterquery.com" target="_blank" rel="noopener noreferrer" className="link-quiet">
-                        AfterQuery Experts
-                      </a>
-                    </h3>
-                    <p className="text-[14px] text-primary">
-                      Aug 2026 - Present
-                    </p>
-                  </div>
-                  <p className="text-[15px] text-foreground/85 mt-1">
-                    Software Engineer · Part-time · Remote
-                  </p>
-                </div>
-              </div>
-
-              <div className="border border-border p-4 flex gap-4 items-start">
-                <img src="/nc.png" alt="Nano Collective logo" className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-medium text-[15px] text-foreground">
-                      <a href="http://nanocollective.org" target="_blank" rel="noopener noreferrer" className="link-quiet">
-                        Nano Collective
-                      </a>
-                    </h3>
-                    <p className="text-[14px] text-primary">
-                      Jun 2026 - Present
-                    </p>
-                  </div>
-                  <p className="text-[15px] text-foreground/85 mt-1">
-                    Software Developer · Full-time · Remote
-                  </p>
-                </div>
-              </div>
-
-              <div className="border border-border p-4 flex gap-4 items-start">
-                <img src="/kebulan.png" alt="Kebulan Grid logo" className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="font-medium text-[15px] text-foreground">
-                      <a href="https://kebulangrid.com" target="_blank" rel="noopener noreferrer" className="link-quiet">
-                        Kebulan Grid
-                      </a>
-                    </h3>
-                  </div>
-                  <div className="mt-4 pl-2">
-                    <div className="border-l-2 border-border/50 pl-4 space-y-4">
-                      <div>
-                        <div className="flex flex-wrap items-baseline justify-between gap-2">
-                          <p className="font-medium text-[15px] text-foreground/90">Full-stack Developer · Part-time · Remote</p>
-                          <p className="text-[14px] text-muted-foreground">
-                            May 2026 - Aug 2026
-                          </p>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex flex-wrap items-baseline justify-between gap-2">
-                          <p className="font-medium text-[15px] text-foreground/90">Full-stack Developer · Full-time · Remote</p>
-                          <p className="text-[14px] text-muted-foreground">
-                            Nov 2025 - Apr 2026
-                          </p>
-                        </div>
-                      </div>
+              {experiences.map((exp, index) => (
+                <div key={index} className="border border-border p-4 flex gap-4 items-start">
+                  <img src={exp.logo} alt={`${exp.company} logo`} className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2">
+                      <h3 className="font-medium text-[14px] md:text-[15px] text-foreground">
+                        <a href={exp.link} target="_blank" rel="noopener noreferrer" className="link-quiet">
+                          {exp.company}
+                        </a>
+                      </h3>
+                      {exp.roles.length === 1 && (
+                        <p className="text-[13px] md:text-[14px] text-primary">
+                          {exp.roles[0].period}
+                        </p>
+                      )}
                     </div>
+                    
+                    {exp.roles.length === 1 ? (
+                      <p className="text-[14px] md:text-[15px] text-foreground/85 mt-1">
+                        {exp.roles[0].title} · {exp.roles[0].type} · {exp.roles[0].location}
+                      </p>
+                    ) : (
+                      <div className="mt-4 pl-2">
+                        <div className="border-l-2 border-border/50 pl-4 space-y-4">
+                          {exp.roles.map((role, rIndex) => (
+                            <div key={rIndex}>
+                              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                                <p className="font-medium text-[14px] md:text-[15px] text-foreground/90">
+                                  {role.title} · {role.type} · {role.location}
+                                </p>
+                                <p className="text-[13px] md:text-[14px] text-muted-foreground">
+                                  {role.period}
+                                </p>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </section>
 
@@ -130,7 +102,7 @@ export default function WorkPage() {
             </SectionMarker>
 
             <div className="mt-6">
-              <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground mb-2">
+              <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground mb-2">
                 MERGED PULL REQUESTS
               </p>
               <div className="border border-border divide-y divide-border">
@@ -141,7 +113,7 @@ export default function WorkPage() {
                     <details key={repo.name} name="oss-accordion" className="group px-3 py-2.5">
                       <summary className="flex items-baseline justify-between gap-3 cursor-pointer list-none select-none">
                         <span className="flex items-baseline gap-2 min-w-0">
-                          <span className="mono text-[11px] text-muted-foreground group-open:text-primary transition-colors">
+                          <span className="mono text-[10px] md:text-[11px] text-muted-foreground group-open:text-primary transition-colors">
                             <span className="group-open:hidden">[+]</span>
                             <span className="hidden group-open:inline">[-]</span>
                           </span>
@@ -151,7 +123,7 @@ export default function WorkPage() {
                               : repo.name}
                           </span>
                         </span>
-                        <span className="mono text-[11px] text-muted-foreground shrink-0">
+                        <span className="mono text-[10px] md:text-[11px] text-muted-foreground shrink-0">
                           {repo.prs.length} pr{repo.prs.length > 1 ? "s" : ""}
                         </span>
                       </summary>
@@ -159,9 +131,9 @@ export default function WorkPage() {
                         {repo.prs.map((pr) => (
                           <li
                             key={pr.url}
-                            className="mono text-[11px] leading-relaxed flex items-start gap-1.5"
+                            className="mono text-[10px] md:text-[11px] leading-relaxed flex items-start gap-1.5"
                           >
-                            <IoIosGitMerge className="shrink-0 text-[14px] text-[#8250df] dark:text-[#a371f7] mt-[1px]" />
+                            <IoIosGitMerge className="shrink-0 text-[13px] md:text-[14px] text-[#8250df] dark:text-[#a371f7] mt-[1px]" />
                             <a
                               href={pr.url}
                               target="_blank"
@@ -177,7 +149,7 @@ export default function WorkPage() {
                   );
                 })}
               </div>
-              <p className="mono text-[11px] text-muted-foreground mt-2.5">
+              <p className="mono text-[10px] md:text-[11px] text-muted-foreground mt-2.5">
                 checkout more activity on{" "}
                 <a
                   href="https://github.com/akramcodez"

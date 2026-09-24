@@ -60,14 +60,14 @@ export default function GithubPanel() {
   return (
     <section id="github" className="scroll-mt-20">
       <div className="flex items-baseline justify-between">
-        <p className="mono text-[11px] tracking-[0.14em] text-muted-foreground">
+        <p className="mono text-[10px] md:text-[11px] tracking-[0.14em] text-muted-foreground">
           GITHUB
         </p>
         <a
           href="https://github.com/akramcodez"
           target="_blank"
           rel="noopener noreferrer"
-          className="mono text-[11px] link-quiet"
+          className="mono text-[10px] md:text-[11px] link-quiet"
         >
           @akramcodez ↗
         </a>
@@ -75,7 +75,7 @@ export default function GithubPanel() {
 
       <div className="mt-3 border border-border p-3">
         {error ? (
-          <p className="mono text-[11px] text-muted-foreground leading-relaxed">
+          <p className="mono text-[10px] md:text-[11px] text-muted-foreground leading-relaxed">
             graph unavailable · {error}{" "}
             <a
               href="https://github.com/akramcodez"
@@ -138,7 +138,7 @@ export default function GithubPanel() {
               </div>
             </div>
 
-            <p className="mono text-[11px] text-muted-foreground mt-3">
+            <p className="mono text-[10px] md:text-[11px] text-muted-foreground mt-3">
               <span className="text-primary font-medium">
                 {data.totalContributions.toLocaleString()}
               </span>{" "}

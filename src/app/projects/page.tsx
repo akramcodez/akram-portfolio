@@ -44,7 +44,7 @@ function ArrowLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="mono text-[11px] text-muted-foreground hover:text-primary transition-colors duration-150"
+      className="mono text-[10px] md:text-[11px] text-muted-foreground hover:text-primary transition-colors duration-150"
     >
       → {children}
     </a>
@@ -77,14 +77,14 @@ export default function ProjectsPage() {
                     </div>
                     <div className="p-5 flex flex-col flex-1">
                       <div className="mb-3">
-                        <h3 className="font-semibold text-[16px] text-foreground mb-1">
+                        <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
                           {p.name}
                         </h3>
-                        <p className="mono text-[10px] tracking-wider font-semibold text-primary uppercase">
+                        <p className="mono text-[9px] md:text-[10px] tracking-wider font-semibold text-primary uppercase">
                           {p.tech}
                         </p>
                       </div>
-                      <p className="text-[14px] text-foreground/80 leading-relaxed mb-6 flex-1">
+                      <p className="text-[13px] md:text-[14px] text-foreground/80 leading-relaxed mb-6 flex-1">
                         {projectBlurb(p.name, p.desc)}{" "}
                         <span className="text-muted-foreground">
                           {projectWhy(p.name)}
