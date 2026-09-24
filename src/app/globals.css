@@ -70,6 +70,9 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   html {
     scroll-behavior: smooth;
@@ -152,4 +155,28 @@ pre,
 *::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 9999px;
+}
+
+/* Smooth Details/Accordion Animation */
+:root {
+  interpolate-size: allow-keywords;
+}
+
+details::details-content {
+  transition: block-size 0.3s ease-out, content-visibility 0.3s ease-out;
+}
+
+details[open] summary ~ * {
+  animation: detailsFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes detailsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
