@@ -2,6 +2,7 @@
 
 import SiteHeader from "@/components/SiteHeader";
 import SectionMarker from "@/components/SectionMarker";
+import Image from "next/image";
 
 import { projects, socials } from "@/data/data";
 
@@ -69,10 +70,12 @@ export default function ProjectsPage() {
                 return (
                   <article key={p.name} className="flex flex-col border border-border rounded-sm overflow-hidden group hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300 bg-card/20">
                     <div className="aspect-video w-full overflow-hidden border-b border-border bg-muted/30 relative">
-                      <img 
-                        src={`/${imageName}`} 
-                        alt={`${p.name} screenshot`} 
-                        className="w-full h-full object-cover object-top" 
+                      <Image
+                        src={`/${imageName}`}
+                        alt={`${p.name} screenshot`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover object-top"
                       />
                     </div>
                     <div className="p-5 flex flex-col flex-1">
@@ -93,8 +96,8 @@ export default function ProjectsPage() {
                       <div className="flex gap-5 mt-auto pt-4 border-t border-border/50">
                         <ArrowLink href={p.liveLink}>live</ArrowLink>
                         <ArrowLink href={p.link}>source</ArrowLink>
-                        {(p as any).video && (
-                          <ArrowLink href={(p as any).video}>video</ArrowLink>
+                        {p.video && (
+                          <ArrowLink href={p.video}>video</ArrowLink>
                         )}
                       </div>
                     </div>

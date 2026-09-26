@@ -2,27 +2,10 @@
 
 import SiteHeader from "@/components/SiteHeader";
 import SectionMarker from "@/components/SectionMarker";
+import Image from "next/image";
 import { IoIosGitMerge } from "react-icons/io";
 
 import { repos, socials, experiences } from "@/data/data";
-
-const ORGS = [
-  "Nano Collective",
-  "Zed",
-  "CircuitVerse",
-  "Zulip",
-  "Ghostfolio",
-  "Activepieces",
-  "Requestly",
-  "OpenLibrary",
-];
-
-const FEATURED_REPOS = [
-  "nanocoder",
-  "internetarchive",
-  "activepieces",
-  "ghostfolio",
-];
 
 const totalPRs = repos.reduce((acc, r) => acc + r.prs.length, 0);
 
@@ -50,7 +33,7 @@ export default function WorkPage() {
             <div className="space-y-4">
               {experiences.map((exp, index) => (
                 <div key={index} className="border border-border p-4 flex gap-4 items-start">
-                  <img src={exp.logo} alt={`${exp.company} logo`} className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
+                  <Image src={exp.logo} alt={`${exp.company} logo`} width={36} height={36} className="w-9 h-9 rounded-sm object-cover bg-white border border-border shrink-0" />
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-baseline justify-between gap-2">
                       <h3 className="font-medium text-[14px] md:text-[15px] text-foreground">

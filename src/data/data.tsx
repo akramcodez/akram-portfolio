@@ -59,7 +59,16 @@ export const skills = [
   "CI/CD",
 ];
 
-export const projects = [
+type Project = {
+  name: string;
+  tech: string;
+  desc: string;
+  link: string;
+  liveLink: string;
+  video?: string;
+};
+
+export const projects: Project[] = [
   {
     name: "OsFit",
     tech: "Next.js • Tailwind • Supabase",

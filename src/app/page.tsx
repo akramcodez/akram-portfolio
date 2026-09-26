@@ -4,16 +4,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SectionMarker from "@/components/SectionMarker";
 import Sidebar from "@/components/Sidebar";
 import { socials, aboutContent } from "@/data/data";
-
-const INTERESTS = [
-  "AI",
-  "developer tools",
-  "open source",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-];
+import Image from "next/image";
 
 function social(name: string) {
   return socials.find((s) => s.name.toLowerCase() === name.toLowerCase());
@@ -42,15 +33,19 @@ export default function Home() {
             ))}
 
             <div className="mt-8 rounded-sm overflow-hidden relative aspect-[2/1]">
-              <img 
-                src="/image.png" 
-                alt="Profile (Light)" 
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100 dark:opacity-0" 
+              <Image
+                src="/image.png"
+                alt="Profile (Light)"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-opacity duration-500 opacity-100 dark:opacity-0"
               />
-              <img 
-                src="/image%20copy.png" 
-                alt="Profile (Dark)" 
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0 dark:opacity-100" 
+              <Image
+                src="/image%20copy.png"
+                alt="Profile (Dark)"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover transition-opacity duration-500 opacity-0 dark:opacity-100"
               />
             </div>
           </section>
