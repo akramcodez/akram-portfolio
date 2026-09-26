@@ -1,28 +1,12 @@
 "use client";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft, Copy, Check, ExternalLink, Coffee } from "lucide-react";
-import { SiGooglepay } from "react-icons/si";
-import { FaWallet } from "react-icons/fa";
-import QuickMenu from "@/components/QuickMenu";
+
+import { useState } from "react";
+import { Copy, Check } from "lucide-react";
+import SiteHeader from "@/components/SiteHeader";
+import SectionMarker from "@/components/SectionMarker";
 
 export default function SupportPage() {
-  const [mounted, setMounted] = useState(false);
   const [copiedUPI, setCopiedUPI] = useState(false);
-  const [fromSection, setFromSection] = useState<string | null>(null);
-  const { theme } = useTheme();
-  const router = useRouter();
-
-  useEffect(() => {
-    setMounted(true);
-    // Get the section we came from
-    const params = new URLSearchParams(window.location.search);
-    const from = params.get("from");
-    console.log("Support page - from parameter:", from);
-    setFromSection(from);
-  }, []);
 
   const copyToClipboard = async (text: string) => {
     try {
@@ -34,217 +18,106 @@ export default function SupportPage() {
     }
   };
 
-  if (!mounted) {
-    return null;
-  }
-
-  const borderClass = theme === "dark" ? "border-white/80" : "border-black";
-  const cardClass =
-    theme === "dark"
-      ? "bg-white/5 border-white/20 hover:bg-white/10"
-      : "bg-black/5 border-black/20 hover:bg-black/10";
-
   return (
-    <div className="min-h-screen p-4 md:p-8 lg:p-12 animate-blur-in">
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-          <div className="flex items-center justify-between mb-12">
-            <button
-              onClick={() => {
-                console.log("Back button clicked, fromSection:", fromSection);
-                if (fromSection) {
-                  const targetUrl = `/#${fromSection}`;
-                  console.log("Navigating to:", targetUrl);
-                  window.location.href = targetUrl;
-                } else {
-                  console.log("No fromSection, navigating to base URL");
-                  window.location.href = "/";
-                }
-              }}
-              className={`inline-flex items-center justify-center p-1.5 md:p-2 rounded-full border transition-all duration-300 ease-in-out cursor-pointer ${
-                theme === "dark"
-                  ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
-                  : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl"
-              }`}
-            >
-              <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
-            </button>
-            <h1 className="text-2xl md:text-4xl font-bold tracking-wider">
-              SUPPORT
-            </h1>
-            <QuickMenu />
-          </div>
+    <div className="min-h-screen flex flex-col animate-fade-in">
+      <SiteHeader />
 
-        {/* Payment Options */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* UPI Card */}
-          <div
-            className={`border rounded-2xl p-6 transition-all duration-300 ${cardClass} ${borderClass}`}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className={`p-3 rounded-xl ${
-                  theme === "dark" ? "bg-white/10" : "bg-black/10"
-                }`}
-              >
-                <SiGooglepay className="w-6 h-6" />
+      <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
+        <div className="w-full">
+          <SectionMarker right="voluntary, always">support</SectionMarker>
+
+          <p className="text-[14px] md:text-[15px] leading-relaxed text-foreground/85">
+            if my open source work saved you time, you can fund my late-night commits below, or simply support me with a follow or a star.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* UPI */}
+            <div className="flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground">UPI</h3>
+                <p className="text-[12px] md:text-[13px] text-muted-foreground mt-1">India · Instant · No fees</p>
               </div>
-              <h2 className="text-xl font-bold">UPI Payment</h2>
-            </div>
-
-            <p className="text-sm opacity-70 mb-4">
-              Send payment via any UPI app
-            </p>
-
-            <div
-              className={`relative p-4 rounded-xl border h-[88px] flex flex-col justify-center ${
-                theme === "dark"
-                  ? "bg-white/5 border-white/10"
-                  : "bg-black/5 border-black/10"
-              }`}
-            >
-              <p className="text-sm opacity-60 mb-1">UPI ID</p>
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-sm md:text-base font-semibold break-all">
-                  skakram00zz@oksbi
-                </span>
+              <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between gap-2">
+                <span className="mono text-[11px] md:text-[12px] truncate">skakram00zz@oksbi</span>
                 <button
                   onClick={() => copyToClipboard("skakram00zz@oksbi")}
-                  className={`p-2 rounded-lg transition-all duration-300 flex-shrink-0 ${
-                    theme === "dark" ? "hover:bg-white/10" : "hover:bg-black/10"
-                  }`}
                   aria-label="Copy UPI ID"
+                  className="mono text-[10px] md:text-[11px] text-primary hover:text-foreground transition-colors inline-flex items-center gap-1 cursor-pointer shrink-0 uppercase font-medium"
                 >
                   {copiedUPI ? (
-                    <Check className="w-4 h-4 md:w-5 md:h-5" />
+                    <>
+                      <Check className="w-3.5 h-3.5" /> copied
+                    </>
                   ) : (
-                    <Copy className="w-4 h-4 md:w-5 md:h-5" />
+                    <>
+                      <Copy className="w-3.5 h-3.5" /> copy
+                    </>
                   )}
                 </button>
               </div>
             </div>
 
-            <div className="mt-4 space-y-2">
-              <p className="text-xs opacity-60">
-                ✓ Instant transfer • No fees • India only
-              </p>
-            </div>
-          </div>
-
-          {/* Wise Card */}
-          <div
-            className={`border rounded-2xl p-6 transition-all duration-300 ${cardClass} ${borderClass}`}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className={`p-3 rounded-xl ${
-                  theme === "dark" ? "bg-white/10" : "bg-black/10"
-                }`}
-              >
-                <FaWallet className="w-6 h-6" />
+            {/* Wise */}
+            <a href="https://wise.com/pay/business/skakram" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground group-hover:text-primary transition-colors">Wise</h3>
+                <p className="text-[12px] md:text-[13px] text-muted-foreground mt-1">International · Low fees</p>
               </div>
-              <h2 className="text-xl font-bold">International Payment</h2>
-            </div>
-
-            <p className="text-sm opacity-70 mb-4">
-              Support from anywhere in the world using Wise
-            </p>
-
-            <Link
-              href="https://wise.com/pay/business/skakram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`block w-full p-4 rounded-xl border transition-all duration-300 h-[88px] flex flex-col justify-center ${
-                theme === "dark"
-                  ? "bg-white/5 border-white/10 hover:bg-white/10"
-                  : "bg-black/5 border-black/10 hover:bg-black/10"
-              }`}
-            >
-              <p className="text-sm opacity-60 mb-1">Pay via Wise</p>
-              <div className="flex items-center justify-between gap-2 text-sm md:text-base">
-                <span className="font-semibold break-all">
-                  wise.com/pay/business/skakram
-                </span>
-                <div className={`p-2 flex-shrink-0`}>
-                  <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
-                </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[10px] md:text-[11px] text-primary font-medium uppercase">send via wise ↗</span>
               </div>
-            </Link>
+            </a>
 
-            <div className="mt-4 space-y-2">
-              <p className="text-xs opacity-60">
-                ✓ Global payments • Low fees • Multiple currencies
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Buy Me a Coffee */}
-        <div
-          className={`mt-6 border rounded-2xl p-6 transition-all duration-300 ${cardClass} ${borderClass}`}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div
-              className={`p-3 rounded-xl ${
-                theme === "dark" ? "bg-white/10" : "bg-black/10"
-              }`}
-            >
-              <Coffee className="w-6 h-6" />
-            </div>
-            <h2 className="text-xl font-bold">Buy Me a Coffee</h2>
-          </div>
-
-          <p className="text-sm opacity-70 mb-4">
-            Support with a quick coffee donation
-          </p>
-
-          <Link
-            href="https://buymeacoffee.com/akramcodez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`block w-full p-4 rounded-xl border transition-all duration-300 ${
-              theme === "dark"
-                ? "bg-white/5 border-white/10 hover:bg-white/10"
-                : "bg-black/5 border-black/10 hover:bg-black/10"
-            }`}
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm opacity-60 mb-1">Visit Coffee Page</p>
-                <p className="font-semibold flex items-center gap-2">
-                  buymeacoffee.com/akramcodez
-                  <ExternalLink className="w-4 h-4" />
-                </p>
+            {/* Coffee */}
+            <a href="https://buymeacoffee.com/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground group-hover:text-primary transition-colors">Buy Me a Coffee</h3>
+                <p className="text-[12px] md:text-[13px] text-muted-foreground mt-1">One-time or monthly</p>
               </div>
-            </div>
-          </Link>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[10px] md:text-[11px] text-primary font-medium uppercase">buy coffee ↗</span>
+              </div>
+            </a>
 
-          <div className="mt-4">
-            <p className="text-xs opacity-60">
-              ✓ One-time or monthly • Multiple payment methods
-            </p>
+            {/* GitHub */}
+            <a href="https://github.com/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground group-hover:text-primary transition-colors">GitHub</h3>
+                <p className="text-[12px] md:text-[13px] text-muted-foreground mt-1">Star my repos or follow me</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[10px] md:text-[11px] text-primary font-medium uppercase">github.com/akramcodez ↗</span>
+              </div>
+            </a>
+
+            {/* X (Twitter) */}
+            <a href="https://x.com/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground group-hover:text-primary transition-colors">X (Twitter)</h3>
+                <p className="text-[12px] md:text-[13px] text-muted-foreground mt-1">Follow me for updates</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[10px] md:text-[11px] text-primary font-medium uppercase">x.com/akramcodez ↗</span>
+              </div>
+            </a>
+
+            {/* LinkedIn */}
+            <a href="https://linkedin.com/in/akramcodez" target="_blank" rel="noopener noreferrer" className="group flex flex-col border border-border rounded-sm p-5 bg-card/20 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300">
+              <div className="mb-6">
+                <h3 className="font-semibold text-[15px] md:text-[16px] text-foreground group-hover:text-primary transition-colors">LinkedIn</h3>
+                <p className="text-[12px] md:text-[13px] text-muted-foreground mt-1">Connect with me</p>
+              </div>
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <span className="mono text-[10px] md:text-[11px] text-primary font-medium uppercase">in/akramcodez ↗</span>
+              </div>
+            </a>
           </div>
-        </div>
 
-        {/* Thank You Message */}
-        <div
-          className={`mt-8 p-6 rounded-2xl border ${cardClass} ${borderClass} text-center`}
-        >
-          <h3 className="text-xl font-bold mb-2">Thank You!</h3>
-          <p className="text-sm md:text-base opacity-70 max-w-2xl mx-auto">
-            Your support means the world to me and helps me dedicate more time
-            to building open-source projects and creating valuable content for
-            the community.
+          <p className="mono text-[10px] md:text-[11px] text-muted-foreground mt-8">
+            thanks. it keeps the servers on and the prs flowing.
           </p>
         </div>
-
-        {/* Footer */}
-        <div className="mt-8 text-center">
-          <p className="text-xs opacity-60">
-            © Sk Akram • All payments are voluntary
-          </p>
-        </div>
-      </div>
+      </main>
     </div>
   );
 }

@@ -1,125 +1,46 @@
-"use client";
-import React from "react";
-import { ArrowLeft } from "lucide-react";
+import SiteHeader from "@/components/SiteHeader";
+
 import Link from "next/link";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
-import QuickMenu from "@/components/QuickMenu";
-import { FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { IoLogoMedium } from "react-icons/io5";
-import { FaGithub } from "react-icons/fa";
-import { blogPosts as posts } from "@/data/blogPosts";
+import { blogPosts } from "@/data/blogPosts";
+
+export const metadata = {
+  title: "Writing | SK Akram",
+  description: "Notes on software, open source and things i'm figuring out.",
+};
 
 export default function BlogsPage() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = React.useState(false);
-  const [fromSection, setFromSection] = React.useState<string | null>(null);
-
-  const router = useRouter();
-  React.useEffect(() => {
-    setMounted(true);
-    const params = new URLSearchParams(window.location.search);
-    const from = params.get("from");
-    setFromSection(from);
-  }, []);
-
-  if (!mounted) return null;
-
-  const borderClass = theme === "dark" ? "border-white/20" : "border-black/20";
-  const bgClass =
-    theme === "dark"
-      ? "bg-white/10 hover:bg-white/90 hover:text-black border-white/20 backdrop-blur-xl"
-      : "bg-black/5 hover:bg-black/90 hover:text-white border-black/20 backdrop-blur-xl";
-
-  const iconClass =
-    theme === "dark"
-      ? "text-white/70 hover:text-white"
-      : "text-black/60 hover:text-black";
-
   return (
-    <div className="min-h-screen animate-blur-in relative">
-      <div
-        className={`max-w-3xl mx-auto relative z-10 border-x-2 ${borderClass} px-4 md:px-8 py-8 md:py-12 min-h-screen flex flex-col`}
-      >
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8 md:mb-12">
-          <button
-            onClick={() => {
-              if (fromSection) {
-                router.push(`/#${fromSection}`);
-              } else {
-                router.push("/");
-              }
-            }}
-            className={`inline-flex items-center justify-center p-1.5 md:p-2 rounded-full border transition-all duration-300 ease-in-out cursor-pointer ${bgClass}`}
-          >
-            <ArrowLeft className="w-4 h-4 md:w-5 md:h-5" />
-          </button>
-          <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Blogs
-          </h1>
-          <QuickMenu />
-        </div>
+    <div className="min-h-screen flex flex-col animate-fade-in">
+      <SiteHeader />
 
-        {/* Blog Listings */}
-        <div className="grid gap-6">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blogs/${post.slug}${fromSection ? `?from=${fromSection}` : ""}`}
-              className={`block p-6 rounded-2xl border ${borderClass} ${
-                theme === "dark"
-                  ? "bg-white/5 hover:bg-white/10"
-                  : "bg-black/5 hover:bg-black/10"
-              } transition-all duration-300 cursor-pointer`}
-            >
-              <h2 className="text-xl md:text-2xl font-bold mb-3">
-                {post.title}
-              </h2>
-              <p className="text-sm md:text-base opacity-70 line-clamp-2">
-                {post.excerpt}
-              </p>
-            </Link>
-          ))}
-        </div>
+      <main className="flex-1 w-full max-w-5xl mx-auto px-5 md:px-8 py-8 md:py-10">
+        <div className="w-full">
 
-        {/* Footer Socials */}
-        <div className="flex justify-end items-center gap-3 mt-auto pt-4">
-          <Link
-            href="https://www.linkedin.com/in/akramcodez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={iconClass}
-          >
-            <FaLinkedin className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://medium.com/@akramcodez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={iconClass}
-          >
-            <IoLogoMedium className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://github.com/akramcodez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={iconClass}
-          >
-            <FaGithub className="w-5 h-5" />
-          </Link>
-          <Link
-            href="https://x.com/akramcodez"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={iconClass}
-          >
-            <FaXTwitter className="w-5 h-5" />
-          </Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {blogPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blogs/${post.slug}`}
+                className="group flex flex-col border border-border rounded-sm p-5 hover:border-foreground/40 dark:hover:border-foreground/20 transition-colors duration-300 bg-card/20 h-full"
+              >
+                <article className="flex flex-col h-full">
+                  <h2 className="text-[15px] md:text-[16px] font-semibold text-foreground group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-[13px] md:text-[14px] text-muted-foreground mt-2 leading-relaxed flex-1">
+                    {post.excerpt}
+                  </p>
+                  <p className="mono text-[9px] md:text-[10px] text-primary mt-6 font-semibold uppercase tracking-wider">
+                    read article →
+                  </p>
+                </article>
+              </Link>
+            ))}
+          </div>
+
+
         </div>
-      </div>
+      </main>
     </div>
   );
 }

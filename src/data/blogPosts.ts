@@ -93,7 +93,7 @@ But something unexpected happens.
 
 Developers sharpen again.
 
-Manual coding returns. Debugging becomes thoughtful instead of reactive. Human-written content improves in originality and voice. Fundamentals — data structures, system design, core logic suddenly matter far more than prompt engineering.
+Manual coding returns. Debugging becomes thoughtful instead of reactive. Human-written content improves in originality and voice. Fundamentals (data structures, system design, core logic) suddenly matter far more than prompt engineering.
 
 For developers especially, this week feels personal.
 
@@ -307,7 +307,9 @@ People panicked. “Programming is dead,” they said. But they were wrong. Typi
 
 Understanding problems. Breaking reality into steps. Modeling systems. Making trade-offs. Deciding what matters. The keyboard has changed before. It will change again.
 
-Programming isn’t dying. It’s evolving, just like it always has...`,
+Programming isn’t dying. It’s evolving, just like it always has...
+ 
+You can read more of my blogs at **x.com/akramcodez/articles** or on **medium.com/@akramcodez**`,
   },
   {
     slug: "bitcoin-from-nothing-to-decentralized-money",
@@ -386,7 +388,9 @@ For many, it’s a symbol of financial freedom.
 
 But beneath all those meanings, Bitcoin remains what it always was: a decentralized network with no owner, no leader, and no off switch.
 
-That’s why its story matters.`,
+That’s why its story matters.
+
+You can read more of my blogs at **x.com/akramcodez/articles** or on **medium.com/@akramcodez**`,
   },
   {
     slug: "open-source-decoded",
@@ -508,6 +512,8 @@ You need to be mentally strong and stay focused. Keep trying even when progress 
 
 That’s it for today.
 If this article added even a little value to your life, please give it a like and share your **thoughts or guidance in the comments**.
-Thank you.`,
+Thank you.
+
+You can read more of my blogs at **x.com/akramcodez/articles** or on **medium.com/@akramcodez**`,
   },
 ];
