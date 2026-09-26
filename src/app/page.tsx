@@ -34,14 +34,14 @@ export default function Home() {
 
             <div className="mt-8 rounded-sm overflow-hidden relative aspect-[2/1]">
               <Image
-                src="/image.png"
+                src="/light.jpg"
                 alt="Profile (Light)"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover transition-opacity duration-500 opacity-100 dark:opacity-0"
               />
               <Image
-                src="/image%20copy.png"
+                src="/dark.jpg"
                 alt="Profile (Dark)"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
