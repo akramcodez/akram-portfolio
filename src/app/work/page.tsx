@@ -42,7 +42,7 @@ export default function WorkPage() {
                         </a>
                       </h3>
                       {exp.roles.length === 1 && (
-                        <p className="text-[13px] md:text-[14px] text-primary">
+                        <p className={`text-[13px] md:text-[14px] ${exp.roles[0].period.endsWith("Present") ? "text-primary" : "text-muted-foreground"}`}>
                           {exp.roles[0].period}
                         </p>
                       )}
