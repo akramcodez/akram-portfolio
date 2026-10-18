@@ -103,6 +103,28 @@ export const projects: Project[] = [
 
 export const repos = [
   {
+    name: "Observal",
+    prs: [
+      {
+        title: "feat(builder): recommend the Observal skill",
+        url: "https://github.com/Observal/Observal/pull/1832",
+      },
+    ],
+  },
+  {
+    name: "kapso",
+    prs: [
+      {
+        title: "fix(repo-memory): merge incremental updates instead of replacing the book",
+        url: "https://github.com/Leeroo-AI/kapso/pull/136",
+      },
+      {
+        title: "fix: keep the session clone when its branch push fails",
+        url: "https://github.com/Leeroo-AI/kapso/pull/135",
+      },
+    ],
+  },
+  {
     name: "appwrite",
     prs: [
       {
@@ -454,7 +476,7 @@ export const experiences = [
         title: "Software Engineer",
         type: "Part-time",
         location: "Remote",
-        period: "Aug 2026 - Present",
+        period: "Aug 2026 - Oct 2026",
       }
     ]
   },
