@@ -468,19 +468,6 @@ export const aboutContent = [
 
 export const experiences = [
   {
-    company: "AfterQuery Experts",
-    logo: "/afterquery.png",
-    link: "https://experts.afterquery.com",
-    roles: [
-      {
-        title: "Software Engineer",
-        type: "Part-time",
-        location: "Remote",
-        period: "Aug 2026 - Oct 2026",
-      }
-    ]
-  },
-  {
     company: "Nano Collective",
     logo: "/nc.png",
     link: "http://nanocollective.org",
@@ -490,6 +477,19 @@ export const experiences = [
         type: "Full-time",
         location: "Remote",
         period: "Jun 2026 - Present",
+      }
+    ]
+  },
+  {
+    company: "AfterQuery Experts",
+    logo: "/afterquery.png",
+    link: "https://experts.afterquery.com",
+    roles: [
+      {
+        title: "Software Engineer",
+        type: "Part-time",
+        location: "Remote",
+        period: "Aug 2026 - Oct 2026",
       }
     ]
   },
