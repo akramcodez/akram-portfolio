@@ -106,6 +106,10 @@ export const repos = [
     name: "Observal",
     prs: [
       {
+        title: "fix(redis): catch redis-py exceptions in publish/subscribe retry",
+        url: "https://github.com/Observal/Observal/pull/1869",
+      },
+      {
         title: "feat(builder): recommend the Observal skill",
         url: "https://github.com/Observal/Observal/pull/1832",
       },
@@ -114,6 +118,10 @@ export const repos = [
   {
     name: "kapso",
     prs: [
+      {
+        title: "fix(repo-memory): keep real line numbers when a large file is clipped",
+        url: "https://github.com/Leeroo-AI/kapso/pull/142",
+      },
       {
         title: "fix(repo-memory): merge incremental updates instead of replacing the book",
         url: "https://github.com/Leeroo-AI/kapso/pull/136",
