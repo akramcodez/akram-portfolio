@@ -103,8 +103,22 @@ export const projects: Project[] = [
 
 export const repos = [
   {
+    name: "vercel-labs",
+    prs: [
+      {
+        title:
+          "Count model steps when libfx sends the request body as bytes",
+        url: "https://github.com/vercel-labs/fx0/pull/13",
+      }
+    ],
+  },
+  {
     name: "Observal",
     prs: [
+      {
+        title: "feat(web): remove diagnostics tab from admin UI",
+        url: "https://github.com/Observal/Observal/pull/1871",
+      },
       {
         title: "fix(redis): catch redis-py exceptions in publish/subscribe retry",
         url: "https://github.com/Observal/Observal/pull/1869",
@@ -118,6 +132,10 @@ export const repos = [
   {
     name: "kapso",
     prs: [
+      {
+        title: "fix: a stray non-UTF-8 byte no longer discards a finished evaluation run",
+        url: "https://github.com/Leeroo-AI/kapso/pull/146",
+      },
       {
         title: "fix(repo-memory): keep real line numbers when a large file is clipped",
         url: "https://github.com/Leeroo-AI/kapso/pull/142",
