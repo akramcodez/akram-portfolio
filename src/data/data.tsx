@@ -133,6 +133,18 @@ export const repos = [
     name: "kapso",
     prs: [
       {
+        title: "feat(generic-search): add a weighted parent policy that samples parents by rank",
+        url: "https://github.com/Leeroo-AI/kapso/pull/161",
+      },
+      {
+        title: "fix(repo-memory): show the model every changed file, not the first 20",
+        url: "https://github.com/Leeroo-AI/kapso/pull/148",
+      },
+      {
+        title: "fix(repo-memory): list file names as they are on disk, not git-quoted",
+        url: "https://github.com/Leeroo-AI/kapso/pull/147",
+      },
+      {
         title: "fix: a stray non-UTF-8 byte no longer discards a finished evaluation run",
         url: "https://github.com/Leeroo-AI/kapso/pull/146",
       },
