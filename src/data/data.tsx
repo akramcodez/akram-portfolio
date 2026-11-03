@@ -103,6 +103,16 @@ export const projects: Project[] = [
 
 export const repos = [
   {
+    name: "concord-mcp",
+    prs: [
+      {
+        title:
+          "fix: accept per-value reported_outcome provenance and list received fields",
+        url: "https://github.com/Get-Concord-AI/concord-mcp/pull/311",
+      }
+    ],
+  },
+  {
     name: "vercel-labs",
     prs: [
       {
@@ -132,6 +142,18 @@ export const repos = [
   {
     name: "kapso",
     prs: [
+      {
+        title: "ffeat(notify): tell a command or webhook when a build stops",
+        url: "https://github.com/Leeroo-AI/kapso/pull/175",
+      },
+      {
+        title: "fix(inbox): name the campaign in the reply hint when listed from outside it",
+        url: "https://github.com/Leeroo-AI/kapso/pull/167",
+      },
+      {
+        title: "feat(cli): add kapso report to export a campaign as a Markdown summary",
+        url: "https://github.com/Leeroo-AI/kapso/pull/166",
+      },
       {
         title: "feat(generic-search): add a weighted parent policy that samples parents by rank",
         url: "https://github.com/Leeroo-AI/kapso/pull/161",
