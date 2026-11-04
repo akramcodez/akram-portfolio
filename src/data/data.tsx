@@ -143,7 +143,15 @@ export const repos = [
     name: "kapso",
     prs: [
       {
-        title: "ffeat(notify): tell a command or webhook when a build stops",
+        title: "fix(commit-message): send the whole diff and solution summary to the model",
+        url: "https://github.com/Leeroo-AI/kapso/pull/196",
+      },
+      {
+        title: "fix(kg-search): run the reranker the gates and the workflow search ask for",
+        url: "https://github.com/Leeroo-AI/kapso/pull/195",
+      },
+      {
+        title: "feat(notify): tell a command or webhook when a build stops",
         url: "https://github.com/Leeroo-AI/kapso/pull/175",
       },
       {
