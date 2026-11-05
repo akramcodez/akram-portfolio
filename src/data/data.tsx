@@ -107,6 +107,11 @@ export const repos = [
     prs: [
       {
         title:
+          "fix(setup): skip repository files when global mode covers the harnesses",
+        url: "https://github.com/Get-Concord-AI/concord-mcp/pull/314",
+      },
+      {
+        title:
           "fix: accept per-value reported_outcome provenance and list received fields",
         url: "https://github.com/Get-Concord-AI/concord-mcp/pull/311",
       }
@@ -205,6 +210,11 @@ export const repos = [
   {
     name: "Zed",
     prs: [
+      {
+        title:
+          "vim: Support \+ and \{n\} in substitute patterns",
+        url: "https://github.com/zed-industries/zed/pull/66515",
+      },
       {
         title:
           "Ensure stale git commit template are not persisted",
