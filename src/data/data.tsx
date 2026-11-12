@@ -107,6 +107,16 @@ export const repos = [
     prs: [
       {
         title:
+          "fix: pin the agent kind in Goose, Grok, Gemini and Cursor MCP entries",
+        url: "https://github.com/Get-Concord-AI/concord-mcp/pull/317",
+      },
+      {
+        title:
+          "fix: separate agent heartbeat, activity and reported status",
+        url: "https://github.com/Get-Concord-AI/concord-mcp/pull/224",
+      },
+      {
+        title:
           "fix(setup): skip repository files when global mode covers the harnesses",
         url: "https://github.com/Get-Concord-AI/concord-mcp/pull/314",
       },
@@ -147,6 +157,22 @@ export const repos = [
   {
     name: "kapso",
     prs: [
+      {
+        title: "feat: add kapso compare to set two campaigns side by side",
+        url: "https://github.com/Leeroo-AI/kapso/pull/221",
+      },
+      {
+        title: "fix: rank top experiments and evaluator bridge candidates by the problem's direction",
+        url: "https://github.com/Leeroo-AI/kapso/pull/210",
+      },
+      {
+        title: "feat(experience): add kapso experience search and show to query an ingested index",
+        url: "https://github.com/Leeroo-AI/kapso/pull/203",
+      },
+      {
+        title: "feat(experience): add kapso experience add --paper to ingest a paper into an index",
+        url: "https://github.com/Leeroo-AI/kapso/pull/197",
+      },
       {
         title: "fix(commit-message): send the whole diff and solution summary to the model",
         url: "https://github.com/Leeroo-AI/kapso/pull/196",
@@ -210,6 +236,11 @@ export const repos = [
   {
     name: "Zed",
     prs: [
+      {
+        title:
+          "git: Fix both-deleted conflicts being parsed as both-added",
+        url: "https://github.com/zed-industries/zed/pull/66648",
+      },
       {
         title:
           "vim: Support \+ and \{n\} in substitute patterns",
