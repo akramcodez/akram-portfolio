@@ -107,6 +107,16 @@ export const repos = [
     prs: [
       {
         title:
+          "fix: keep a user-written concord server in Gemini and Grok project configs",
+        url: "https://github.com/Get-Concord-AI/concord-mcp/pull/361",
+      },
+      {
+        title:
+          "fix: match non-Latin module, domain and risk tag labels in overlap detection",
+        url: "https://github.com/Get-Concord-AI/concord-mcp/pull/357",
+      },
+      {
+        title:
           "fix: pin the agent kind in Goose, Grok, Gemini and Cursor MCP entries",
         url: "https://github.com/Get-Concord-AI/concord-mcp/pull/317",
       },
@@ -157,6 +167,18 @@ export const repos = [
   {
     name: "kapso",
     prs: [
+      {
+        title: "feat: add --json to kapso harness list to print each harness's state as data",
+        url: "https://github.com/Leeroo-AI/kapso/pull/236",
+      },
+      {
+        title: "feat: add --json to kapso inbox to print what is waiting as data",
+        url: "https://github.com/Leeroo-AI/kapso/pull/231",
+      },
+      {
+        title: "feat: add --json to kapso report to print a campaign's facts as data",
+        url: "https://github.com/Leeroo-AI/kapso/pull/229",
+      },
       {
         title: "feat: add kapso compare to set two campaigns side by side",
         url: "https://github.com/Leeroo-AI/kapso/pull/221",
